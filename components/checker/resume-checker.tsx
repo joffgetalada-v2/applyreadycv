@@ -48,6 +48,8 @@ export function ResumeChecker() {
   const [isExtracting, setIsExtracting] = useState(false);
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const extractionRunRef = useRef(0);
 
   const selectedMode = checkerModes.find((item) => item.value === mode) ?? checkerModes[0];
 
@@ -63,9 +65,17 @@ export function ResumeChecker() {
 
     setFileName(file.name);
     setIsExtracting(true);
+    const extractionRun = extractionRunRef.current + 1;
+    extractionRunRef.current = extractionRun;
     const extraction = await extractResumeText(file).finally(() => {
-      setIsExtracting(false);
+      if (extractionRunRef.current === extractionRun) {
+        setIsExtracting(false);
+      }
     });
+
+    if (extractionRunRef.current !== extractionRun) {
+      return;
+    }
 
     if (extraction.text.trim()) {
       setResumeText(extraction.text);
@@ -122,12 +132,25 @@ export function ResumeChecker() {
   }
 
   function handleStartOver() {
+    extractionRunRef.current += 1;
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+
     setResumeText("");
     setJobDescription("");
     setResult(null);
     setFormMessage("");
     setFileMessage("");
     setFileName("");
+    setIsAnalyzing(false);
+    setIsExtracting(false);
     setCopied(false);
   }
 
@@ -191,6 +214,7 @@ export function ResumeChecker() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <input
+                        ref={fileInputRef}
                         id="resume-file"
                         type="file"
                         accept=".txt,.pdf,.docx,.doc,text/plain,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
