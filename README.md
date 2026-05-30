@@ -20,10 +20,11 @@ npm run build
 
 ## Current Feature List
 
-- Workspace-style homepage with a central CV checker and right-side insight panel.
+- Workspace-style homepage with a central CV checker and dynamic Role Fit Compass sidebar.
 - Dedicated routes for remote, freelance, local, ATS readability, and resume keyword guidance.
 - Privacy, terms, about, and contact pages for review-friendly site structure.
 - Deterministic local scoring across ATS readability, job match, clarity and achievements, mode fit, and completeness.
+- Role Fit Compass recommendations for local role-family alignment, stretch targets, mismatch signals, and missing target-role proof.
 - Matched and missing keyword output when a job description is provided.
 - Mode-specific recommendations for remote, freelance/gig, and local job applications.
 - Copy recommendations and start-over actions.
@@ -47,6 +48,7 @@ No Google AdSense script, ad placeholders, affiliate links, or paid products are
 
 - The analyzer is deterministic and rule-based; it does not use AI or external APIs.
 - Keyword matching is transparent and simple, not a semantic matching engine.
+- Role Fit Compass suggests role families and directions only; it does not provide live job listings, employers, salaries, or hiring predictions.
 - PDF extraction depends on readable embedded text; scanned/image-only PDFs are not OCR processed.
 - Older `.doc` files are not supported.
 - The score is guidance for common application issues, not a hiring prediction or ATS approval guarantee.
@@ -58,6 +60,7 @@ No Google AdSense script, ad placeholders, affiliate links, or paid products are
 - Add OCR support for scanned PDFs if it can be done without compromising privacy or adding excessive client weight.
 - Add downloadable reports.
 - Add richer role-specific keyword groups.
+- Consider optional job board integrations later, only with clear privacy controls and no fake listings.
 - Add optional sample resume templates and before/after examples.
 - Add more accessibility and usability tests as the product grows.
 - Add production analytics or ads only after privacy review and hosting-plan readiness.

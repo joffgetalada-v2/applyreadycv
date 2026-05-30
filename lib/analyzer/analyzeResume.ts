@@ -6,6 +6,7 @@ import {
   keywordAppears,
   normalizeText,
 } from "./keywords";
+import { analyzeRoleFit } from "./analyzeRoleFit";
 import type { AnalysisCategories, AnalysisMode, AnalysisResult } from "./types";
 
 type AnalyzeResumeInput = {
@@ -298,6 +299,7 @@ export function analyzeResume({
     label: scoreLabel(score),
     summary: buildSummary(score, mode, hasJobDescription),
     categories,
+    roleFitCompass: analyzeRoleFit(resumeText, jobDescription, mode),
     strengths:
       strengths.length > 0
         ? strengths.slice(0, 6)

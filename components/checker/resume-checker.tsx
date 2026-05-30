@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FileUp,
   Loader2,
@@ -15,6 +15,19 @@ import { ScoreMeter } from "@/components/checker/score-meter";
 import { analyzeResume } from "@/lib/analyzer/analyzeResume";
 import { extractResumeText } from "@/lib/analyzer/textExtraction";
 import type { AnalysisMode, AnalysisResult } from "@/lib/analyzer/types";
+
+export type CheckerInputSnapshot = {
+  hasResumeText: boolean;
+  hasJobDescription: boolean;
+  isExtracting: boolean;
+  fileName: string;
+};
+
+type ResumeCheckerProps = {
+  onModeChange?: (mode: AnalysisMode) => void;
+  onInputSnapshotChange?: (snapshot: CheckerInputSnapshot) => void;
+  onAnalysisResultChange?: (result: AnalysisResult | null) => void;
+};
 
 function recommendationsText(result: AnalysisResult) {
   return [
@@ -32,11 +45,26 @@ function recommendationsText(result: AnalysisResult) {
     "Mode-specific suggestions:",
     ...result.modeSpecificSuggestions.map((suggestion) => `- ${suggestion}`),
     "",
+    "Role fit compass:",
+    `${result.roleFitCompass.targetFitLabel}: ${result.roleFitCompass.targetFitSummary}`,
+    "",
+    "Aligned role directions:",
+    ...result.roleFitCompass.alignedRoleFamilies.map(
+      (suggestion) => `- ${suggestion.title}: ${suggestion.reason}`,
+    ),
+    "",
+    "Next best action:",
+    result.roleFitCompass.nextBestAction,
+    "",
     "Disclaimer: This tool cannot guarantee interviews or ATS approval. It checks readability, relevance, completeness, and common application issues.",
   ].join("\n");
 }
 
-export function ResumeChecker() {
+export function ResumeChecker({
+  onModeChange,
+  onInputSnapshotChange,
+  onAnalysisResultChange,
+}: ResumeCheckerProps = {}) {
   const [mode, setMode] = useState<AnalysisMode>("remote");
   const [resumeText, setResumeText] = useState("");
   const [jobDescription, setJobDescription] = useState("");
@@ -52,6 +80,23 @@ export function ResumeChecker() {
   const extractionRunRef = useRef(0);
 
   const selectedMode = checkerModes.find((item) => item.value === mode) ?? checkerModes[0];
+
+  useEffect(() => {
+    onModeChange?.(mode);
+  }, [mode, onModeChange]);
+
+  useEffect(() => {
+    onInputSnapshotChange?.({
+      hasResumeText: resumeText.trim().length > 0,
+      hasJobDescription: jobDescription.trim().length > 0,
+      isExtracting,
+      fileName,
+    });
+  }, [fileName, isExtracting, jobDescription, onInputSnapshotChange, resumeText]);
+
+  useEffect(() => {
+    onAnalysisResultChange?.(result);
+  }, [onAnalysisResultChange, result]);
 
   async function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];

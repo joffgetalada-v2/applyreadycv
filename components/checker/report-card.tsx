@@ -2,10 +2,16 @@ import {
   AlertTriangle,
   CheckCircle2,
   ClipboardList,
+  Compass,
   Copy,
   RotateCcw,
+  Target,
 } from "lucide-react";
-import type { AnalysisResult } from "@/lib/analyzer/types";
+import type {
+  AnalysisResult,
+  RoleFitLevel,
+  RoleSuggestion,
+} from "@/lib/analyzer/types";
 import { ScoreMeter } from "@/components/checker/score-meter";
 
 type ReportCardProps = {
@@ -37,6 +43,30 @@ function labelClass(label: string) {
   }
 
   return "border-rose-200 bg-rose-50 text-rose-700";
+}
+
+function roleFitClass(level: RoleFitLevel) {
+  const classes: Record<RoleFitLevel, string> = {
+    strong: "border-emerald-200 bg-emerald-50 text-emerald-800",
+    moderate: "border-indigo-200 bg-indigo-50 text-indigo-800",
+    stretch: "border-amber-200 bg-amber-50 text-amber-800",
+    weak: "border-orange-200 bg-orange-50 text-orange-800",
+    mismatch: "border-rose-200 bg-rose-50 text-rose-800",
+  };
+
+  return classes[level];
+}
+
+function confidenceClass(confidence: RoleSuggestion["confidence"]) {
+  if (confidence === "high") {
+    return "border-emerald-200 bg-emerald-50 text-emerald-800";
+  }
+
+  if (confidence === "medium") {
+    return "border-blue-200 bg-blue-50 text-blue-800";
+  }
+
+  return "border-slate-200 bg-slate-50 text-slate-600";
 }
 
 export function ReportCard({
@@ -114,6 +144,59 @@ export function ReportCard({
         </div>
 
         <div className="space-y-6">
+          <section
+            aria-labelledby="role-fit-suggestions"
+            className="rounded-lg border border-indigo-100 bg-indigo-50/40 p-4"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h4
+                id="role-fit-suggestions"
+                className="flex items-center gap-2 text-sm font-semibold text-slate-950"
+              >
+                <Compass className="h-4 w-4 text-indigo-700" aria-hidden="true" />
+                Role fit suggestions
+              </h4>
+              <span
+                className={`rounded-md border px-2.5 py-1 text-xs font-semibold ${roleFitClass(
+                  result.roleFitCompass.targetFitLevel,
+                )}`}
+              >
+                {result.roleFitCompass.targetFitLabel}
+              </span>
+            </div>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              {result.roleFitCompass.targetFitSummary}
+            </p>
+            <div className="mt-4 grid gap-3">
+              {result.roleFitCompass.alignedRoleFamilies.slice(0, 3).map((role) => (
+                <div
+                  key={role.title}
+                  className="rounded-lg border border-slate-200 bg-white p-3"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="flex gap-2 text-sm font-semibold text-slate-950">
+                      <Target
+                        className="mt-0.5 h-4 w-4 shrink-0 text-indigo-700"
+                        aria-hidden="true"
+                      />
+                      <span>{role.title}</span>
+                    </p>
+                    <span
+                      className={`shrink-0 rounded-md border px-2 py-0.5 text-[11px] font-semibold capitalize ${confidenceClass(
+                        role.confidence,
+                      )}`}
+                    >
+                      {role.confidence}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-slate-600">
+                    {role.reason}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section aria-labelledby="top-fixes">
             <h4 id="top-fixes" className="text-sm font-semibold text-slate-950">
               Top recommended fixes
