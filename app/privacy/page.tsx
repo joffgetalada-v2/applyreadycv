@@ -43,10 +43,11 @@ export default function PrivacyPage() {
           },
           {
             title: "Files are processed locally where possible",
-            body: "Text files are read through the browser File API. PDF and DOCX uploads currently show a safe fallback asking you to paste resume text instead of attempting unreliable extraction.",
+            body: "TXT, PDF, and DOCX files are read locally in the browser. If a PDF is scanned or image-based, extraction may not find usable text and the checker will ask you to paste the resume text instead.",
             items: [
-              ".txt files can be loaded locally.",
-              ".pdf and .docx support is intentionally limited in the current MVP.",
+              ".txt, .pdf, and .docx files can be loaded locally.",
+              "Older .doc files are not parsed; export them as .docx, .pdf, or .txt first.",
+              "Google Docs should be downloaded as .docx, .pdf, or .txt before upload.",
               "Bad or unsupported uploads should not crash the checker.",
             ],
           },

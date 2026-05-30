@@ -1,10 +1,11 @@
 export type ExtractionResult = {
   text: string;
-  fileType: "txt" | "pdf" | "docx" | "unsupported";
+  fileType: "txt" | "pdf" | "docx" | "doc" | "unsupported";
   error?: string;
 };
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
+const MIN_EXTRACTED_TEXT_LENGTH = 40;
 
 function getFileExtension(fileName: string) {
   const lastSegment = fileName.toLowerCase().split(".").pop();
@@ -36,11 +37,14 @@ export async function extractResumeText(file: File): Promise<ExtractionResult> {
     }
 
     if (extension === "pdf" || file.type === "application/pdf") {
+      const text = await extractPdfText(file);
+
       return {
-        text: "",
+        text,
         fileType: "pdf",
-        error:
-          "We could not extract text from this PDF in the MVP. Please paste your resume text instead.",
+        error: text.trim().length >= MIN_EXTRACTED_TEXT_LENGTH
+          ? undefined
+          : "We could not extract enough readable text from this PDF. It may be scanned or image-based. Please paste your resume text instead.",
       };
     }
 
@@ -49,24 +53,77 @@ export async function extractResumeText(file: File): Promise<ExtractionResult> {
       file.type ===
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
+      const text = await extractDocxText(file);
+
+      return {
+        text,
+        fileType: "docx",
+        error: text.trim().length >= MIN_EXTRACTED_TEXT_LENGTH
+          ? undefined
+          : "We could not extract enough readable text from this DOCX. Please paste your resume text instead.",
+      };
+    }
+
+    if (extension === "doc" || file.type === "application/msword") {
       return {
         text: "",
-        fileType: "docx",
+        fileType: "doc",
         error:
-          "We could not extract text from this DOCX in the MVP. Please paste your resume text instead.",
+          "Older .doc files are not supported for local parsing. Please export or save the file as .docx, .pdf, or .txt.",
       };
     }
 
     return {
       text: "",
       fileType: "unsupported",
-      error: "Unsupported file type. Please upload a .txt file or paste your resume text.",
+      error:
+        "Unsupported file type. Please upload .txt, .pdf, or .docx, or paste your resume text. For Google Docs, download as .docx, .pdf, or .txt first.",
     };
-  } catch {
+  } catch (error) {
+    console.error("Resume text extraction failed", error);
+
     return {
       text: "",
       fileType: "unsupported",
       error: "We could not read this file. Please paste your resume text instead.",
     };
   }
+}
+
+async function extractPdfText(file: File) {
+  const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+    import.meta.url,
+  ).toString();
+
+  const data = new Uint8Array(await file.arrayBuffer());
+  const loadingTask = pdfjs.getDocument({ data });
+  const pdf = await loadingTask.promise;
+  const pageTexts: string[] = [];
+
+  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+    const page = await pdf.getPage(pageNumber);
+    const textContent = await page.getTextContent();
+    const pageText = textContent.items
+      .map((item) => ("str" in item ? item.str : ""))
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (pageText) {
+      pageTexts.push(pageText);
+    }
+  }
+
+  return pageTexts.join("\n\n");
+}
+
+async function extractDocxText(file: File) {
+  const mammoth = await import("mammoth");
+  const result = await mammoth.extractRawText({
+    arrayBuffer: await file.arrayBuffer(),
+  });
+
+  return result.value.trim();
 }

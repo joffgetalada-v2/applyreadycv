@@ -34,8 +34,9 @@ npm run build
 
 - No account, login, ads, payments, affiliate links, or database.
 - Resume text is analyzed locally in the browser with deterministic rules.
-- `.txt` files are read locally through the browser File API.
-- PDF and DOCX uploads currently show a safe fallback asking the user to paste resume text.
+- `.txt`, `.pdf`, and `.docx` files are read locally in the browser.
+- Older `.doc` files and Google Docs should be exported as `.docx`, `.pdf`, or `.txt` before upload.
+- Scanned/image-only PDFs may not contain extractable text and will fall back to pasted text.
 - No resumes are sent to third-party APIs or stored server-side.
 
 ## Monetization Note
@@ -46,13 +47,15 @@ No Google AdSense script, ad placeholders, affiliate links, or paid products are
 
 - The analyzer is deterministic and rule-based; it does not use AI or external APIs.
 - Keyword matching is transparent and simple, not a semantic matching engine.
-- PDF and DOCX text extraction is not enabled yet.
+- PDF extraction depends on readable embedded text; scanned/image-only PDFs are not OCR processed.
+- Older `.doc` files are not supported.
 - The score is guidance for common application issues, not a hiring prediction or ATS approval guarantee.
 - The contact page uses a placeholder `mailto:` address and no backend form.
+- No API keys are required for the current local deterministic checker.
 
 ## Future Roadmap
 
-- Add robust local PDF and DOCX text extraction.
+- Add OCR support for scanned PDFs if it can be done without compromising privacy or adding excessive client weight.
 - Add downloadable reports.
 - Add richer role-specific keyword groups.
 - Add optional sample resume templates and before/after examples.

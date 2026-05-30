@@ -29,7 +29,7 @@ const homepageFaq = [
   {
     question: "Does the checker upload my resume?",
     answer:
-      "No. Resume text is analyzed locally in your browser. Text files are read through the browser File API, and PDF or DOCX uploads currently fall back to pasted text.",
+      "No. Resume text is analyzed locally in your browser. TXT, PDF, and DOCX files are read locally; older DOC files or Google Docs should be exported as DOCX, PDF, or TXT first.",
   },
   {
     question: "Can the score guarantee interviews or ATS approval?",

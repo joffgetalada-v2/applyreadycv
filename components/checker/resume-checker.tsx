@@ -45,6 +45,7 @@ export function ResumeChecker() {
   const [formMessage, setFormMessage] = useState("");
   const [fileMessage, setFileMessage] = useState("");
   const [fileName, setFileName] = useState("");
+  const [isExtracting, setIsExtracting] = useState(false);
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -61,11 +62,16 @@ export function ResumeChecker() {
     }
 
     setFileName(file.name);
-    const extraction = await extractResumeText(file);
+    setIsExtracting(true);
+    const extraction = await extractResumeText(file).finally(() => {
+      setIsExtracting(false);
+    });
 
     if (extraction.text.trim()) {
       setResumeText(extraction.text);
-      setFileMessage(`Loaded text from ${file.name}. The file stays in your browser.`);
+      setFileMessage(
+        `Extracted resume text from ${file.name}. The file stays in your browser.`,
+      );
       return;
     }
 
@@ -78,7 +84,9 @@ export function ResumeChecker() {
     setFormMessage("");
 
     if (!trimmedResume) {
-      setFormMessage("Paste resume text or upload a .txt file before analyzing.");
+      setFormMessage(
+        "Paste resume text or upload a supported file with extractable text before analyzing.",
+      );
       return;
     }
 
@@ -185,14 +193,20 @@ export function ResumeChecker() {
                       <input
                         id="resume-file"
                         type="file"
-                        accept=".txt,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        accept=".txt,.pdf,.docx,.doc,text/plain,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                         onChange={handleFileChange}
                         className="block w-full text-sm text-slate-700 file:mr-4 file:rounded-md file:border-0 file:bg-slate-950 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-slate-800"
                       />
                       <p className="mt-2 text-xs leading-5 text-slate-500">
-                        Accepted: .txt, .pdf, .docx. Text files are parsed
-                        locally. PDF/DOCX currently use a paste-text fallback.
+                        Accepted: .txt, .pdf, .docx. Files are parsed locally
+                        in your browser. For Google Docs, download as .docx,
+                        .pdf, or .txt first.
                       </p>
+                      {isExtracting && (
+                        <p className="mt-2 text-sm font-semibold text-indigo-800">
+                          Extracting text locally...
+                        </p>
+                      )}
                       {fileName && (
                         <p className="mt-2 truncate text-xs font-semibold text-slate-600">
                           Selected: {fileName}
@@ -272,15 +286,15 @@ export function ResumeChecker() {
           <button
             type="button"
             onClick={handleAnalyze}
-            disabled={isAnalyzing}
+            disabled={isAnalyzing || isExtracting}
             className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-700 px-5 py-3 text-base font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-indigo-300"
           >
-            {isAnalyzing ? (
+            {isAnalyzing || isExtracting ? (
               <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
             ) : (
               <Play className="h-5 w-5" aria-hidden="true" />
             )}
-            {isAnalyzing ? "Analyzing" : "Analyze my CV"}
+            {isExtracting ? "Extracting file" : isAnalyzing ? "Analyzing" : "Analyze my CV"}
           </button>
         </div>
       </div>
