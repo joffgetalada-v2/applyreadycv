@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ApplyReadyCV
 
-## Getting Started
+ApplyReadyCV is a free, privacy-first resume and CV checker for people applying to remote jobs, freelance gigs, and local jobs. It provides practical feedback on readability, relevance, missing keywords, completeness, and application fit without claiming guaranteed ATS approval, interviews, or job offers.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Useful checks:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Current Feature List
 
-To learn more about Next.js, take a look at the following resources:
+- Workspace-style homepage with a central CV checker and right-side insight panel.
+- Dedicated routes for remote, freelance, local, ATS readability, and resume keyword guidance.
+- Privacy, terms, about, and contact pages for review-friendly site structure.
+- Deterministic local scoring across ATS readability, job match, clarity and achievements, mode fit, and completeness.
+- Matched and missing keyword output when a job description is provided.
+- Mode-specific recommendations for remote, freelance/gig, and local job applications.
+- Copy recommendations and start-over actions.
+- Sitemap and robots route support.
+- Route metadata, canonical URLs, Open Graph metadata, Twitter metadata, and JSON-LD schema.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Privacy-first Note
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- No account, login, ads, payments, affiliate links, or database.
+- Resume text is analyzed locally in the browser with deterministic rules.
+- `.txt` files are read locally through the browser File API.
+- PDF and DOCX uploads currently show a safe fallback asking the user to paste resume text.
+- No resumes are sent to third-party APIs or stored server-side.
 
-## Deploy on Vercel
+## Monetization Note
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No Google AdSense script, ad placeholders, affiliate links, or paid products are included yet. The site is structured with useful content pages and policy pages so monetization can be considered later after an appropriate hosting plan and policy review.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Current Limitations
+
+- The analyzer is deterministic and rule-based; it does not use AI or external APIs.
+- Keyword matching is transparent and simple, not a semantic matching engine.
+- PDF and DOCX text extraction is not enabled yet.
+- The score is guidance for common application issues, not a hiring prediction or ATS approval guarantee.
+- The contact page uses a placeholder `mailto:` address and no backend form.
+
+## Future Roadmap
+
+- Add robust local PDF and DOCX text extraction.
+- Add downloadable reports.
+- Add richer role-specific keyword groups.
+- Add optional sample resume templates and before/after examples.
+- Add more accessibility and usability tests as the product grows.
+- Add production analytics or ads only after privacy review and hosting-plan readiness.
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- `lucide-react` icons
