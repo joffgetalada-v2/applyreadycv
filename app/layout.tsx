@@ -23,7 +23,12 @@ export const metadata: Metadata = {
   description:
     "Check if your CV is ready for remote, freelance, and local job applications. Get private, practical feedback on readability, keywords, and application fit.",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
 };
 

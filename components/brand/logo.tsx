@@ -8,36 +8,34 @@ export function LogoMark(props: SVGProps<SVGSVGElement>) {
       aria-label="ApplyReadyCV logo"
       {...props}
     >
-      <rect width="56" height="56" rx="14" fill="#172554" />
+      <rect width="56" height="56" rx="13" fill="#172554" />
       <path
-        d="M17 11h15.8L41 19.2V43H17V11Z"
+        d="M15 8h23.6L47 16.4V48H15V8Z"
         fill="#F8FAFC"
-        stroke="#DBEAFE"
-        strokeWidth="1.5"
       />
-      <path d="M32.8 11v8.2H41" fill="#DBEAFE" />
-      <circle cx="38.5" cy="17.5" r="6.5" fill="#EEF2FF" stroke="#6366F1" />
+      <path d="M38.6 8v8.4H47" fill="#DBEAFE" />
       <path
-        d="M38.5 14.8v2.7l2.2 1.3"
+        d="m21 30.2 6.1 6.6 12.2-14.9"
         fill="none"
-        stroke="#4F46E5"
+        stroke="#059669"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="5.2"
+      />
+      <circle cx="41.1" cy="17.5" r="6.1" fill="#4F46E5" />
+      <path
+        d="M41.1 14v3.5l2.6 1.7"
+        fill="none"
+        stroke="#FFFFFF"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.7"
       />
       <path
-        d="m22 31 4.2 4.2L34.8 25"
-        fill="none"
-        stroke="#0F766E"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="4"
-      />
-      <path
-        d="M18.5 47.2h19"
+        d="M17.5 49h22"
         stroke="#8B5CF6"
         strokeLinecap="round"
-        strokeWidth="2"
+        strokeWidth="2.6"
       />
     </svg>
   );
