@@ -11,6 +11,7 @@ export const metadata: Metadata = createPageMetadata({
   title: page.metadataTitle,
   description: page.metaDescription,
   path: page.path,
+  keywords: page.seoKeywords,
 });
 
 export default function ResumeKeywordCheckerPage() {

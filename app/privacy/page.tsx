@@ -3,16 +3,15 @@ import { SimplePageLayout } from "@/components/content/simple-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { SITE_CONTACT_EMAIL, supportPages } from "@/lib/site";
 
-const title = "Privacy | ApplyReadyCV";
-const description =
-  "Learn how ApplyReadyCV handles resume text, file uploads, pasted job descriptions, local processing, and current privacy-first limitations.";
-const path = "/privacy";
+const page = supportPages.privacy;
 
 export const metadata: Metadata = createPageMetadata({
-  title,
-  description,
-  path,
+  title: page.title,
+  description: page.description,
+  path: page.path,
+  keywords: page.keywords,
 });
 
 export default function PrivacyPage() {
@@ -20,10 +19,15 @@ export default function PrivacyPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema({ title, description, path }),
+          webPageSchema({
+            title: page.title,
+            description: page.description,
+            path: page.path,
+            keywords: page.keywords,
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Privacy", path },
+            { name: page.breadcrumbName, path: page.path },
           ]),
         ]}
       />
@@ -56,16 +60,16 @@ export default function PrivacyPage() {
             body: "Resume text and job descriptions are used by deterministic local scoring rules in the browser. The result is generated for your current interaction.",
           },
           {
-            title: "No selling personal data",
-            body: "ApplyReadyCV does not sell personal data. The current project does not include advertising scripts, affiliate links, user accounts, or third-party resume analysis APIs.",
+            title: "Analytics and personal data",
+            body: "ApplyReadyCV uses Vercel Analytics to understand site traffic and basic usage patterns. The checker is still designed so resume text and uploaded files are not sent to a resume analysis API or stored in a database by this MVP.",
           },
           {
             title: "Current limitations",
             body: "This privacy page describes the current MVP implementation. Future features may require an updated privacy policy before launch.",
             items: [
               "No backend contact form is currently provided.",
-              "No analytics or ad scripts are included yet.",
-              "Contact placeholder: hello@applyreadycv.com.",
+              "Vercel Analytics is included for lightweight site analytics.",
+              `Contact email: ${SITE_CONTACT_EMAIL}.`,
             ],
           },
         ]}

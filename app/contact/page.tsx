@@ -5,16 +5,15 @@ import { SimplePageLayout } from "@/components/content/simple-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { SITE_CONTACT_EMAIL, supportPages } from "@/lib/site";
 
-const title = "Contact ApplyReadyCV";
-const description =
-  "Contact ApplyReadyCV using the placeholder email address for product questions, privacy notes, or feedback.";
-const path = "/contact";
+const page = supportPages.contact;
 
 export const metadata: Metadata = createPageMetadata({
-  title,
-  description,
-  path,
+  title: page.title,
+  description: page.description,
+  path: page.path,
+  keywords: page.keywords,
 });
 
 export default function ContactPage() {
@@ -22,10 +21,16 @@ export default function ContactPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema({ title, description, path }),
+          webPageSchema({
+            title: page.title,
+            description: page.description,
+            path: page.path,
+            keywords: page.keywords,
+            schemaType: "ContactPage",
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Contact", path },
+            { name: page.breadcrumbName, path: page.path },
           ]),
         ]}
       />
@@ -35,8 +40,8 @@ export default function ContactPage() {
         intro="For now, contact is intentionally simple. There is no backend form submission, account system, or support database in this MVP."
         sections={[
           {
-            title: "Email placeholder",
-            body: "Use hello@applyreadycv.com as the current placeholder contact address. Replace it with the final operating inbox before public launch.",
+            title: "Email",
+            body: `Use ${SITE_CONTACT_EMAIL} for product questions, privacy notes, content corrections, or bug reports.`,
           },
           {
             title: "What to send",
@@ -51,11 +56,11 @@ export default function ContactPage() {
       />
       <div className="mx-auto -mt-8 max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
         <Link
-          href="mailto:hello@applyreadycv.com"
+          href={`mailto:${SITE_CONTACT_EMAIL}`}
           className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
         >
           <Mail className="h-4 w-4" aria-hidden="true" />
-          hello@applyreadycv.com
+          {SITE_CONTACT_EMAIL}
         </Link>
       </div>
     </>

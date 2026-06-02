@@ -5,11 +5,10 @@ import { CheckerWorkspace } from "@/components/checker/checker-workspace";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import {
+  breadcrumbSchema,
   faqSchema,
-  softwareApplicationSchema,
-  websiteSchema,
 } from "@/lib/seo/schema";
-import { contentPages } from "@/lib/site";
+import { contentPages, homepageSeo } from "@/lib/site";
 
 const homepageFaq = [
   {
@@ -35,17 +34,20 @@ const homepageFaq = [
 ];
 
 export const metadata: Metadata = createPageMetadata({
-  title: "ApplyReadyCV — Free Resume & CV Checker",
-  description:
-    "Check if your CV is ready for remote, freelance, and local job applications. Get private, practical feedback on readability, keywords, completeness, and application fit.",
-  path: "/",
+  title: homepageSeo.title,
+  description: homepageSeo.description,
+  path: homepageSeo.path,
+  keywords: homepageSeo.keywords,
 });
 
 export default function Home() {
   return (
     <>
       <JsonLd
-        data={[websiteSchema(), softwareApplicationSchema(), faqSchema(homepageFaq)]}
+        data={[
+          faqSchema(homepageFaq, homepageSeo.path),
+          breadcrumbSchema([{ name: "Home", path: "/" }]),
+        ]}
       />
       <main>
         <section className="border-b border-slate-200 bg-white/70">

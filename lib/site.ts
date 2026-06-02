@@ -5,6 +5,20 @@ export const SITE_HOST = "applyreadycv.com";
 export const SITE_URL = `https://${SITE_HOST}`;
 export const SITE_TAGLINE =
   "Free CV feedback for remote, freelance, and local applications.";
+export const SITE_CONTACT_EMAIL = "hello@applyreadycv.com";
+
+export const baseSeoKeywords = [
+  "free resume checker",
+  "free CV checker",
+  "ATS resume checker",
+  "resume keyword checker",
+  "CV readiness checker",
+  "job application resume review",
+  "remote CV checker",
+  "freelance CV checker",
+  "local job CV checker",
+  "private resume feedback",
+];
 
 export type NavItem = {
   href: string;
@@ -27,6 +41,7 @@ export type ContentPage = {
   title: string;
   metadataTitle: string;
   metaDescription: string;
+  seoKeywords: string[];
   eyebrow: string;
   intro: string;
   summary: string[];
@@ -41,6 +56,14 @@ export type ContentPage = {
 
 export type LinkCard = NavItem & {
   icon?: LucideIcon;
+};
+
+export type SeoPage = {
+  path: string;
+  title: string;
+  description: string;
+  keywords: string[];
+  breadcrumbName: string;
 };
 
 export const primaryNav: NavItem[] = [
@@ -67,6 +90,15 @@ export const footerNav: NavItem[] = [
 
 export const sitemapRoutes = footerNav.map((item) => item.href);
 
+export const homepageSeo: SeoPage = {
+  path: "/",
+  title: "ApplyReadyCV - Free Resume & CV Checker",
+  description:
+    "Check if your CV is ready for remote, freelance, and local job applications. Get private, practical feedback on readability, keywords, completeness, and application fit.",
+  keywords: baseSeoKeywords,
+  breadcrumbName: "Home",
+};
+
 export function absoluteUrl(path = "/") {
   if (path === "/") {
     return SITE_URL;
@@ -82,6 +114,17 @@ export const contentPages = {
     metadataTitle: "Remote CV Checker | ApplyReadyCV",
     metaDescription:
       "Check whether your CV is ready for remote job applications. Review remote work signals, async communication, tools, keywords, and practical application fit.",
+    seoKeywords: [
+      "remote CV checker",
+      "remote resume checker",
+      "remote job CV",
+      "remote job resume",
+      "work from home resume",
+      "remote work skills",
+      "async communication resume",
+      "distributed team CV",
+      "remote job application",
+    ],
     eyebrow: "Remote job applications",
     intro:
       "Remote hiring teams need to understand more than your job titles. Your CV should make it easy to see how you communicate, collaborate, document work, manage ownership, and use distributed team tools.",
@@ -163,6 +206,16 @@ export const contentPages = {
     metadataTitle: "Freelance CV Checker | ApplyReadyCV",
     metaDescription:
       "Check whether your CV or freelance profile is ready for gig applications. Review portfolio proof, project outcomes, client-ready positioning, and missing keywords.",
+    seoKeywords: [
+      "freelance CV checker",
+      "freelance resume checker",
+      "freelancer profile review",
+      "gig application CV",
+      "freelance portfolio CV",
+      "client-ready resume",
+      "freelance job application",
+      "freelance profile checker",
+    ],
     eyebrow: "Freelance and gig applications",
     intro:
       "Freelance applications need proof that you can understand a client problem, deliver a clear result, and communicate scope. A profile-style CV should show selected projects, outcomes, tools, and service focus.",
@@ -244,6 +297,17 @@ export const contentPages = {
     metadataTitle: "Local Job CV Checker | ApplyReadyCV",
     metaDescription:
       "Check whether your CV is ready for local job applications. Review contact details, location, availability, education, work history, and local role keywords.",
+    seoKeywords: [
+      "local job CV checker",
+      "local job resume checker",
+      "entry level CV checker",
+      "job application CV",
+      "resume checker for local jobs",
+      "customer service resume",
+      "admin resume",
+      "retail CV",
+      "local job application",
+    ],
     eyebrow: "Local job applications",
     intro:
       "Local job applications often need straightforward hiring details: how to contact you, where you are based, when you are available, your qualifications, and whether your work history is easy to scan.",
@@ -325,6 +389,16 @@ export const contentPages = {
     metadataTitle: "ATS Resume Checker | ApplyReadyCV",
     metaDescription:
       "Learn ATS resume readability basics and check common formatting, structure, keyword, and completeness issues without false ATS approval guarantees.",
+    seoKeywords: [
+      "ATS resume checker",
+      "ATS CV checker",
+      "ATS friendly resume",
+      "resume readability checker",
+      "resume formatting checker",
+      "applicant tracking system resume",
+      "ATS resume keywords",
+      "resume parser readability",
+    ],
     eyebrow: "ATS readability education",
     intro:
       "Applicant tracking systems can parse resumes differently depending on file format, layout, and employer configuration. A checker score can be useful guidance, but it is not a promise that any specific system will approve your resume.",
@@ -406,6 +480,16 @@ export const contentPages = {
     metadataTitle: "Resume Keyword Checker | ApplyReadyCV",
     metaDescription:
       "Compare resume text to a job description, review missing keywords, understand hard and soft skills, and avoid keyword stuffing.",
+    seoKeywords: [
+      "resume keyword checker",
+      "CV keyword checker",
+      "job description keyword match",
+      "missing resume keywords",
+      "resume job match checker",
+      "ATS keyword checker",
+      "skills keyword checker",
+      "resume keyword scanner",
+    ],
     eyebrow: "Resume keyword matching",
     intro:
       "A resume keyword check helps you compare the language in a job description with the language in your resume. The goal is not to stuff terms everywhere, but to make sure your relevant skills and experience are visible.",
@@ -482,3 +566,62 @@ export const contentPages = {
     ],
   },
 } satisfies Record<string, ContentPage>;
+
+export const supportPages = {
+  about: {
+    path: "/about",
+    title: "About ApplyReadyCV",
+    description:
+      "Learn what ApplyReadyCV is, why it exists, and how its privacy-first, honest feedback philosophy guides the free CV checker.",
+    keywords: [
+      "about ApplyReadyCV",
+      "free CV checker",
+      "resume checker philosophy",
+      "privacy-first resume checker",
+      "honest resume feedback",
+    ],
+    breadcrumbName: "About",
+  },
+  contact: {
+    path: "/contact",
+    title: "Contact ApplyReadyCV",
+    description:
+      "Contact ApplyReadyCV for product questions, privacy notes, content corrections, bug reports, or feedback about the free CV checker.",
+    keywords: [
+      "contact ApplyReadyCV",
+      "CV checker feedback",
+      "resume checker support",
+      "ApplyReadyCV contact",
+      "resume tool questions",
+    ],
+    breadcrumbName: "Contact",
+  },
+  privacy: {
+    path: "/privacy",
+    title: "Privacy | ApplyReadyCV",
+    description:
+      "Learn how ApplyReadyCV handles resume text, file uploads, pasted job descriptions, local processing, Vercel Analytics, and privacy-first limitations.",
+    keywords: [
+      "ApplyReadyCV privacy",
+      "private resume checker",
+      "local resume analysis",
+      "resume data privacy",
+      "CV checker privacy policy",
+    ],
+    breadcrumbName: "Privacy",
+  },
+  terms: {
+    path: "/terms",
+    title: "Terms and Disclaimer | ApplyReadyCV",
+    description:
+      "Read the ApplyReadyCV informational-use terms, no-guarantee disclaimer, approximate scoring limitations, and user responsibility notes.",
+    keywords: [
+      "ApplyReadyCV terms",
+      "resume checker disclaimer",
+      "ATS checker disclaimer",
+      "CV checker limitations",
+      "job application tool terms",
+    ],
+    breadcrumbName: "Terms",
+  },
+} satisfies Record<string, SeoPage>;

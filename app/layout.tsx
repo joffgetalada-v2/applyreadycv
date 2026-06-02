@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  organizationSchema,
+  webApplicationSchema,
+  websiteSchema,
+} from "@/lib/seo/schema";
+import { SITE_NAME, SITE_URL, homepageSeo } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,12 +23,48 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "career tools",
   title: {
-    default: "ApplyReadyCV — Free Resume & CV Checker",
+    default: homepageSeo.title,
     template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Check if your CV is ready for remote, freelance, and local job applications. Get private, practical feedback on readability, keywords, and application fit.",
+  description: homepageSeo.description,
+  keywords: homepageSeo.keywords,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: homepageSeo.title,
+    description: homepageSeo.description,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homepageSeo.title,
+    description: homepageSeo.description,
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -44,6 +86,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white text-slate-950">
+        <JsonLd
+          data={[organizationSchema(), websiteSchema(), webApplicationSchema()]}
+        />
         <SiteShell>{children}</SiteShell>
         <Analytics />
       </body>

@@ -3,16 +3,15 @@ import { SimplePageLayout } from "@/components/content/simple-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { supportPages } from "@/lib/site";
 
-const title = "Terms and Disclaimer | ApplyReadyCV";
-const description =
-  "Read the ApplyReadyCV informational-use terms, no-guarantee disclaimer, approximate scoring limitations, and user responsibility notes.";
-const path = "/terms";
+const page = supportPages.terms;
 
 export const metadata: Metadata = createPageMetadata({
-  title,
-  description,
-  path,
+  title: page.title,
+  description: page.description,
+  path: page.path,
+  keywords: page.keywords,
 });
 
 export default function TermsPage() {
@@ -20,10 +19,15 @@ export default function TermsPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema({ title, description, path }),
+          webPageSchema({
+            title: page.title,
+            description: page.description,
+            path: page.path,
+            keywords: page.keywords,
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Terms", path },
+            { name: page.breadcrumbName, path: page.path },
           ]),
         ]}
       />

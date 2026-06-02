@@ -3,16 +3,15 @@ import { SimplePageLayout } from "@/components/content/simple-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { supportPages } from "@/lib/site";
 
-const title = "About ApplyReadyCV";
-const description =
-  "Learn what ApplyReadyCV is, why it exists, and how its privacy-first, honest feedback philosophy guides the free CV checker.";
-const path = "/about";
+const page = supportPages.about;
 
 export const metadata: Metadata = createPageMetadata({
-  title,
-  description,
-  path,
+  title: page.title,
+  description: page.description,
+  path: page.path,
+  keywords: page.keywords,
 });
 
 export default function AboutPage() {
@@ -20,10 +19,16 @@ export default function AboutPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema({ title, description, path }),
+          webPageSchema({
+            title: page.title,
+            description: page.description,
+            path: page.path,
+            keywords: page.keywords,
+            schemaType: "AboutPage",
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "About", path },
+            { name: page.breadcrumbName, path: page.path },
           ]),
         ]}
       />
