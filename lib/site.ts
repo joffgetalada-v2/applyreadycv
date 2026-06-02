@@ -6,6 +6,8 @@ export const SITE_URL = `https://${SITE_HOST}`;
 export const SITE_TAGLINE =
   "Free CV feedback for remote, freelance, and local applications.";
 export const SITE_CONTACT_EMAIL = "hello@applyreadycv.com";
+export const SUPPORT_WALLET_ADDRESS =
+  "0x07DFCF64faB9C793Ea7d3Dd939A82cF6708d4F8E";
 
 export const baseSeoKeywords = [
   "free resume checker",
@@ -72,6 +74,7 @@ export const primaryNav: NavItem[] = [
   { href: "/freelance-cv-checker", label: "Freelance" },
   { href: "/local-job-cv-checker", label: "Local" },
   { href: "/ats-resume-checker", label: "ATS" },
+  { href: "/support", label: "Support" },
   { href: "/privacy", label: "Privacy" },
 ];
 
@@ -82,6 +85,7 @@ export const footerNav: NavItem[] = [
   { href: "/local-job-cv-checker", label: "Local Job CV Checker" },
   { href: "/ats-resume-checker", label: "ATS Resume Checker" },
   { href: "/resume-keyword-checker", label: "Resume Keyword Checker" },
+  { href: "/support", label: "Support ApplyReadyCV" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
   { href: "/about", label: "About" },
@@ -595,6 +599,20 @@ export const supportPages = {
       "resume tool questions",
     ],
     breadcrumbName: "Contact",
+  },
+  support: {
+    path: "/support",
+    title: "Support ApplyReadyCV",
+    description:
+      "Support ApplyReadyCV with an optional crypto donation to help improve the free resume and CV checker.",
+    keywords: [
+      "support ApplyReadyCV",
+      "donate to ApplyReadyCV",
+      "support free CV checker",
+      "crypto donation resume checker",
+      "MetaMask donation",
+    ],
+    breadcrumbName: "Support",
   },
   privacy: {
     path: "/privacy",
