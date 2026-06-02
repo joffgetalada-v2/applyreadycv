@@ -74,6 +74,7 @@ export const primaryNav: NavItem[] = [
   { href: "/freelance-cv-checker", label: "Freelance" },
   { href: "/local-job-cv-checker", label: "Local" },
   { href: "/ats-resume-checker", label: "ATS" },
+  { href: "/guides", label: "Guides" },
   { href: "/support", label: "Support" },
   { href: "/privacy", label: "Privacy" },
 ];
@@ -85,6 +86,7 @@ export const footerNav: NavItem[] = [
   { href: "/local-job-cv-checker", label: "Local Job CV Checker" },
   { href: "/ats-resume-checker", label: "ATS Resume Checker" },
   { href: "/resume-keyword-checker", label: "Resume Keyword Checker" },
+  { href: "/guides", label: "Resume & CV Guides" },
   { href: "/support", label: "Support ApplyReadyCV" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },

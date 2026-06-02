@@ -1,4 +1,5 @@
 import type { ContentPage, FaqItem } from "@/lib/site";
+import type { GuidePage } from "@/lib/guides";
 import {
   SITE_CONTACT_EMAIL,
   SITE_NAME,
@@ -96,7 +97,7 @@ export function webPageSchema({
   description: string;
   path: string;
   keywords?: string[];
-  schemaType?: "WebPage" | "AboutPage" | "ContactPage";
+  schemaType?: "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
 }): JsonLdData {
   const url = absoluteUrl(path);
 
@@ -149,6 +150,32 @@ export function breadcrumbSchema(
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function articleSchema(guide: GuidePage): JsonLdData {
+  const url = absoluteUrl(guide.path);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: guide.title,
+    description: guide.metaDescription,
+    url,
+    inLanguage: "en",
+    keywords: guide.seoKeywords.join(", "),
+    datePublished: "2026-06-02",
+    dateModified: "2026-06-02",
+    author: {
+      "@id": organizationId,
+    },
+    publisher: {
+      "@id": organizationId,
+    },
+    mainEntityOfPage: {
+      "@id": `${url}#webpage`,
+    },
   };
 }
 

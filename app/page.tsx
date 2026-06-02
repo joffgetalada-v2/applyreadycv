@@ -141,6 +141,11 @@ export default function Home() {
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 [
+                  "Resume & CV guides",
+                  "Read practical articles on ATS readiness, resume keywords, and remote job CV preparation.",
+                  "/guides",
+                ],
+                [
                   "ATS readability",
                   "Learn formatting basics, extraction limits, and why scores are only guidance.",
                   "/ats-resume-checker",
