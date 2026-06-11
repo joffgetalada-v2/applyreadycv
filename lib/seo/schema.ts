@@ -166,7 +166,7 @@ export function articleSchema(guide: GuidePage): JsonLdData {
     inLanguage: "en",
     keywords: guide.seoKeywords.join(", "),
     datePublished: "2026-06-02",
-    dateModified: "2026-06-02",
+    dateModified: "2026-06-11",
     author: {
       "@id": organizationId,
     },

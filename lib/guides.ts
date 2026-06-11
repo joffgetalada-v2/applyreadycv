@@ -36,12 +36,15 @@ export const guidesIndex = {
   title: "Resume & CV Guides",
   metadataTitle: "Resume & CV Guides | ApplyReadyCV",
   metaDescription:
-    "Read practical resume and CV guides for ATS readiness, resume keywords, remote job applications, and better job application preparation.",
+    "Read practical resume and CV guides for ATS readiness, formatting, resume keywords, freelance applications, common CV mistakes, remote jobs, and better applications.",
   seoKeywords: [
     "resume guides",
     "CV guides",
     "ATS resume guide",
+    "ATS resume formatting tips",
     "resume keyword guide",
+    "freelance CV checklist",
+    "common CV mistakes",
     "remote job CV guide",
     "job application guide",
   ],
@@ -378,6 +381,338 @@ export const guidePages = [
         question: "Should I include my time zone?",
         answer:
           "It can help when the job mentions schedule overlap, global teams, or region-specific availability. Use city, country, or time zone only when it supports the application.",
+      },
+    ],
+  },
+  {
+    slug: "ats-resume-formatting-tips",
+    path: "/guides/ats-resume-formatting-tips",
+    title: "ATS Resume Formatting Tips: Make Your Resume Easier to Parse",
+    metadataTitle: "ATS Resume Formatting Tips | ApplyReadyCV",
+    metaDescription:
+      "Learn practical ATS resume formatting tips for clear sections, readable bullets, simple layouts, file checks, and recruiter-friendly applications.",
+    seoKeywords: [
+      "ATS resume formatting tips",
+      "ATS friendly resume format",
+      "resume formatting for ATS",
+      "ATS resume layout",
+      "resume parser friendly format",
+      "ATS resume sections",
+    ],
+    eyebrow: "ATS formatting",
+    intro:
+      "ATS-friendly formatting is not about making a resume look empty. It is about making sure the most important information can be extracted, searched, and understood by software and by the recruiter who reads it next.",
+    summary: [
+      "Use standard headings, simple bullets, and text that still makes sense when copied out of the file.",
+      "Avoid hiding key details inside images, decorative text boxes, or overly complex columns.",
+      "Formatting supports your content, but it cannot replace relevant experience, truthful keywords, and clear achievements.",
+    ],
+    sections: [
+      {
+        title: "Use standard section headings",
+        body: [
+          "Applicant tracking systems and recruiters both benefit from predictable structure. Use common headings such as Experience, Skills, Education, Projects, Certifications, and Contact.",
+          "Creative labels can look interesting, but they can also make important information harder to identify. If you want personality, put it in the wording of your achievements rather than in unusual section names.",
+        ],
+        bullets: [
+          "Experience",
+          "Skills",
+          "Education",
+          "Projects",
+          "Certifications",
+          "Contact",
+        ],
+      },
+      {
+        title: "Keep the layout simple where it matters",
+        body: [
+          "A clean layout is easier to review than a crowded one. Use readable spacing, clear date placement, and consistent job title and employer formatting.",
+          "Tables, sidebars, icons, and multi-column designs can work in some files, but they carry more parsing risk. If you apply through an online form, keep a simple version ready.",
+        ],
+        bullets: [
+          "Keep job titles, employers, dates, and locations easy to scan.",
+          "Use plain bullet points for responsibilities and achievements.",
+          "Avoid placing core resume text only inside images.",
+          "Check that copied text appears in a logical order.",
+        ],
+      },
+      {
+        title: "Make bullets readable for humans",
+        body: [
+          "ATS formatting still has to serve human readers. A recruiter should be able to understand what you did, what tools you used, and what changed because of your work.",
+          "Lead bullets with action verbs and include numbers when they are honest and useful. Clear evidence is stronger than long keyword lists.",
+        ],
+        bullets: [
+          "Start with action verbs.",
+          "Mention relevant tools in context.",
+          "Use metrics, scope, or volume when true.",
+          "Keep each bullet focused on one main idea.",
+        ],
+      },
+      {
+        title: "Run a quick formatting check before applying",
+        body: [
+          "Before submitting, paste your resume text into a checker or plain text editor. If names, dates, section labels, or bullets look scrambled, the file may be harder for software to parse.",
+          "You do not need a perfect score. Prioritize fixes that improve readability, extractable text, and honest relevance to the job description.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check ATS formatting",
+      href: "/ats-resume-checker",
+    },
+    relatedLinks: [
+      {
+        label: "ATS Resume Checker",
+        href: "/ats-resume-checker",
+        description: "Check structure, formatting warnings, keywords, and completeness.",
+      },
+      {
+        label: "ATS Resume Checker Guide",
+        href: "/guides/ats-resume-checker-guide",
+        description: "Learn how ATS checkers work and what they can and cannot prove.",
+      },
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Use role-specific terms without stuffing your resume.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the safest ATS resume format?",
+        answer:
+          "A simple, text-based resume with standard headings, clear dates, readable bullets, and extractable contact details is usually safest for online applications.",
+      },
+      {
+        question: "Are columns bad for ATS?",
+        answer:
+          "Not always, but complex columns can increase parsing risk. If you apply through an online system, keep a clean single-column version available.",
+      },
+      {
+        question: "Should I remove all design from my resume?",
+        answer:
+          "No. Keep the resume professional and readable. The key is making sure important text is not hidden inside images, shapes, or confusing layout elements.",
+      },
+    ],
+  },
+  {
+    slug: "freelance-cv-checklist",
+    path: "/guides/freelance-cv-checklist",
+    title: "Freelance CV Checklist: Build a Client-Ready Profile",
+    metadataTitle: "Freelance CV Checklist | ApplyReadyCV",
+    metaDescription:
+      "Use this freelance CV checklist to improve service positioning, portfolio proof, project outcomes, client keywords, and proposal-ready profile copy.",
+    seoKeywords: [
+      "freelance CV checklist",
+      "freelance resume checklist",
+      "freelancer profile checklist",
+      "client-ready CV",
+      "freelance portfolio CV",
+      "gig application resume",
+    ],
+    eyebrow: "Freelance applications",
+    intro:
+      "A freelance CV or profile has to answer a client question quickly: can this person understand my problem and deliver the result I need? The best freelance applications make services, proof, process, and outcomes easy to see.",
+    summary: [
+      "Lead with a clear service focus so clients understand what you do.",
+      "Use selected projects, outcomes, tools, and portfolio links as proof.",
+      "Tailor your profile to the client brief without copying claims you cannot support.",
+    ],
+    sections: [
+      {
+        title: "Clarify your service focus",
+        body: [
+          "A freelance profile that says you can do everything can feel hard to trust. Start with the work you most want to sell and the type of client or problem you understand best.",
+          "Your headline or summary should make the service obvious. Mention the role, deliverables, industry, tools, or outcome when they are relevant.",
+        ],
+        bullets: [
+          "What service do you provide?",
+          "Who is it for?",
+          "What problem does it solve?",
+          "What tools or methods support the work?",
+        ],
+      },
+      {
+        title: "Show project proof",
+        body: [
+          "Freelance clients often need evidence before they contact you. Add selected projects, portfolio links, case studies, testimonials, or examples that match the kind of work you want.",
+          "If you cannot name a client, describe the project type, deliverable, scope, tools, and result without exposing private details.",
+        ],
+        bullets: [
+          "Selected project summaries",
+          "Portfolio or case study links",
+          "Tools and deliverables",
+          "Client results or measurable scope",
+        ],
+      },
+      {
+        title: "Write bullets around outcomes",
+        body: [
+          "A task list is less persuasive than a result-focused bullet. Explain the client problem, your action, and the outcome or deliverable.",
+          "Not every result needs a large number. Turnaround time, assets shipped, support volume, pages edited, reports created, or process improvements can all help when true.",
+        ],
+        bullets: [
+          "Designed 12 landing page sections for a SaaS launch.",
+          "Edited weekly product copy for a remote team across two time zones.",
+          "Built reporting templates that reduced manual tracking.",
+          "Handled client support replies with documented handoffs.",
+        ],
+      },
+      {
+        title: "Match the client brief honestly",
+        body: [
+          "Before sending a proposal, compare the client brief with your CV or profile. Add relevant tools, industries, deliverables, and project details where they are already true.",
+          "Avoid stuffing unrelated keywords. Clients are more likely to trust specific evidence than a long list of unsupported skills.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check freelance readiness",
+      href: "/freelance-cv-checker",
+    },
+    relatedLinks: [
+      {
+        label: "Freelance CV Checker",
+        href: "/freelance-cv-checker",
+        description: "Review portfolio, project, outcome, and client-ready signals.",
+      },
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Compare your profile against a freelance project brief.",
+      },
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Learn how to use role and project keywords naturally.",
+      },
+    ],
+    faq: [
+      {
+        question: "Can I use a freelance CV if I already have a portfolio?",
+        answer:
+          "Yes. The CV or profile should point clients to the right portfolio proof and summarize the services, tools, projects, and outcomes that matter.",
+      },
+      {
+        question: "Should a freelance CV include rates?",
+        answer:
+          "Only include rates when the platform, client brief, or your own sales process calls for it. Many freelancers keep pricing separate from the profile.",
+      },
+      {
+        question: "What if I am new to freelancing?",
+        answer:
+          "Use relevant projects, coursework, volunteer work, personal builds, or employment examples that prove the service you want to offer.",
+      },
+    ],
+  },
+  {
+    slug: "common-cv-mistakes",
+    path: "/guides/common-cv-mistakes",
+    title: "Common CV Mistakes That Make Applications Harder to Review",
+    metadataTitle: "Common CV Mistakes | ApplyReadyCV",
+    metaDescription:
+      "Find common CV mistakes before applying, including unclear summaries, missing achievements, weak keywords, formatting risks, and incomplete contact details.",
+    seoKeywords: [
+      "common CV mistakes",
+      "resume mistakes",
+      "CV mistakes to avoid",
+      "resume application mistakes",
+      "CV checklist",
+      "resume review tips",
+    ],
+    eyebrow: "CV review",
+    intro:
+      "Many CV problems are fixable before you apply. The goal is not to make the document perfect. The goal is to remove avoidable friction so recruiters can quickly understand your fit.",
+    summary: [
+      "Missing contact details, unclear sections, and weak achievements slow down review.",
+      "Generic wording makes it harder to see your role fit, even when you have relevant experience.",
+      "A quick check can catch practical issues before you submit another application.",
+    ],
+    sections: [
+      {
+        title: "Mistake 1: unclear contact and role signals",
+        body: [
+          "A reviewer should immediately know who you are, how to contact you, and what type of role you are applying for. Missing or buried contact details create avoidable friction.",
+          "Your summary should also be specific enough to match the application. A generic summary can make a strong CV feel unfocused.",
+        ],
+        bullets: [
+          "Use a reliable email and phone number when appropriate.",
+          "Add a professional link only when it supports your application.",
+          "Mention your target role or core skill area clearly.",
+          "Keep the opening section short and useful.",
+        ],
+      },
+      {
+        title: "Mistake 2: responsibilities without evidence",
+        body: [
+          "Many CVs list tasks but do not show what changed because of the work. Recruiters need evidence of scope, quality, volume, speed, revenue, savings, customer impact, or delivery.",
+          "If you cannot use exact numbers, add context. Team size, frequency, project type, tools used, or business function can still make a bullet stronger.",
+        ],
+        bullets: [
+          "Handled 40+ customer tickets per day.",
+          "Prepared weekly reports for three department leads.",
+          "Improved onboarding notes for new support hires.",
+          "Managed inventory updates across two branch locations.",
+        ],
+      },
+      {
+        title: "Mistake 3: keywords without context",
+        body: [
+          "Relevant keywords matter, especially when applying online. But keywords work best when they appear inside honest examples, not as a disconnected list.",
+          "Review the job description, identify the important skills and tools, then add the terms only where they reflect real experience, education, certifications, or projects.",
+        ],
+        bullets: [
+          "Use exact tool names when you have used them.",
+          "Place role keywords in experience bullets when possible.",
+          "Support soft skills with examples.",
+          "Avoid repeating the same term without adding proof.",
+        ],
+      },
+      {
+        title: "Mistake 4: formatting that fights readability",
+        body: [
+          "A CV can look polished and still be hard to review. Dense paragraphs, tiny text, inconsistent spacing, and overly complex layouts make important information harder to find.",
+          "Before applying, check whether your CV still makes sense as plain text. This can reveal parsing and readability issues that are easy to miss visually.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check your CV",
+      href: "/#checker",
+    },
+    relatedLinks: [
+      {
+        label: "ATS Resume Formatting Tips",
+        href: "/guides/ats-resume-formatting-tips",
+        description: "Reduce parsing and layout risks before applying online.",
+      },
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Find missing role terms and avoid keyword stuffing.",
+      },
+      {
+        label: "Local Job CV Checker",
+        href: "/local-job-cv-checker",
+        description: "Review practical hiring details for local applications.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the biggest CV mistake?",
+        answer:
+          "The biggest practical mistake is making relevant experience hard to see. Clear sections, specific bullets, and truthful role keywords usually fix a lot of that problem.",
+      },
+      {
+        question: "Should my CV be one page?",
+        answer:
+          "It depends on your experience and market. A concise one-page CV can work well for many applicants, but clarity and relevance matter more than a strict page count.",
+      },
+      {
+        question: "Can a checker fix my CV automatically?",
+        answer:
+          "No. A checker can identify issues and suggest what to review. You still decide what is accurate, relevant, and appropriate for the job.",
       },
     ],
   },
