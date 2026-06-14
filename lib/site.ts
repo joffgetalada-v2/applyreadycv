@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { AnalysisMode } from "@/lib/analyzer/types";
 
 export const SITE_NAME = "ApplyReadyCV";
 export const SITE_HOST = "applyreadycv.com";
@@ -13,12 +14,18 @@ export const baseSeoKeywords = [
   "free resume checker",
   "free CV checker",
   "ATS resume checker",
+  "ATS resume scanner",
   "resume keyword checker",
+  "resume score checker",
+  "CV checker online",
   "CV readiness checker",
   "job application resume review",
+  "job description keyword match",
   "remote CV checker",
+  "remote job resume checker",
   "freelance CV checker",
   "local job CV checker",
+  "resume checker Philippines",
   "private resume feedback",
 ];
 
@@ -44,6 +51,7 @@ export type ContentPage = {
   metadataTitle: string;
   metaDescription: string;
   seoKeywords: string[];
+  analysisMode?: AnalysisMode;
   eyebrow: string;
   intro: string;
   summary: string[];
@@ -98,12 +106,16 @@ export const sitemapRoutes = footerNav.map((item) => item.href);
 
 export const homepageSeo: SeoPage = {
   path: "/",
-  title: "ApplyReadyCV - Free Resume & CV Checker",
+  title: "Free ATS Resume & CV Checker | ApplyReadyCV",
   description:
-    "Check if your CV is ready for remote, freelance, and local job applications. Get private, practical feedback on readability, keywords, completeness, and application fit.",
+    "Use a free resume and CV checker for ATS readability, resume keywords, remote jobs, freelance gigs, and local applications. Private browser-based feedback.",
   keywords: baseSeoKeywords,
   breadcrumbName: "Home",
 };
+
+export function checkerHrefForMode(mode?: AnalysisMode) {
+  return mode ? `/?mode=${mode}#checker` : "/#checker";
+}
 
 export function absoluteUrl(path = "/") {
   if (path === "/") {
@@ -131,6 +143,7 @@ export const contentPages = {
       "distributed team CV",
       "remote job application",
     ],
+    analysisMode: "remote",
     eyebrow: "Remote job applications",
     intro:
       "Remote hiring teams need to understand more than your job titles. Your CV should make it easy to see how you communicate, collaborate, document work, manage ownership, and use distributed team tools.",
@@ -222,6 +235,7 @@ export const contentPages = {
       "freelance job application",
       "freelance profile checker",
     ],
+    analysisMode: "freelance",
     eyebrow: "Freelance and gig applications",
     intro:
       "Freelance applications need proof that you can understand a client problem, deliver a clear result, and communicate scope. A profile-style CV should show selected projects, outcomes, tools, and service focus.",
@@ -314,6 +328,7 @@ export const contentPages = {
       "retail CV",
       "local job application",
     ],
+    analysisMode: "local",
     eyebrow: "Local job applications",
     intro:
       "Local job applications often need straightforward hiring details: how to contact you, where you are based, when you are available, your qualifications, and whether your work history is easy to scan.",

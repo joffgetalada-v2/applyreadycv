@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, LockKeyhole, Radar } from "lucide-react";
+import { ArrowRight, Radar } from "lucide-react";
 import { CheckerWorkspace } from "@/components/checker/checker-workspace";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import {
   breadcrumbSchema,
   faqSchema,
+  itemListSchema,
+  webPageSchema,
 } from "@/lib/seo/schema";
 import { contentPages, homepageSeo } from "@/lib/site";
 
@@ -33,6 +35,34 @@ const homepageFaq = [
   },
 ];
 
+const intentLinks = [
+  {
+    title: "ATS resume checker",
+    href: "/ats-resume-checker",
+    body: "Check structure, formatting, sections, and ATS readability before applying online.",
+  },
+  {
+    title: "Resume keyword checker",
+    href: "/resume-keyword-checker",
+    body: "Compare your resume with a job description and review missing role keywords.",
+  },
+  {
+    title: "Remote CV checker",
+    href: "/remote-cv-checker",
+    body: "Review async communication, tools, ownership, and distributed-team signals.",
+  },
+  {
+    title: "Freelance CV checker",
+    href: "/freelance-cv-checker",
+    body: "Improve service focus, portfolio proof, client outcomes, and proposal readiness.",
+  },
+  {
+    title: "Local job CV checker",
+    href: "/local-job-cv-checker",
+    body: "Check contact details, availability, qualifications, and local role fit.",
+  },
+];
+
 export const metadata: Metadata = createPageMetadata({
   title: homepageSeo.title,
   description: homepageSeo.description,
@@ -45,6 +75,23 @@ export default function Home() {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            title: homepageSeo.title,
+            description: homepageSeo.description,
+            path: homepageSeo.path,
+            keywords: homepageSeo.keywords,
+          }),
+          itemListSchema({
+            name: "ApplyReadyCV resume checker tools",
+            description:
+              "Free resume and CV checker pages for ATS, keywords, remote jobs, freelance work, and local applications.",
+            path: homepageSeo.path,
+            items: intentLinks.map((item) => ({
+              name: item.title,
+              path: item.href,
+              description: item.body,
+            })),
+          }),
           faqSchema(homepageFaq, homepageSeo.path),
           breadcrumbSchema([{ name: "Home", path: "/" }]),
         ]}
@@ -58,13 +105,13 @@ export default function Home() {
                 Privacy-first CV readiness dashboard
               </p>
               <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Check whether your CV is ready for remote, freelance, or local
-                job applications.
+                Free resume and CV checker for ATS, keywords, remote,
+                freelance, and local applications.
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                ApplyReadyCV gives practical, honest feedback on ATS readability,
-                job-match keywords, achievements, completeness, and role fit
-                without storing your resume.
+                ApplyReadyCV gives private, practical feedback on ATS
+                readability, resume keywords, achievements, completeness, and
+                job fit without storing your resume.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -75,12 +122,50 @@ export default function Home() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/privacy"
+                  href="/guides"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
                 >
-                  <LockKeyhole className="h-4 w-4" aria-hidden="true" />
-                  Read privacy notes
+                  Read resume guides
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase text-indigo-700">
+                    Choose the best starting point
+                  </p>
+                  <h2 className="mt-1 text-2xl font-semibold text-slate-950">
+                    Match the tool to the application you are sending.
+                  </h2>
+                </div>
+                <Link
+                  href="/guides"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700"
+                >
+                  Browse all guides
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+                {intentLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-lg border border-slate-200 bg-white p-4 transition hover:border-indigo-200 hover:bg-indigo-50/30"
+                  >
+                    <h3 className="font-semibold text-slate-950">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {item.body}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-indigo-700">
+                      Open page
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
 

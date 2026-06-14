@@ -4,7 +4,11 @@ import { ArrowRight, BookOpen, CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { guidePages, guidesIndex } from "@/lib/guides";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import {
+  breadcrumbSchema,
+  itemListSchema,
+  webPageSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: guidesIndex.metadataTitle,
@@ -24,6 +28,16 @@ export default function GuidesIndexPage() {
             path: guidesIndex.path,
             keywords: guidesIndex.seoKeywords,
             schemaType: "CollectionPage",
+          }),
+          itemListSchema({
+            name: guidesIndex.title,
+            description: guidesIndex.metaDescription,
+            path: guidesIndex.path,
+            items: guidePages.map((guide) => ({
+              name: guide.title,
+              path: guide.path,
+              description: guide.metaDescription,
+            })),
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },

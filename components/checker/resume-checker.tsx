@@ -24,7 +24,8 @@ export type CheckerInputSnapshot = {
 };
 
 type ResumeCheckerProps = {
-  onModeChange?: (mode: AnalysisMode) => void;
+  mode: AnalysisMode;
+  onModeChange: (mode: AnalysisMode) => void;
   onInputSnapshotChange?: (snapshot: CheckerInputSnapshot) => void;
   onAnalysisResultChange?: (result: AnalysisResult | null) => void;
 };
@@ -61,11 +62,11 @@ function recommendationsText(result: AnalysisResult) {
 }
 
 export function ResumeChecker({
+  mode,
   onModeChange,
   onInputSnapshotChange,
   onAnalysisResultChange,
-}: ResumeCheckerProps = {}) {
-  const [mode, setMode] = useState<AnalysisMode>("remote");
+}: ResumeCheckerProps) {
   const [resumeText, setResumeText] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [result, setResult] = useState<AnalysisResult | null>(null);
@@ -80,10 +81,6 @@ export function ResumeChecker({
   const extractionRunRef = useRef(0);
 
   const selectedMode = checkerModes.find((item) => item.value === mode) ?? checkerModes[0];
-
-  useEffect(() => {
-    onModeChange?.(mode);
-  }, [mode, onModeChange]);
 
   useEffect(() => {
     onInputSnapshotChange?.({
@@ -238,7 +235,7 @@ export function ResumeChecker({
           <ModeSelector
             value={mode}
             onChange={(nextMode) => {
-              setMode(nextMode);
+              onModeChange(nextMode);
               setResult(null);
             }}
           />

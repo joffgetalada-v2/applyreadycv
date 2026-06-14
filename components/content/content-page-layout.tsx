@@ -7,9 +7,113 @@ import {
   HelpCircle,
   ShieldAlert,
 } from "lucide-react";
+import { checkerHrefForMode, contentPages } from "@/lib/site";
 import type { ContentPage } from "@/lib/site";
 
+type RelatedResource = {
+  label: string;
+  href: string;
+  description: string;
+};
+
+const relatedResourcesByPath: Record<string, RelatedResource[]> = {
+  [contentPages.remote.path]: [
+    {
+      label: "Remote Job CV Guide",
+      href: "/guides/remote-job-cv-guide",
+      description: "Learn how to show remote readiness and distributed tools.",
+    },
+    {
+      label: "Resume Keywords Guide",
+      href: "/guides/resume-keywords-guide",
+      description: "Place job-description keywords naturally in your CV.",
+    },
+    {
+      label: "ATS Resume Formatting Tips",
+      href: "/guides/ats-resume-formatting-tips",
+      description: "Keep your remote CV readable for software and recruiters.",
+    },
+  ],
+  [contentPages.freelance.path]: [
+    {
+      label: "Freelance CV Checklist",
+      href: "/guides/freelance-cv-checklist",
+      description: "Improve service focus, project proof, and client outcomes.",
+    },
+    {
+      label: "Resume Keywords Guide",
+      href: "/guides/resume-keywords-guide",
+      description: "Match client briefs without stuffing unsupported keywords.",
+    },
+    {
+      label: "Common CV Mistakes",
+      href: "/guides/common-cv-mistakes",
+      description: "Fix vague bullets, missing proof, and weak positioning.",
+    },
+  ],
+  [contentPages.local.path]: [
+    {
+      label: "Common CV Mistakes",
+      href: "/guides/common-cv-mistakes",
+      description: "Avoid unclear contact details and weak work-history signals.",
+    },
+    {
+      label: "ATS Resume Formatting Tips",
+      href: "/guides/ats-resume-formatting-tips",
+      description: "Use clean sections and readable bullets for local applications.",
+    },
+    {
+      label: "Resume Keywords Guide",
+      href: "/guides/resume-keywords-guide",
+      description: "Find local role keywords from job descriptions.",
+    },
+  ],
+  [contentPages.ats.path]: [
+    {
+      label: "ATS Resume Checker Guide",
+      href: "/guides/ats-resume-checker-guide",
+      description: "Understand what ATS checkers can and cannot tell you.",
+    },
+    {
+      label: "ATS Resume Formatting Tips",
+      href: "/guides/ats-resume-formatting-tips",
+      description: "Reduce common parsing and layout risks before applying.",
+    },
+    {
+      label: "Resume Keywords Guide",
+      href: "/guides/resume-keywords-guide",
+      description: "Use role keywords with evidence, not keyword stuffing.",
+    },
+  ],
+  [contentPages.keywords.path]: [
+    {
+      label: "Resume Keywords Guide",
+      href: "/guides/resume-keywords-guide",
+      description: "Learn where keywords belong in summaries, skills, and bullets.",
+    },
+    {
+      label: "ATS Resume Checker Guide",
+      href: "/guides/ats-resume-checker-guide",
+      description: "See how keyword matching fits into ATS readiness.",
+    },
+    {
+      label: "Remote Job CV Guide",
+      href: "/guides/remote-job-cv-guide",
+      description: "Use remote-specific keywords with real examples.",
+    },
+  ],
+};
+
 export function ContentPageLayout({ page }: { page: ContentPage }) {
+  const checkerHref = checkerHrefForMode(page.analysisMode);
+  const relatedResources = relatedResourcesByPath[page.path] ?? [
+    {
+      label: "Resume & CV Guides",
+      href: "/guides",
+      description: "Browse practical guides for ATS, keywords, and CV readiness.",
+    },
+  ];
+
   return (
     <main>
       <section className="border-b border-slate-200 bg-white/70">
@@ -74,12 +178,33 @@ export function ContentPageLayout({ page }: { page: ContentPage }) {
                 local feedback. The score is guidance, not a hiring promise.
               </p>
               <Link
-                href="/#checker"
+                href={checkerHref}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
               >
                 Open free checker
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
+            </div>
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <h2 className="text-lg font-semibold text-slate-950">
+                Related resources
+              </h2>
+              <div className="mt-4 grid gap-4">
+                {relatedResources.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-lg border border-slate-200 bg-white p-4 transition hover:border-indigo-200 hover:bg-indigo-50/30"
+                  >
+                    <span className="font-semibold text-slate-950">
+                      {link.label}
+                    </span>
+                    <span className="mt-1 block text-sm leading-6 text-slate-600">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
             <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-semibold text-slate-950">

@@ -66,8 +66,31 @@ export function webApplicationSchema(): JsonLdData {
     url: SITE_URL,
     description:
       "A free, privacy-first resume and CV checker for remote, freelance, and local job applications.",
+    applicationSubCategory: "Resume checker",
     browserRequirements: "Requires a modern web browser.",
     isAccessibleForFree: true,
+    featureList: [
+      "ATS readability checks",
+      "Resume keyword matching",
+      "Remote job CV readiness",
+      "Freelance CV and profile review",
+      "Local job CV readiness",
+      "Browser-based resume text analysis",
+    ],
+    audience: [
+      {
+        "@type": "Audience",
+        audienceType: "Job seekers",
+      },
+      {
+        "@type": "Audience",
+        audienceType: "Freelancers",
+      },
+      {
+        "@type": "Audience",
+        audienceType: "Remote job applicants",
+      },
+    ],
     provider: {
       "@id": organizationId,
     },
@@ -79,6 +102,36 @@ export function webApplicationSchema(): JsonLdData {
       price: "0",
       priceCurrency: "USD",
     },
+  };
+}
+
+export function itemListSchema({
+  name,
+  description,
+  path,
+  items,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  items: Array<{ name: string; path: string; description?: string }>;
+}): JsonLdData {
+  const url = absoluteUrl(path);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${url}#item-list`,
+    name,
+    description,
+    url,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+      ...(item.description ? { description: item.description } : {}),
+    })),
   };
 }
 
