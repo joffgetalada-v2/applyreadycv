@@ -36,13 +36,16 @@ export const guidesIndex = {
   title: "Resume & CV Guides",
   metadataTitle: "Resume & CV Guides | ApplyReadyCV",
   metaDescription:
-    "Read practical resume and CV guides for ATS readiness, formatting, resume keywords, freelance applications, common CV mistakes, remote jobs, and better applications.",
+    "Read practical resume and CV guides for ATS readiness, formatting, resume keywords, Philippine local jobs, freelance applications, common CV mistakes, remote jobs, and better applications.",
   seoKeywords: [
     "resume guides",
     "CV guides",
     "ATS resume guide",
     "ATS resume formatting tips",
     "resume keyword guide",
+    "Philippines CV guide",
+    "local job CV Philippines",
+    "ATS vs human resume review",
     "freelance CV checklist",
     "common CV mistakes",
     "remote job CV guide",
@@ -713,6 +716,239 @@ export const guidePages = [
         question: "Can a checker fix my CV automatically?",
         answer:
           "No. A checker can identify issues and suggest what to review. You still decide what is accurate, relevant, and appropriate for the job.",
+      },
+    ],
+  },
+  {
+    slug: "local-job-cv-philippines",
+    path: "/guides/local-job-cv-philippines",
+    title: "Local Job CV Essentials for Philippine Applicants",
+    metadataTitle: "Local Job CV Guide for Philippine Applicants | ApplyReadyCV",
+    metaDescription:
+      "Build a practical CV for Philippine local job applications with clearer contact details, role keywords, availability, qualifications, and recruiter-friendly work history.",
+    seoKeywords: [
+      "local job CV Philippines",
+      "Philippines CV guide",
+      "resume checker Philippines",
+      "Philippine job application CV",
+      "local job resume Philippines",
+      "BPO CV Philippines",
+      "fresh graduate CV Philippines",
+    ],
+    eyebrow: "Philippine local jobs",
+    intro:
+      "A local job CV in the Philippines should make the practical hiring details easy to see: what role you want, how to contact you, where you are based, when you can start, and what proof supports the job posting.",
+    summary: [
+      "Recruiters need quick contact, location, availability, and role-fit signals.",
+      "BPO, admin, retail, healthcare, IT support, and service roles benefit from specific job-posting keywords.",
+      "Fresh graduates and career shifters should use internships, school projects, certifications, and volunteer work as evidence.",
+    ],
+    sections: [
+      {
+        title: "Start with practical hiring details",
+        body: [
+          "For local applications, the top section should reduce basic recruiter questions. Include a reliable email, phone number when appropriate, city or province when it helps the role, and a professional link only if it supports the application.",
+          "Avoid adding private details that the job posting does not need. The goal is clarity, not oversharing.",
+        ],
+        bullets: [
+          "Name and reliable contact details",
+          "City, province, or preferred work location when relevant",
+          "Availability or notice period when requested",
+          "Target role or short professional summary",
+        ],
+      },
+      {
+        title: "Match the job posting without copying it",
+        body: [
+          "Many Philippine local job posts use direct language: customer service, data entry, cashiering, inventory, bookkeeping, scheduling, helpdesk, chat support, email support, or patient support. Use those terms only when they truthfully match your experience.",
+          "A keyword is stronger when it appears inside a bullet that shows what you did, what tools you used, and what result or workload you handled.",
+        ],
+        bullets: [
+          "Handled customer inquiries by phone, chat, or email.",
+          "Prepared reports, records, invoices, schedules, or inventory updates.",
+          "Used tools such as Excel, Google Workspace, CRM, POS, or ticketing systems.",
+          "Supported customers, patients, students, branch teams, or internal staff.",
+        ],
+      },
+      {
+        title: "Make fresh graduate experience easier to evaluate",
+        body: [
+          "If you are a fresh graduate, your CV still needs evidence. Use internships, thesis work, capstone projects, student organization roles, volunteer work, part-time jobs, certifications, and tools you can actually use.",
+          "Do not apologize for limited experience. Show relevant proof in a clean structure so the reviewer can understand your fit quickly.",
+        ],
+        bullets: [
+          "Course projects related to the target role",
+          "Internship responsibilities and tools used",
+          "Certifications, trainings, and licenses",
+          "Volunteer, student, or part-time work with clear responsibilities",
+        ],
+      },
+      {
+        title: "Review local fit before sending",
+        body: [
+          "Before applying, check whether the CV answers the employer's practical questions: Can they contact you? Is your location or work setup clear? Do your bullets prove the role requirements? Are your skills backed by examples?",
+          "ApplyReadyCV's local mode is designed for this kind of review. It checks local application signals, completeness, keywords, and readability without promising recruiter approval.",
+        ],
+        bullets: [
+          "Contact details are easy to find.",
+          "Role keywords are supported by truthful examples.",
+          "Work history, education, and certifications are scannable.",
+          "The CV still reads clearly when pasted as plain text.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check local job CV",
+      href: "/?mode=local#checker",
+    },
+    relatedLinks: [
+      {
+        label: "Local Job CV Checker",
+        href: "/local-job-cv-checker",
+        description: "Review location, availability, contact, and role-fit signals.",
+      },
+      {
+        label: "Common CV Mistakes",
+        href: "/guides/common-cv-mistakes",
+        description: "Fix unclear details, weak achievements, and formatting friction.",
+      },
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Use job-posting keywords naturally and truthfully.",
+      },
+    ],
+    faq: [
+      {
+        question: "Should I include my full address on a Philippine CV?",
+        answer:
+          "Usually city, province, or preferred work location is enough unless the employer specifically asks for a full address. Avoid sharing unnecessary private details.",
+      },
+      {
+        question: "Can fresh graduates use ApplyReadyCV?",
+        answer:
+          "Yes. Fresh graduates can use internships, projects, trainings, student leadership, volunteer work, and part-time jobs as truthful evidence for role fit.",
+      },
+      {
+        question: "Should I use English or Filipino in my CV?",
+        answer:
+          "Use the language expected by the job posting and employer. For many formal applications, English is common, but clarity and truthfulness matter most.",
+      },
+    ],
+  },
+  {
+    slug: "ats-vs-human-resume-review",
+    path: "/guides/ats-vs-human-resume-review",
+    title: "ATS vs Human Resume Review: What Each One Looks For",
+    metadataTitle: "ATS vs Human Resume Review | ApplyReadyCV",
+    metaDescription:
+      "Understand the difference between ATS resume checks and human recruiter review, including keywords, formatting, achievements, clarity, and realistic checker limitations.",
+    seoKeywords: [
+      "ATS vs human resume review",
+      "ATS resume review",
+      "human resume review",
+      "resume checker limitations",
+      "ATS resume checker",
+      "resume review tips",
+    ],
+    eyebrow: "Resume review strategy",
+    intro:
+      "A strong resume has to survive two different reviews. Software needs readable text and relevant terms. Humans need fast evidence that your background fits the role.",
+    summary: [
+      "ATS checks are mostly about readable structure, extractable text, and searchable keywords.",
+      "Human reviewers care about relevance, proof, clarity, and whether the story makes sense.",
+      "A checker can help you edit, but it cannot guarantee interviews, rankings, or employer decisions.",
+    ],
+    sections: [
+      {
+        title: "What ATS-style checks can catch",
+        body: [
+          "Applicant tracking systems parse resumes into searchable records. A checker can flag common risks before you apply: missing sections, weak keyword overlap, text extraction problems, and formatting that may make important details harder to read.",
+          "These signals are useful because they are fixable. They are not a complete hiring decision.",
+        ],
+        bullets: [
+          "Missing role keywords from the job description",
+          "Unclear section headings",
+          "Very short or poorly extracted text",
+          "Formatting that may hide important details",
+        ],
+      },
+      {
+        title: "What human reviewers still decide",
+        body: [
+          "Recruiters and hiring managers look for evidence. They want to know what you did, how recently you did it, the tools or environment involved, and whether your work matches the employer's actual needs.",
+          "A resume can be ATS-readable and still weak for a human if it is generic, vague, or overloaded with unsupported keywords.",
+        ],
+        bullets: [
+          "Role relevance and career direction",
+          "Achievements, scope, and measurable results",
+          "Clear work history and honest qualifications",
+          "Readable writing and practical judgment",
+        ],
+      },
+      {
+        title: "How to satisfy both reviews",
+        body: [
+          "Use the job description as a map. Add relevant terms where they truthfully fit, then support those terms with bullets that show actions and outcomes. Keep the layout clean enough that the resume still works as plain text.",
+          "The best edits usually improve both software readability and human understanding at the same time.",
+        ],
+        bullets: [
+          "Use standard headings such as Experience, Skills, Education, and Projects.",
+          "Put important skills in both a skills section and relevant experience bullets.",
+          "Turn responsibilities into evidence with volume, tools, quality, speed, or business context.",
+          "Remove keywords you cannot support in an interview.",
+        ],
+      },
+      {
+        title: "Use checker scores as editing guidance",
+        body: [
+          "A resume score is not a promise. Different employers configure systems differently, and human judgment always adds context that a simple checker cannot know.",
+          "Use ApplyReadyCV to find editing priorities: missing keywords, weak sections, unclear achievements, and mode-specific gaps. Then make the final decision based on the actual job and your truthful experience.",
+        ],
+        bullets: [
+          "Fix obvious completeness and readability gaps first.",
+          "Add missing keywords only when accurate.",
+          "Review the CV as a recruiter would: quickly and skeptically.",
+          "Run another check after editing.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Run an ATS check",
+      href: "/ats-resume-checker",
+    },
+    relatedLinks: [
+      {
+        label: "ATS Resume Checker",
+        href: "/ats-resume-checker",
+        description: "Check formatting, structure, and keyword risks.",
+      },
+      {
+        label: "ATS Resume Formatting Tips",
+        href: "/guides/ats-resume-formatting-tips",
+        description: "Reduce parsing problems before online applications.",
+      },
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Use role keywords with evidence, not stuffing.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is an ATS score the same as a recruiter score?",
+        answer:
+          "No. An ATS-style score can help with readability and keyword risks, but recruiters still judge relevance, proof, clarity, and fit.",
+      },
+      {
+        question: "Should I optimize only for ATS software?",
+        answer:
+          "No. A resume should be easy for software to parse and easy for humans to understand. Keyword stuffing can hurt the human review.",
+      },
+      {
+        question: "Can a resume checker guarantee interviews?",
+        answer:
+          "No. A checker can provide editing guidance, but interviews depend on the role, competition, employer needs, timing, and many other factors.",
       },
     ],
   },

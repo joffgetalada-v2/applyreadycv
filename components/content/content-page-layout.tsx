@@ -53,6 +53,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.local.path]: [
     {
+      label: "Local Job CV Guide for Philippine Applicants",
+      href: "/guides/local-job-cv-philippines",
+      description: "Improve contact details, availability, keywords, and local proof.",
+    },
+    {
       label: "Common CV Mistakes",
       href: "/guides/common-cv-mistakes",
       description: "Avoid unclear contact details and weak work-history signals.",
@@ -70,6 +75,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.ats.path]: [
     {
+      label: "ATS vs Human Resume Review",
+      href: "/guides/ats-vs-human-resume-review",
+      description: "Understand what checkers flag and what recruiters still judge.",
+    },
+    {
       label: "ATS Resume Checker Guide",
       href: "/guides/ats-resume-checker-guide",
       description: "Understand what ATS checkers can and cannot tell you.",
@@ -86,6 +96,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
     },
   ],
   [contentPages.keywords.path]: [
+    {
+      label: "ATS vs Human Resume Review",
+      href: "/guides/ats-vs-human-resume-review",
+      description: "Use keywords without weakening human readability.",
+    },
     {
       label: "Resume Keywords Guide",
       href: "/guides/resume-keywords-guide",

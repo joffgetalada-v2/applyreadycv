@@ -8,8 +8,22 @@ import {
   webApplicationSchema,
   websiteSchema,
 } from "@/lib/seo/schema";
-import { SITE_NAME, SITE_URL, homepageSeo } from "@/lib/site";
+import { SITE_NAME, SITE_URL, absoluteUrl, homepageSeo } from "@/lib/site";
 import "./globals.css";
+
+const socialImage = {
+  url: absoluteUrl("/opengraph-image"),
+  width: 1200,
+  height: 630,
+  alt: "ApplyReadyCV free ATS resume and CV checker for job applications",
+};
+
+const twitterImage = {
+  url: absoluteUrl("/twitter-image"),
+  width: 1200,
+  height: 630,
+  alt: socialImage.alt,
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,11 +65,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: homepageSeo.title,
     description: homepageSeo.description,
+    images: [twitterImage],
   },
   alternates: {
     canonical: SITE_URL,

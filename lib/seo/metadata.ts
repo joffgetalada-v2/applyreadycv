@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
 import { SITE_NAME, absoluteUrl } from "@/lib/site";
 
+const socialImage = {
+  url: absoluteUrl("/opengraph-image"),
+  width: 1200,
+  height: 630,
+  alt: "ApplyReadyCV free ATS resume and CV checker for job applications",
+};
+
+const twitterImage = {
+  url: absoluteUrl("/twitter-image"),
+  width: 1200,
+  height: 630,
+  alt: socialImage.alt,
+};
+
 type PageMetadataInput = {
   title: string;
   description: string;
@@ -43,11 +57,13 @@ export function createPageMetadata({
       siteName: SITE_NAME,
       type: "website",
       locale: "en_US",
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [twitterImage],
     },
   };
 }
