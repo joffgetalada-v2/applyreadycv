@@ -56,9 +56,9 @@ export default function GuidesIndexPage() {
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
               Start with ATS readiness, formatting, resume keywords, freelance
-              applications, remote job CV preparation, and common CV mistakes.
-              Each guide is written to help you improve a real application and
-              then check it with ApplyReadyCV.
+              applications, remote job CV preparation, resume score guidance,
+              and common CV mistakes. Each guide is written to help you improve
+              a real application and then check it with ApplyReadyCV.
             </p>
           </div>
         </section>

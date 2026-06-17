@@ -17,6 +17,10 @@ export const baseSeoKeywords = [
   "ATS resume scanner",
   "resume keyword checker",
   "resume score checker",
+  "free resume score checker",
+  "CV score checker online",
+  "resume checker score",
+  "ATS resume score checker",
   "CV checker online",
   "CV readiness checker",
   "job application resume review",
@@ -108,7 +112,7 @@ export const homepageSeo: SeoPage = {
   path: "/",
   title: "Free ATS Resume & CV Checker | ApplyReadyCV",
   description:
-    "Use a free resume and CV checker for ATS readability, resume keywords, remote jobs, freelance gigs, and local applications. Private browser-based feedback.",
+    "Use a free resume and CV checker with a practical score for ATS readability, resume keywords, remote jobs, freelance gigs, and local applications.",
   keywords: baseSeoKeywords,
   breadcrumbName: "Home",
 };

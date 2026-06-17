@@ -109,9 +109,9 @@ export default function Home() {
                 freelance, and local applications.
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                ApplyReadyCV gives private, practical feedback on ATS
-                readability, resume keywords, achievements, completeness, and
-                job fit without storing your resume.
+                ApplyReadyCV gives a private resume score and practical feedback
+                on ATS readability, resume keywords, achievements,
+                completeness, and job fit without storing your resume.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -219,12 +219,17 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 The site now has useful, original guidance pages for remote,
-                freelance, local, ATS, and keyword review topics, plus privacy,
-                terms, about, and contact pages.
+                freelance, local, ATS, resume score, and keyword review topics,
+                plus privacy, terms, about, and contact pages.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
+                [
+                  "Resume score guide",
+                  "Learn what a free resume score checker reviews and what to fix before applying.",
+                  "/guides/resume-score-checker-guide",
+                ],
                 [
                   "Resume & CV guides",
                   "Read practical articles on ATS readiness, resume keywords, and remote job CV preparation.",

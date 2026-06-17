@@ -71,7 +71,10 @@ export function webApplicationSchema(): JsonLdData {
     isAccessibleForFree: true,
     featureList: [
       "ATS readability checks",
+      "Resume score breakdown",
       "Resume keyword matching",
+      "Job description keyword matching",
+      "CV completeness and clarity checks",
       "Remote job CV readiness",
       "Freelance CV and profile review",
       "Local job CV readiness",
@@ -219,7 +222,7 @@ export function articleSchema(guide: GuidePage): JsonLdData {
     inLanguage: "en",
     keywords: guide.seoKeywords.join(", "),
     datePublished: "2026-06-02",
-    dateModified: "2026-06-11",
+    dateModified: "2026-06-17",
     author: {
       "@id": organizationId,
     },

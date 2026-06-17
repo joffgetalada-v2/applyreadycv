@@ -75,6 +75,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.ats.path]: [
     {
+      label: "Free Resume Score Checker Guide",
+      href: "/guides/resume-score-checker-guide",
+      description: "Learn what the score means and what to fix first.",
+    },
+    {
       label: "ATS vs Human Resume Review",
       href: "/guides/ats-vs-human-resume-review",
       description: "Understand what checkers flag and what recruiters still judge.",
@@ -96,6 +101,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
     },
   ],
   [contentPages.keywords.path]: [
+    {
+      label: "Free Resume Score Checker Guide",
+      href: "/guides/resume-score-checker-guide",
+      description: "Use score categories to prioritize resume edits.",
+    },
     {
       label: "ATS vs Human Resume Review",
       href: "/guides/ats-vs-human-resume-review",

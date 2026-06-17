@@ -36,10 +36,13 @@ export const guidesIndex = {
   title: "Resume & CV Guides",
   metadataTitle: "Resume & CV Guides | ApplyReadyCV",
   metaDescription:
-    "Read practical resume and CV guides for ATS readiness, formatting, resume keywords, Philippine local jobs, freelance applications, common CV mistakes, remote jobs, and better applications.",
+    "Read practical resume and CV guides for resume scores, ATS readiness, formatting, keywords, Philippine local jobs, freelance applications, remote jobs, and better applications.",
   seoKeywords: [
     "resume guides",
     "CV guides",
+    "resume score checker guide",
+    "free resume score checker",
+    "CV score checker",
     "ATS resume guide",
     "ATS resume formatting tips",
     "resume keyword guide",
@@ -143,9 +146,9 @@ export const guidePages = [
         description: "Compare your resume language against a job description.",
       },
       {
-        label: "Privacy",
-        href: "/privacy",
-        description: "Read how the current checker handles resume text.",
+        label: "Free Resume Score Checker Guide",
+        href: "/guides/resume-score-checker-guide",
+        description: "Understand score categories and what to fix first.",
       },
     ],
     faq: [
@@ -163,6 +166,126 @@ export const guidePages = [
         question: "Is simple formatting always better?",
         answer:
           "Simple, readable formatting is usually safer for online applications. You can still keep a polished design as long as the important text remains easy to extract and scan.",
+      },
+    ],
+  },
+  {
+    slug: "resume-score-checker-guide",
+    path: "/guides/resume-score-checker-guide",
+    title: "Free Resume Score Checker: What Your Score Means",
+    metadataTitle: "Free Resume Score Checker Guide | ApplyReadyCV",
+    metaDescription:
+      "Learn what a resume score checker reviews, how ATS, keywords, clarity, completeness, and job-fit scores work, and what to fix first before applying.",
+    seoKeywords: [
+      "free resume score checker",
+      "resume score checker",
+      "CV score checker",
+      "CV score checker online",
+      "resume checker score",
+      "ATS resume score",
+      "resume review score",
+      "CV readiness score",
+    ],
+    eyebrow: "Resume score guidance",
+    intro:
+      "A resume score is useful when it turns into clear editing priorities. The number should help you decide what to fix first: missing sections, weak keywords, unclear achievements, formatting risks, or role-fit gaps.",
+    summary: [
+      "A resume score is editing guidance, not a promise of ATS approval or interviews.",
+      "The strongest improvements usually come from fixing clarity, evidence, keywords, and application fit together.",
+      "ApplyReadyCV explains the score so you can improve the resume instead of chasing a perfect number.",
+    ],
+    sections: [
+      {
+        title: "What a resume score checker reviews",
+        body: [
+          "A useful resume score checker looks at practical signals that affect how easy the document is to review. ApplyReadyCV checks whether important sections are present, whether the text is readable, whether achievements are specific, and whether the resume matches the type of application you are sending.",
+          "If you paste a job description, the checker also compares meaningful role keywords against your resume text. That makes the score more useful because it is connected to a real posting, not only a generic template.",
+        ],
+        bullets: [
+          "Contact, experience, education, skills, and resume length",
+          "ATS readability and possible text extraction issues",
+          "Role keywords from the job description",
+          "Action verbs, measurable achievements, and clarity",
+          "Remote, freelance, or local job application fit",
+        ],
+      },
+      {
+        title: "How to read the score without overreacting",
+        body: [
+          "A low score usually means the resume has avoidable friction. It may be missing important sections, using vague bullets, or failing to show enough role-specific evidence. A higher score means the resume is easier to review, but it still does not guarantee an employer response.",
+          "Use the score as a triage tool. Fix the biggest issue first, then run another check. One strong edit to missing keywords or achievements can be more valuable than small cosmetic changes.",
+        ],
+        bullets: [
+          "Fix missing contact, skills, experience, or education sections first.",
+          "Add job-description keywords only when they are truthful.",
+          "Turn generic duties into specific outcomes or scope.",
+          "Review formatting if pasted text looks broken or too short.",
+        ],
+      },
+      {
+        title: "What to fix first for better results",
+        body: [
+          "Start with completeness and readability because those issues affect every application. Then compare the resume to the job description and add relevant hard skills, tools, certifications, methods, or responsibilities where they match your background.",
+          "After that, improve the bullets. Strong bullets show action, context, and result. Even when you cannot use exact numbers, you can add useful context such as tools used, team size, project type, frequency, customer volume, or turnaround time.",
+        ],
+        bullets: [
+          "Clear target role or summary",
+          "Relevant skills and tools near the top",
+          "Experience bullets with action and evidence",
+          "Clean section headings and scannable dates",
+          "Mode-specific proof for remote, freelance, or local jobs",
+        ],
+      },
+      {
+        title: "Why a perfect score is not the goal",
+        body: [
+          "A perfect-looking score can still hide a weak application if the resume is generic, inflated, or not aligned with the real role. Employers care about truth, relevance, proof, and timing. Applicant tracking systems also vary by employer and configuration.",
+          "The best use of ApplyReadyCV is to make your real experience easier to find and understand. The final resume should still sound like you and be something you can support in an interview.",
+        ],
+        bullets: [
+          "Do not add skills you cannot explain.",
+          "Do not repeat keywords just to raise a number.",
+          "Keep the resume useful for human readers.",
+          "Use the checker again after meaningful edits.",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check your resume score",
+      href: "/#checker",
+    },
+    relatedLinks: [
+      {
+        label: "ATS Resume Checker",
+        href: "/ats-resume-checker",
+        description: "Review ATS readability, structure, and formatting risks.",
+      },
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Compare your resume with a target job description.",
+      },
+      {
+        label: "ATS vs Human Resume Review",
+        href: "/guides/ats-vs-human-resume-review",
+        description: "Understand what software and recruiters judge differently.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a good resume score?",
+        answer:
+          "A good score is one that shows the resume is complete, readable, relevant, and supported by evidence. The exact number is less important than fixing the highest-priority gaps before applying.",
+      },
+      {
+        question: "Can a resume score guarantee ATS approval?",
+        answer:
+          "No. A score can help you find common ATS, keyword, clarity, and completeness issues, but it cannot guarantee ATS approval, interviews, rankings, or job offers.",
+      },
+      {
+        question: "How can I improve my resume score quickly?",
+        answer:
+          "Paste the job description, fix missing sections, add truthful role keywords, improve weak bullets with evidence, and make sure the text is easy to scan.",
       },
     ],
   },
@@ -932,6 +1055,11 @@ export const guidePages = [
         label: "Resume Keywords Guide",
         href: "/guides/resume-keywords-guide",
         description: "Use role keywords with evidence, not stuffing.",
+      },
+      {
+        label: "Free Resume Score Checker Guide",
+        href: "/guides/resume-score-checker-guide",
+        description: "Use score feedback as an editing priority list.",
       },
     ],
     faq: [
