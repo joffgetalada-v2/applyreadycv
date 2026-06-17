@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">CV case study before and after</title>
+  <desc id="desc">A before-and-after diagram showing a weak CV becoming clearer through targeted edits.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="58" y="54" width="1084" height="522" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="94" y="118" fill="#0f172a" font-family="Arial, sans-serif" font-size="42" font-weight="700">CV Case Study: Fix the Friction</text>
+  <text x="94" y="156" fill="#475569" font-family="Arial, sans-serif" font-size="20">A practical before-and-after review for clearer applications.</text>
+  <rect x="94" y="210" width="420" height="278" rx="22" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+  <rect x="686" y="210" width="420" height="278" rx="22" fill="#ecfdf5" stroke="#bbf7d0" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="128" y="264" fill="#be123c" font-size="24" font-weight="700">Before</text>
+    <text x="128" y="316" fill="#0f172a" font-size="22">generic summary</text>
+    <text x="128" y="354" fill="#0f172a" font-size="22">task-only bullets</text>
+    <text x="128" y="392" fill="#0f172a" font-size="22">missing keywords</text>
+    <text x="128" y="430" fill="#0f172a" font-size="22">unclear proof</text>
+    <text x="720" y="264" fill="#047857" font-size="24" font-weight="700">After</text>
+    <text x="720" y="316" fill="#0f172a" font-size="22">targeted summary</text>
+    <text x="720" y="354" fill="#0f172a" font-size="22">evidence bullets</text>
+    <text x="720" y="392" fill="#0f172a" font-size="22">truthful role terms</text>
+    <text x="720" y="430" fill="#0f172a" font-size="22">clear next edits</text>
+  </g>
+  <circle cx="600" cy="348" r="58" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <text x="568" y="340" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">Review</text>
+  <text x="565" y="368" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">score</text>
+  <g stroke="#4f46e5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M526 348h36"/>
+    <path d="M550 332l20 16-20 16"/>
+    <path d="M638 348h36"/>
+    <path d="M662 332l20 16-20 16"/>
+  </g>
+  <rect x="94" y="520" width="1012" height="36" rx="18" fill="#eef2ff"/>
+  <text x="124" y="544" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">The goal is not a perfect score. The goal is a CV that is easier to understand and verify.</text>
+</svg>

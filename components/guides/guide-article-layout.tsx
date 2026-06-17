@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ListChecks } from "lucide-react";
 import type { GuidePage } from "@/lib/guides";
@@ -22,6 +23,21 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {guide.intro}
           </p>
+          {guide.image && (
+            <figure className="mt-8 overflow-hidden rounded-lg border border-slate-200 bg-white">
+              <Image
+                src={guide.image.src}
+                alt={guide.image.alt}
+                width={guide.image.width}
+                height={guide.image.height}
+                className="h-auto w-full"
+                unoptimized
+              />
+              <figcaption className="border-t border-slate-200 px-4 py-3 text-sm leading-6 text-slate-600">
+                {guide.image.caption}
+              </figcaption>
+            </figure>
+          )}
         </div>
       </section>
 

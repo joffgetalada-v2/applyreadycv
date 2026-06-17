@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Freelance CV versus traditional resume</title>
+  <desc id="desc">A side-by-side comparison of traditional resume proof and freelance client-ready proof.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="58" y="54" width="1084" height="522" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="94" y="118" fill="#0f172a" font-family="Arial, sans-serif" font-size="42" font-weight="700">Freelance CV vs Traditional Resume</text>
+  <text x="94" y="156" fill="#475569" font-family="Arial, sans-serif" font-size="20">Shift from employer history to client confidence, deliverables, and proof.</text>
+  <rect x="94" y="210" width="470" height="270" rx="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="636" y="210" width="470" height="270" rx="24" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="128" y="264" fill="#334155" font-size="24" font-weight="700">Traditional resume</text>
+    <text x="128" y="316" fill="#0f172a" font-size="23">employer roles</text>
+    <text x="128" y="356" fill="#0f172a" font-size="23">responsibilities</text>
+    <text x="128" y="396" fill="#0f172a" font-size="23">work history timeline</text>
+    <text x="128" y="436" fill="#0f172a" font-size="23">internal achievements</text>
+    <text x="670" y="264" fill="#3730a3" font-size="24" font-weight="700">Freelance CV</text>
+    <text x="670" y="316" fill="#0f172a" font-size="23">client problem solved</text>
+    <text x="670" y="356" fill="#0f172a" font-size="23">deliverables and scope</text>
+    <text x="670" y="396" fill="#0f172a" font-size="23">portfolio proof</text>
+    <text x="670" y="436" fill="#0f172a" font-size="23">outcomes and process</text>
+  </g>
+  <g stroke="#4f46e5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M580 345h40"/>
+    <path d="M602 327l22 18-22 18"/>
+  </g>
+  <rect x="94" y="512" width="1012" height="36" rx="18" fill="#ecfdf5"/>
+  <text x="124" y="536" fill="#047857" font-family="Arial, sans-serif" font-size="18" font-weight="700">Client-ready profiles answer: what do you do, who is it for, and what proof supports it?</text>
+</svg>

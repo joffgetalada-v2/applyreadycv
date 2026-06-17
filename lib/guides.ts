@@ -12,6 +12,14 @@ export type GuideSection = {
   bullets?: string[];
 };
 
+export type GuideImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
+
 export type GuidePage = {
   slug: string;
   path: string;
@@ -19,9 +27,12 @@ export type GuidePage = {
   metadataTitle: string;
   metaDescription: string;
   seoKeywords: string[];
+  publishedAt?: string;
+  updatedAt?: string;
   eyebrow: string;
   intro: string;
   summary: string[];
+  image?: GuideImage;
   sections: GuideSection[];
   cta: {
     label: string;
@@ -36,7 +47,7 @@ export const guidesIndex = {
   title: "Resume & CV Guides",
   metadataTitle: "Resume & CV Guides | ApplyReadyCV",
   metaDescription:
-    "Read practical resume and CV guides for resume scores, ATS readiness, formatting, keywords, Philippine local jobs, freelance applications, remote jobs, and better applications.",
+    "Read practical resume and CV guides for resume scores, ATS readiness, remote resume keywords, freelance CV strategy, formatting, local jobs, and better applications.",
   seoKeywords: [
     "resume guides",
     "CV guides",
@@ -46,6 +57,9 @@ export const guidesIndex = {
     "ATS resume guide",
     "ATS resume formatting tips",
     "resume keyword guide",
+    "remote resume keywords",
+    "freelance CV vs resume",
+    "CV case study",
     "Philippines CV guide",
     "local job CV Philippines",
     "ATS vs human resume review",
@@ -487,9 +501,9 @@ export const guidePages = [
         description: "Compare your CV against a remote job description.",
       },
       {
-        label: "Privacy",
-        href: "/privacy",
-        description: "Review the current privacy-first checker notes.",
+        label: "Remote Resume Keywords",
+        href: "/guides/remote-resume-keywords",
+        description: "Use remote job terms naturally with real proof.",
       },
     ],
     faq: [
@@ -507,6 +521,133 @@ export const guidePages = [
         question: "Should I include my time zone?",
         answer:
           "It can help when the job mentions schedule overlap, global teams, or region-specific availability. Use city, country, or time zone only when it supports the application.",
+      },
+    ],
+  },
+  {
+    slug: "remote-resume-keywords",
+    path: "/guides/remote-resume-keywords",
+    title: "Remote Resume Keywords: What to Add and Where to Use Them",
+    metadataTitle: "Remote Resume Keywords Guide | ApplyReadyCV",
+    metaDescription:
+      "Find practical remote resume keywords for work-from-home jobs and learn where to place tools, async communication, ownership, and collaboration terms naturally.",
+    seoKeywords: [
+      "remote resume keywords",
+      "remote job resume keywords",
+      "work from home resume keywords",
+      "remote work skills resume",
+      "remote job CV keywords",
+      "async communication resume",
+      "distributed team resume",
+    ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-17",
+    eyebrow: "Remote keyword strategy",
+    intro:
+      "Remote keywords help hiring teams recognize the way you work when they scan your resume quickly. The point is not to paste every remote-work phrase into your CV. The point is to connect the job posting's language to real proof from your work, projects, tools, and communication habits.",
+    summary: [
+      "Remote keywords are strongest when they sit inside evidence, not in a loose list.",
+      "Tools matter, but the context around how you used them matters more.",
+      "A good remote CV balances ATS-friendly terms with human-readable proof.",
+    ],
+    image: {
+      src: "/guide-images/remote-resume-keywords.svg",
+      alt: "Remote job keywords mapped to truthful resume evidence and ApplyReadyCV review steps.",
+      caption:
+        "Use remote keywords as a bridge between the job description and real examples from your resume.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "Start with the job post, not a generic keyword list",
+        body: [
+          "Remote roles can use very different language. A customer support role may mention chat support, CRM, response time, escalation, and documentation. A software role may mention GitHub, pull requests, async reviews, Jira, ownership, and distributed team collaboration.",
+          "Read the job post and separate terms into three groups: tools you have used, responsibilities you have done, and remote work habits you can honestly support. That keeps the resume focused and avoids the weak feeling of a copied keyword list.",
+        ],
+        bullets: [
+          "Highlight repeated tools and systems.",
+          "Mark responsibilities that match your real work.",
+          "Look for schedule, time zone, or async communication language.",
+          "Ignore terms you cannot explain in an interview.",
+        ],
+      },
+      {
+        title: "Remote keywords that usually need evidence",
+        body: [
+          "Terms such as async communication, documentation, self-management, remote collaboration, and ownership can be useful. They are also easy to overuse. Add them only where the resume can show what they meant in practice.",
+          "For example, async communication is stronger when paired with weekly status updates, written handoffs, help center notes, ticket comments, SOPs, client reports, or project documentation.",
+        ],
+        bullets: [
+          "Async communication: status updates, written handoffs, documentation.",
+          "Collaboration: Slack, Teams, Zoom, Notion, Jira, Trello, GitHub.",
+          "Ownership: managed tickets, shipped deliverables, followed up without daily supervision.",
+          "Time zone readiness: schedule overlap, global clients, distributed team routines.",
+        ],
+      },
+      {
+        title: "Where to place remote keywords naturally",
+        body: [
+          "Use a short summary for your strongest remote-ready claim, then back it up in skills and experience. The skills section can list tools, but the experience section should prove how those tools were used.",
+          "A weak bullet says, 'Used Slack and Jira.' A stronger bullet says, 'Tracked support bugs in Jira and posted daily Slack updates so the remote product team could prioritize fixes.' The second version gives context, tools, and value.",
+        ],
+        bullets: [
+          "Summary: one sentence about role fit and remote-ready strengths.",
+          "Skills: tools and methods you can actually use.",
+          "Experience: bullets that connect tools to outcomes.",
+          "Projects: remote collaboration proof from freelance, school, or volunteer work.",
+        ],
+      },
+      {
+        title: "Check for keyword stuffing before you send",
+        body: [
+          "Keyword stuffing is a risk for both software and human readers. If a term appears many times without new evidence, remove or rewrite it. A clear resume should show fit without sounding like a search engine page.",
+          "Before applying, paste the job description and your resume into ApplyReadyCV. Review missing terms, but add only the ones that are accurate and useful. The goal is a better application, not a bigger keyword count.",
+        ],
+        bullets: [
+          "Do repeated keywords add new proof?",
+          "Can you explain each tool or remote-work claim?",
+          "Do bullets still read naturally?",
+          "Does the resume match the exact remote role you want?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check remote keyword fit",
+      href: "/remote-cv-checker",
+    },
+    relatedLinks: [
+      {
+        label: "Remote CV Checker",
+        href: "/remote-cv-checker",
+        description: "Review remote signals, tools, keywords, and readiness gaps.",
+      },
+      {
+        label: "Remote Job CV Guide",
+        href: "/guides/remote-job-cv-guide",
+        description: "Build the full structure for a remote job CV.",
+      },
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Compare your resume against a target job description.",
+      },
+    ],
+    faq: [
+      {
+        question: "What are the best remote resume keywords?",
+        answer:
+          "The best remote keywords are the ones in the job post that you can support with real work examples. Common terms include async communication, documentation, distributed team, Slack, Zoom, Notion, Jira, ownership, and self-management.",
+      },
+      {
+        question: "Should I add remote keywords if I have never worked remotely?",
+        answer:
+          "Only add remote-ready skills you can prove through school, freelance, volunteer, hybrid, or project work. Written updates, online collaboration, documentation, and independent project ownership can still be relevant.",
+      },
+      {
+        question: "Can remote keywords help with ATS checks?",
+        answer:
+          "They can help when they match the job description and appear naturally in your resume. They should not replace clear achievements, truthful skills, or readable formatting.",
       },
     ],
   },
@@ -713,6 +854,11 @@ export const guidePages = [
         href: "/guides/resume-keywords-guide",
         description: "Learn how to use role and project keywords naturally.",
       },
+      {
+        label: "Freelance CV vs Traditional Resume",
+        href: "/guides/freelance-cv-vs-traditional-resume",
+        description: "Reshape an employment resume into a client-ready profile.",
+      },
     ],
     faq: [
       {
@@ -729,6 +875,133 @@ export const guidePages = [
         question: "What if I am new to freelancing?",
         answer:
           "Use relevant projects, coursework, volunteer work, personal builds, or employment examples that prove the service you want to offer.",
+      },
+    ],
+  },
+  {
+    slug: "freelance-cv-vs-traditional-resume",
+    path: "/guides/freelance-cv-vs-traditional-resume",
+    title: "Freelance CV vs Traditional Resume: What to Change",
+    metadataTitle: "Freelance CV vs Traditional Resume | ApplyReadyCV",
+    metaDescription:
+      "Learn how a freelance CV differs from a traditional resume, including service positioning, project proof, portfolio links, client outcomes, and proposal-ready examples.",
+    seoKeywords: [
+      "freelance CV vs resume",
+      "freelance CV",
+      "freelance resume",
+      "freelancer profile resume",
+      "client-ready CV",
+      "freelance portfolio CV",
+      "gig resume tips",
+    ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-17",
+    eyebrow: "Freelance positioning",
+    intro:
+      "A traditional resume is built around employers, job titles, and career history. A freelance CV or profile has to do something different: it must help a client trust that you understand the problem, can deliver the work, and can communicate clearly before and during the project.",
+    summary: [
+      "A freelance CV should lead with services, outcomes, and proof, not only job history.",
+      "Clients often care more about relevant examples than complete employment timelines.",
+      "The best freelance profile still stays honest, specific, and easy to verify.",
+    ],
+    image: {
+      src: "/guide-images/freelance-cv-vs-resume.svg",
+      alt: "Side-by-side diagram comparing a traditional resume with a freelance CV.",
+      caption:
+        "A freelance CV shifts the reader from employment history to client confidence and deliverable proof.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "Lead with the service a client wants to buy",
+        body: [
+          "A traditional resume often starts with a broad professional summary. A freelance CV should be sharper. The first section should tell a client what you do, who you help, and what kind of result or deliverable you can support.",
+          "For example, 'Virtual assistant with admin experience' is weaker than 'Virtual assistant for coaches and small teams, focused on inbox cleanup, calendar management, research, and weekly client reports.' The second version gives a client something concrete to evaluate.",
+        ],
+        bullets: [
+          "Name the service clearly.",
+          "Mention the type of client or project when useful.",
+          "Include tools only when they support the service.",
+          "Avoid claiming every service at once.",
+        ],
+      },
+      {
+        title: "Replace task lists with project proof",
+        body: [
+          "A job resume can rely on employer context. A freelance profile usually needs more visible proof. Selected projects, short case summaries, portfolio links, sample deliverables, and process notes can make a client feel safer about contacting you.",
+          "If you cannot share client names, use non-private details: industry, deliverable type, tools, timeline, scope, and outcome. A careful anonymous example is better than a vague claim.",
+        ],
+        bullets: [
+          "Landing page copy for a coaching offer.",
+          "Weekly admin reports for a remote founder.",
+          "Data cleanup for 1,200 CRM records.",
+          "Product images edited for a marketplace launch.",
+        ],
+      },
+      {
+        title: "Keep the timeline, but do not make it the whole story",
+        body: [
+          "Work history still matters. It can show reliability, domain experience, and transferable skills. But freelance clients usually do not need every internal responsibility from every old job.",
+          "Keep relevant roles, then rewrite bullets around client value. Instead of 'responsible for reports,' write what the reports helped someone do, how often you made them, what tools you used, and what changed because of the work.",
+        ],
+        bullets: [
+          "Keep roles that support your freelance service.",
+          "Trim details that do not help the client decide.",
+          "Connect old employment examples to current deliverables.",
+          "Use dates honestly, but do not let dates bury proof.",
+        ],
+      },
+      {
+        title: "Add a proposal-ready review step",
+        body: [
+          "Before sending a freelance application, compare your CV or profile against the client brief. Do the first 10 seconds answer the client's problem? Are the best examples visible? Are the keywords from the brief present only where they are true?",
+          "ApplyReadyCV's freelance mode can help with this check by reviewing service focus, portfolio signals, client-ready wording, project proof, and missing terms from the brief.",
+        ],
+        bullets: [
+          "Does the profile name a clear service?",
+          "Can the client see proof without searching?",
+          "Are outcomes more visible than generic claims?",
+          "Does the profile match this brief without copying it?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check freelance CV",
+      href: "/freelance-cv-checker",
+    },
+    relatedLinks: [
+      {
+        label: "Freelance CV Checker",
+        href: "/freelance-cv-checker",
+        description: "Review client-ready positioning, portfolio proof, and project signals.",
+      },
+      {
+        label: "Freelance CV Checklist",
+        href: "/guides/freelance-cv-checklist",
+        description: "Use a checklist to improve your freelance profile before applying.",
+      },
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Use role and project keywords naturally without stuffing.",
+      },
+    ],
+    faq: [
+      {
+        question: "Can I use my normal resume for freelance applications?",
+        answer:
+          "You can start from it, but you should adapt it. A freelance CV needs clearer services, selected projects, portfolio proof, and client outcomes than a standard employment resume.",
+      },
+      {
+        question: "Should a freelance CV include every past job?",
+        answer:
+          "No. Include past work that supports the service you are selling. Trim details that do not help the client understand your fit.",
+      },
+      {
+        question: "What if I do not have paid freelance projects yet?",
+        answer:
+          "Use relevant employment work, school projects, volunteer work, personal projects, sample work, or portfolio pieces. Be clear about what each example is and avoid pretending it was a paid client project.",
       },
     ],
   },
@@ -822,6 +1095,11 @@ export const guidePages = [
         label: "Local Job CV Checker",
         href: "/local-job-cv-checker",
         description: "Review practical hiring details for local applications.",
+      },
+      {
+        label: "CV Case Study",
+        href: "/guides/cv-case-study-fix-weak-resume",
+        description: "See sample before-and-after CV improvements.",
       },
     ],
     faq: [
@@ -956,6 +1234,146 @@ export const guidePages = [
         question: "Should I use English or Filipino in my CV?",
         answer:
           "Use the language expected by the job posting and employer. For many formal applications, English is common, but clarity and truthfulness matter most.",
+      },
+    ],
+  },
+  {
+    slug: "cv-case-study-fix-weak-resume",
+    path: "/guides/cv-case-study-fix-weak-resume",
+    title: "CV Case Study: How to Fix a Weak Resume Before Applying",
+    metadataTitle: "CV Case Study: Fix a Weak Resume | ApplyReadyCV",
+    metaDescription:
+      "See a practical before-and-after CV case study with sample resume problems, rewritten bullets, keyword fixes, and an ApplyReadyCV review checklist.",
+    seoKeywords: [
+      "CV case study",
+      "resume case study",
+      "fix weak resume",
+      "CV before and after",
+      "resume improvement example",
+      "resume checker example",
+      "CV review example",
+    ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-17",
+    eyebrow: "Before and after CV review",
+    intro:
+      "This guide uses a fictional sample CV to show how a weak application can be improved before sending it. The point is not to copy the wording. The point is to learn the editing decisions: what to keep, what to remove, what to make clearer, and how to turn a checker report into practical fixes.",
+    summary: [
+      "Weak CVs often fail because relevant proof is hidden, vague, or unsupported.",
+      "Before-and-after editing works best when each change solves a specific review problem.",
+      "A checker score is useful only when it helps you decide what to fix next.",
+    ],
+    image: {
+      src: "/guide-images/cv-case-study-fix.svg",
+      alt: "Before-and-after CV case study diagram showing weak resume issues becoming clearer edits.",
+      caption:
+        "A useful CV review turns vague wording into clearer evidence, not just a higher score.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "The fictional starting CV",
+        body: [
+          "Imagine an applicant named Mira applying for an entry-level admin assistant role. Her CV has the right background: school projects, a part-time cashier role, Excel use, customer communication, and volunteer event support. The problem is that the first draft hides most of that value.",
+          "The opening summary says, 'Hardworking and flexible person seeking a challenging role.' The experience bullets say, 'Handled customers,' 'Did reports,' and 'Helped with events.' Nothing is false, but the reader has to guess what the work involved.",
+        ],
+        bullets: [
+          "The summary does not name the target role.",
+          "Useful tools such as Excel are buried.",
+          "Bullets describe tasks without scale or context.",
+          "The job posting keywords are not visible.",
+        ],
+      },
+      {
+        title: "Fix 1: rewrite the summary around the target role",
+        body: [
+          "A generic summary is a missed chance. Mira is not applying for every job. She is applying for admin work, so the summary should quickly show admin fit, customer communication, and basic reporting.",
+          "A better version: 'Entry-level admin assistant applicant with part-time customer service experience, Excel report preparation, event coordination support, and clear written communication.' This is still modest, but it gives the recruiter useful signals in one sentence.",
+        ],
+        bullets: [
+          "Name the role direction.",
+          "Mention two or three relevant strengths.",
+          "Use plain language instead of vague personality claims.",
+          "Avoid adding skills that are not supported later in the CV.",
+        ],
+      },
+      {
+        title: "Fix 2: turn task bullets into evidence",
+        body: [
+          "The old bullet 'Did reports' does not help much. A stronger version could be: 'Prepared weekly Excel sales summaries for the store supervisor using daily transaction records.' If true, that gives a tool, frequency, audience, and business context.",
+          "The old bullet 'Handled customers' could become: 'Assisted 40 to 60 walk-in customers per shift, answered product questions, and escalated refund issues to the supervisor.' Exact numbers should only be used when honest. If the applicant does not know the number, she can still add useful context such as channel, tool, or responsibility.",
+        ],
+        bullets: [
+          "Add tools: Excel, POS, Google Sheets, CRM, email, ticketing system.",
+          "Add scope: weekly, daily, branch, team, customers, files, reports.",
+          "Add result: faster handoff, clearer tracking, fewer missed details.",
+          "Keep each bullet truthful and easy to defend.",
+        ],
+      },
+      {
+        title: "Fix 3: use keywords from the actual job post",
+        body: [
+          "The admin job post asks for scheduling, records management, customer service, Excel, email communication, and attention to detail. Mira should not copy the job post, but she should make matching experience visible.",
+          "If she has used Excel, email, records, and customer service in real tasks, those words belong in the summary, skills section, and experience bullets. If she has never handled scheduling, she should not claim it. She can mention related event coordination only if it is accurate.",
+        ],
+        bullets: [
+          "Add only terms supported by real examples.",
+          "Put important tools in the skills section and in relevant bullets.",
+          "Use synonyms naturally when they match the work.",
+          "Do not repeat a keyword just to increase density.",
+        ],
+      },
+      {
+        title: "What the final review should check",
+        body: [
+          "After editing, Mira should run a final review. The important question is not whether the CV sounds impressive. The question is whether the reader can quickly understand her fit for this specific role.",
+          "ApplyReadyCV can help by checking completeness, keywords, action verbs, measurable details, readability, and application mode. The final decision still belongs to the applicant. A tool can point to issues, but it cannot verify every detail or promise a result.",
+        ],
+        bullets: [
+          "Is the target role clear in the first screen?",
+          "Are the strongest examples near the top?",
+          "Do keywords appear with evidence?",
+          "Can the applicant explain every claim in an interview?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Run your own CV review",
+      href: "/#checker",
+    },
+    relatedLinks: [
+      {
+        label: "Free Resume Score Checker Guide",
+        href: "/guides/resume-score-checker-guide",
+        description: "Understand score categories and what to fix first.",
+      },
+      {
+        label: "Common CV Mistakes",
+        href: "/guides/common-cv-mistakes",
+        description: "Find common issues that make applications harder to review.",
+      },
+      {
+        label: "Local Job CV Guide",
+        href: "/guides/local-job-cv-philippines",
+        description: "Improve practical local job application details.",
+      },
+    ],
+    faq: [
+      {
+        question: "Can I copy the before-and-after examples?",
+        answer:
+          "Use them as structure, not as copy. Your CV should describe your real work, tools, scope, and outcomes. Copying examples that are not true can hurt trust.",
+      },
+      {
+        question: "Is this based on a real applicant?",
+        answer:
+          "No. The case study uses a fictional sample so the editing method is clear without exposing anyone's private resume details.",
+      },
+      {
+        question: "Should every CV bullet include a number?",
+        answer:
+          "No. Numbers help when they are honest and useful, but context such as tools, frequency, audience, or responsibility can also make a bullet stronger.",
       },
     ],
   },

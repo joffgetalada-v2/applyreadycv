@@ -27,8 +27,11 @@ export const baseSeoKeywords = [
   "job description keyword match",
   "remote CV checker",
   "remote job resume checker",
+  "remote resume keywords",
   "freelance CV checker",
+  "freelance CV vs resume",
   "local job CV checker",
+  "CV before and after",
   "resume checker Philippines",
   "private resume feedback",
 ];

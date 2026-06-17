@@ -19,6 +19,11 @@ type RelatedResource = {
 const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   [contentPages.remote.path]: [
     {
+      label: "Remote Resume Keywords",
+      href: "/guides/remote-resume-keywords",
+      description: "Find remote job terms and place them with real evidence.",
+    },
+    {
       label: "Remote Job CV Guide",
       href: "/guides/remote-job-cv-guide",
       description: "Learn how to show remote readiness and distributed tools.",
@@ -36,6 +41,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.freelance.path]: [
     {
+      label: "Freelance CV vs Traditional Resume",
+      href: "/guides/freelance-cv-vs-traditional-resume",
+      description: "Adapt a job resume into a client-ready freelance profile.",
+    },
+    {
       label: "Freelance CV Checklist",
       href: "/guides/freelance-cv-checklist",
       description: "Improve service focus, project proof, and client outcomes.",
@@ -52,6 +62,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
     },
   ],
   [contentPages.local.path]: [
+    {
+      label: "CV Case Study",
+      href: "/guides/cv-case-study-fix-weak-resume",
+      description: "See how vague CV wording becomes clearer application proof.",
+    },
     {
       label: "Local Job CV Guide for Philippine Applicants",
       href: "/guides/local-job-cv-philippines",

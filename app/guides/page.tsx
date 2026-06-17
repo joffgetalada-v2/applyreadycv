@@ -57,8 +57,9 @@ export default function GuidesIndexPage() {
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
               Start with ATS readiness, formatting, resume keywords, freelance
               applications, remote job CV preparation, resume score guidance,
-              and common CV mistakes. Each guide is written to help you improve
-              a real application and then check it with ApplyReadyCV.
+              before-and-after CV examples, and common CV mistakes. Each guide
+              is written to help you improve a real application and then check
+              it with ApplyReadyCV.
             </p>
           </div>
         </section>
@@ -68,6 +69,7 @@ export default function GuidesIndexPage() {
             {[
               "Use clear formatting that works for people and software.",
               "Match job description keywords without stuffing.",
+              "Learn from concrete before-and-after CV examples.",
               "Turn each guide into action with the free checker.",
             ].map((item) => (
               <div

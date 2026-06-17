@@ -219,10 +219,11 @@ export function articleSchema(guide: GuidePage): JsonLdData {
     headline: guide.title,
     description: guide.metaDescription,
     url,
+    ...(guide.image ? { image: absoluteUrl(guide.image.src) } : {}),
     inLanguage: "en",
     keywords: guide.seoKeywords.join(", "),
-    datePublished: "2026-06-02",
-    dateModified: "2026-06-17",
+    datePublished: guide.publishedAt ?? "2026-06-02",
+    dateModified: guide.updatedAt ?? "2026-06-17",
     author: {
       "@id": organizationId,
     },
