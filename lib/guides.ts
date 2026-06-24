@@ -47,7 +47,7 @@ export const guidesIndex = {
   title: "Resume & CV Guides",
   metadataTitle: "Resume & CV Guides | ApplyReadyCV",
   metaDescription:
-    "Read practical resume and CV guides for resume scores, ATS readiness, remote resume keywords, freelance CV strategy, formatting, local jobs, and better applications.",
+    "Read practical resume and CV guides for resume summaries, skills sections, no-experience CVs, ATS readiness, keywords, remote jobs, freelance profiles, and better applications.",
   seoKeywords: [
     "resume guides",
     "CV guides",
@@ -57,6 +57,9 @@ export const guidesIndex = {
     "ATS resume guide",
     "ATS resume formatting tips",
     "resume keyword guide",
+    "resume summary examples",
+    "resume skills section",
+    "no experience CV",
     "remote resume keywords",
     "freelance CV vs resume",
     "CV case study",
@@ -390,6 +393,11 @@ export const guidePages = [
         description: "Check how keywords fit into overall ATS readiness.",
       },
       {
+        label: "Resume Skills Section Guide",
+        href: "/guides/resume-skills-section-guide",
+        description: "Turn job-description terms into a focused skills section.",
+      },
+      {
         label: "Remote CV Checker",
         href: "/remote-cv-checker",
         description: "Review remote-specific keyword and collaboration signals.",
@@ -410,6 +418,387 @@ export const guidePages = [
         question: "Can I use the same keywords for every application?",
         answer:
           "You can keep core skills consistent, but each application should be reviewed against the specific job description.",
+      },
+    ],
+  },
+  {
+    slug: "resume-summary-examples",
+    path: "/guides/resume-summary-examples",
+    title: "Resume Summary Examples: Write a Strong Opening",
+    metadataTitle: "Resume Summary Examples | ApplyReadyCV",
+    metaDescription:
+      "Learn how to write a resume summary with practical examples for entry-level, remote, freelance, local, and career-shift applications.",
+    seoKeywords: [
+      "resume summary examples",
+      "CV summary examples",
+      "resume profile examples",
+      "professional summary for resume",
+      "entry level resume summary",
+      "remote resume summary",
+      "freelance CV summary",
+    ],
+    publishedAt: "2026-06-24",
+    updatedAt: "2026-06-24",
+    eyebrow: "Resume summary writing",
+    intro:
+      "A resume summary is not a place for empty personality claims. It should help a recruiter understand what role you fit, what evidence supports that fit, and why the rest of the CV is worth reading.",
+    summary: [
+      "A strong summary names the target role or work direction quickly.",
+      "The best summaries connect keywords to proof, not buzzwords.",
+      "Short, specific summaries are usually stronger than broad claims.",
+    ],
+    image: {
+      src: "/guide-images/resume-summary-examples.svg",
+      alt: "Diagram showing a weak resume summary rewritten into a targeted summary with role, proof, and keywords.",
+      caption:
+        "A resume summary should turn role direction, proof, and truthful keywords into a quick first impression.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "What a resume summary should do",
+        body: [
+          "The first lines of a CV should reduce confusion. A reviewer should not have to guess whether you are applying for admin work, customer support, remote operations, freelance design, or entry-level IT support.",
+          "A useful summary combines role direction, relevant strengths, and evidence. It does not need to explain your whole career. Two or three focused lines are enough for most applications.",
+        ],
+        bullets: [
+          "Name the role direction or field.",
+          "Mention tools, experience, training, or project proof.",
+          "Use words from the job post only when they are true.",
+          "Avoid vague claims such as hardworking, passionate, or flexible unless evidence follows.",
+        ],
+      },
+      {
+        title: "Before and after examples",
+        body: [
+          "Weak: 'Hardworking person looking for a challenging position where I can grow.' Stronger: 'Entry-level admin applicant with Excel report preparation, customer service experience, and school project coordination background.'",
+          "Weak: 'Experienced freelancer who can do many tasks.' Stronger: 'Freelance virtual assistant focused on inbox cleanup, calendar coordination, research, and weekly client reporting for small teams.'",
+        ],
+        bullets: [
+          "Entry-level: connect education, projects, and tools.",
+          "Remote: mention async communication, documentation, and collaboration tools when true.",
+          "Freelance: lead with service, client type, deliverables, and proof.",
+          "Local jobs: show contact readiness, role fit, and practical skills.",
+        ],
+      },
+      {
+        title: "How to tailor a summary to a job post",
+        body: [
+          "Read the job description and identify the most important skills, tools, and responsibilities. Then choose two or three that you can support elsewhere in the CV.",
+          "Do not write a summary that says everything. A summary for customer support should not look the same as a summary for bookkeeping, social media, or IT support. The closer the opening is to the job, the easier the rest of the CV is to review.",
+        ],
+        bullets: [
+          "Pull role terms from the posting.",
+          "Choose only terms backed by your experience or training.",
+          "Keep the sentence readable for humans.",
+          "Check that the same proof appears later in the CV.",
+        ],
+      },
+      {
+        title: "Check the summary before applying",
+        body: [
+          "After writing your summary, paste your resume and the job description into ApplyReadyCV. If the checker flags missing keywords or unclear fit, review whether the summary is too broad.",
+          "The summary is not the only section that matters, but it can make the rest of the application easier to understand.",
+        ],
+        bullets: [
+          "Does the opening name the target role?",
+          "Does it include proof instead of generic claims?",
+          "Does it match the job without copying it?",
+          "Would you be comfortable explaining every claim in an interview?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check your resume summary",
+      href: "/#checker",
+    },
+    relatedLinks: [
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Compare your summary and CV against a job description.",
+      },
+      {
+        label: "Common CV Mistakes",
+        href: "/guides/common-cv-mistakes",
+        description: "Avoid vague openings, weak proof, and unclear role signals.",
+      },
+      {
+        label: "No-Experience CV Guide",
+        href: "/guides/no-experience-cv-guide",
+        description: "Use school, projects, and training as honest evidence.",
+      },
+    ],
+    faq: [
+      {
+        question: "How long should a resume summary be?",
+        answer:
+          "For most applications, two or three focused lines are enough. The summary should help the reviewer understand your role fit quickly.",
+      },
+      {
+        question: "Should fresh graduates use a resume summary?",
+        answer:
+          "Yes, when it adds clarity. A fresh graduate summary can mention target role, education, tools, internships, projects, or training that support the application.",
+      },
+      {
+        question: "Should I use the same summary for every job?",
+        answer:
+          "No. Keep your core background honest, but adjust the summary so it matches the role, tools, and responsibilities in the job description.",
+      },
+    ],
+  },
+  {
+    slug: "resume-skills-section-guide",
+    path: "/guides/resume-skills-section-guide",
+    title: "Resume Skills Section: What to Include and What to Remove",
+    metadataTitle: "Resume Skills Section Guide | ApplyReadyCV",
+    metaDescription:
+      "Build a stronger resume skills section with hard skills, tools, soft skills, job description keywords, and proof-backed examples.",
+    seoKeywords: [
+      "resume skills section",
+      "CV skills section",
+      "skills to put on resume",
+      "hard skills for resume",
+      "soft skills on resume",
+      "resume skills examples",
+      "ATS resume skills",
+    ],
+    publishedAt: "2026-06-24",
+    updatedAt: "2026-06-24",
+    eyebrow: "Skills section strategy",
+    intro:
+      "A skills section should make your strongest role-fit signals easy to scan. It should not become a long list of words that are never proven anywhere else in the resume.",
+    summary: [
+      "Group skills so recruiters can scan tools, hard skills, and soft skills quickly.",
+      "Use job description keywords only when they match your real background.",
+      "Every important skill should be supported by experience, projects, training, or certifications.",
+    ],
+    image: {
+      src: "/guide-images/resume-skills-section.svg",
+      alt: "Diagram showing hard skills, tools, soft skills, and proof in a resume skills section.",
+      caption:
+        "A strong skills section is organized for scanning and supported by proof in the rest of the CV.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "Separate skills by type",
+        body: [
+          "A mixed list can become hard to read. Grouping makes the section more useful, especially when a job description contains many tools and responsibilities.",
+          "For example, an admin applicant might separate office tools, reporting, customer support, and communication. A developer might separate languages, frameworks, databases, testing, and collaboration tools.",
+        ],
+        bullets: [
+          "Hard skills: bookkeeping, data entry, QA testing, copywriting.",
+          "Tools: Excel, Google Workspace, Salesforce, Figma, GitHub.",
+          "Soft skills: communication, organization, follow-up, documentation.",
+          "Certifications or methods: NC II, Scrum, Google Analytics, basic first aid.",
+        ],
+      },
+      {
+        title: "Use the job post as a filter",
+        body: [
+          "The best skills section is not the longest one. It is the one that helps the reader connect your background to the job. Start with the posting, then select skills you can honestly support.",
+          "If a job asks for Excel, reports, customer service, scheduling, and email communication, those terms should be visible when they match your experience. Skills unrelated to the role can be removed or moved lower.",
+        ],
+        bullets: [
+          "Highlight required tools and hard skills.",
+          "Remove outdated or irrelevant skills.",
+          "Keep only soft skills that can be shown through examples.",
+          "Avoid adding skills you cannot discuss confidently.",
+        ],
+      },
+      {
+        title: "Support skills with proof",
+        body: [
+          "A skill listed only once is weaker than a skill connected to an achievement. If Excel is important, show where you used Excel. If communication matters, show reports, client updates, ticket comments, training notes, or documentation.",
+          "This is also safer for ATS and human review. Keywords help matching, but proof helps trust.",
+        ],
+        bullets: [
+          "Skills section: Excel, reports, customer support.",
+          "Experience bullet: Prepared weekly Excel sales summaries for a branch supervisor.",
+          "Project bullet: Created a Google Sheets tracker for volunteer event signups.",
+          "Training line: Completed customer service or tool-specific certification.",
+        ],
+      },
+      {
+        title: "Check for overload before applying",
+        body: [
+          "A bloated skills section can look less credible. If a resume lists 40 skills but only proves five of them, the reviewer may distrust the list.",
+          "Before sending, use ApplyReadyCV with the job description. Review missing keywords, then add only the ones that are both relevant and true.",
+        ],
+        bullets: [
+          "Can each skill be backed by a bullet, project, or training?",
+          "Are the strongest job-specific skills near the top?",
+          "Are old or unrelated tools removed?",
+          "Does the skills section match the target role?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check resume skills",
+      href: "/resume-keyword-checker",
+    },
+    relatedLinks: [
+      {
+        label: "Resume Keywords Guide",
+        href: "/guides/resume-keywords-guide",
+        description: "Find and use job description terms without stuffing.",
+      },
+      {
+        label: "Resume Keyword Checker",
+        href: "/resume-keyword-checker",
+        description: "Compare skills and role terms against a job description.",
+      },
+      {
+        label: "ATS Resume Formatting Tips",
+        href: "/guides/ats-resume-formatting-tips",
+        description: "Keep skills, sections, and bullets readable for online applications.",
+      },
+    ],
+    faq: [
+      {
+        question: "How many skills should I list on a resume?",
+        answer:
+          "There is no fixed number. A focused list of relevant, provable skills is stronger than a long list of unsupported terms.",
+      },
+      {
+        question: "Should soft skills be in the skills section?",
+        answer:
+          "Yes, but only the ones that matter for the role and are supported by examples elsewhere in the CV.",
+      },
+      {
+        question: "Are tools more important than soft skills?",
+        answer:
+          "It depends on the job. Tools and hard skills are often easier to match, but soft skills become valuable when your bullets show evidence.",
+      },
+    ],
+  },
+  {
+    slug: "no-experience-cv-guide",
+    path: "/guides/no-experience-cv-guide",
+    title: "No-Experience CV Guide: What to Put on Your Resume",
+    metadataTitle: "No-Experience CV Guide | ApplyReadyCV",
+    metaDescription:
+      "Learn what to put on a CV with no work experience, including school projects, internships, volunteer work, certifications, skills, and entry-level examples.",
+    seoKeywords: [
+      "no experience CV",
+      "resume with no experience",
+      "entry level CV",
+      "fresh graduate resume",
+      "first job resume",
+      "student CV examples",
+      "CV for fresh graduate Philippines",
+    ],
+    publishedAt: "2026-06-24",
+    updatedAt: "2026-06-24",
+    eyebrow: "Entry-level applications",
+    intro:
+      "No experience does not mean no evidence. If you are applying for your first job, your CV should organize school work, training, projects, volunteer experience, part-time work, and practical skills so a reviewer can see role fit quickly.",
+    summary: [
+      "Entry-level CVs should lead with role direction and practical proof.",
+      "School projects, internships, volunteer work, and certifications can show real evidence.",
+      "A no-experience CV still needs keywords, clear sections, and honest examples.",
+    ],
+    image: {
+      src: "/guide-images/no-experience-cv.svg",
+      alt: "Diagram showing school projects, internships, volunteer work, certifications, and part-time work as proof for a no-experience CV.",
+      caption:
+        "A first-job CV should make honest proof easy to find, even without formal work history.",
+      width: 1200,
+      height: 630,
+    },
+    sections: [
+      {
+        title: "Start with a clear target role",
+        body: [
+          "A no-experience CV becomes stronger when it has direction. If you are applying for admin assistant roles, customer service roles, IT support, retail, BPO, or design internships, make that direction obvious.",
+          "Your summary can mention your course, strongest tools, relevant projects, and the type of role you want. Keep it practical and avoid pretending to have experience you do not have.",
+        ],
+        bullets: [
+          "Target role or field.",
+          "Education or training that supports the role.",
+          "Relevant tools such as Excel, Google Workspace, Canva, POS, or basic coding tools.",
+          "One or two projects, internships, or volunteer examples.",
+        ],
+      },
+      {
+        title: "Use projects as evidence",
+        body: [
+          "Projects can prove skills when work history is limited. A school report, capstone, event plan, small website, design sample, data tracker, or volunteer process can become useful CV evidence.",
+          "Write project bullets like work bullets: what was the goal, what did you do, what tools did you use, and what was produced?",
+        ],
+        bullets: [
+          "Built a Google Sheets tracker for class inventory records.",
+          "Designed social media posts for a student organization event.",
+          "Prepared research summaries and presented findings to a group.",
+          "Created a basic website or portfolio sample for coursework.",
+        ],
+      },
+      {
+        title: "Include training, certifications, and volunteer work",
+        body: [
+          "Training and volunteer work help when they are relevant. Include certifications, online courses, licenses, workshops, student organization roles, community work, and part-time responsibilities that show useful skills.",
+          "Be specific. Instead of writing 'volunteer,' explain what you handled: registration, inventory, customer questions, event setup, reports, or coordination.",
+        ],
+        bullets: [
+          "Certification name, provider, and completion date when available.",
+          "Volunteer role, event, and responsibility.",
+          "Part-time work with customer, cash handling, admin, or support duties.",
+          "Student leadership with planning, documentation, or team coordination.",
+        ],
+      },
+      {
+        title: "Check the CV before sending",
+        body: [
+          "Entry-level applicants often lose points because the CV is too vague. Before applying, paste the job description and CV into ApplyReadyCV. Look for missing keywords, unclear sections, weak bullets, and practical hiring details.",
+          "The goal is not to sound senior. The goal is to make honest entry-level proof easy to understand.",
+        ],
+        bullets: [
+          "Does the CV show the target role?",
+          "Are education, projects, and skills easy to find?",
+          "Are job-posting keywords used truthfully?",
+          "Can each claim be explained in an interview?",
+        ],
+      },
+    ],
+    cta: {
+      label: "Check entry-level CV",
+      href: "/local-job-cv-checker",
+    },
+    relatedLinks: [
+      {
+        label: "Local Job CV Checker",
+        href: "/local-job-cv-checker",
+        description: "Review practical details for local and entry-level applications.",
+      },
+      {
+        label: "Resume Summary Examples",
+        href: "/guides/resume-summary-examples",
+        description: "Write a focused summary for a first job or entry-level role.",
+      },
+      {
+        label: "Local Job CV Guide for Philippine Applicants",
+        href: "/guides/local-job-cv-philippines",
+        description: "Improve contact, availability, qualifications, and local role fit.",
+      },
+    ],
+    faq: [
+      {
+        question: "What should I put on a CV if I have no work experience?",
+        answer:
+          "Use education, projects, internships, volunteer work, certifications, tools, part-time responsibilities, and skills that match the job.",
+      },
+      {
+        question: "Should I hide that I am entry-level?",
+        answer:
+          "No. Be honest, but make your evidence clear. Employers hiring entry-level applicants still want proof of effort, learning, tools, and responsibility.",
+      },
+      {
+        question: "Can school projects count as experience?",
+        answer:
+          "They can count as evidence when they are relevant. Describe the project goal, your responsibility, tools used, and what was produced.",
       },
     ],
   },
@@ -1092,6 +1481,11 @@ export const guidePages = [
         description: "Find missing role terms and avoid keyword stuffing.",
       },
       {
+        label: "Resume Summary Examples",
+        href: "/guides/resume-summary-examples",
+        description: "Write a clearer opening section before listing experience.",
+      },
+      {
         label: "Local Job CV Checker",
         href: "/local-job-cv-checker",
         description: "Review practical hiring details for local applications.",
@@ -1217,6 +1611,11 @@ export const guidePages = [
         label: "Resume Keywords Guide",
         href: "/guides/resume-keywords-guide",
         description: "Use job-posting keywords naturally and truthfully.",
+      },
+      {
+        label: "No-Experience CV Guide",
+        href: "/guides/no-experience-cv-guide",
+        description: "Show school, volunteer, project, and entry-level proof.",
       },
     ],
     faq: [

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Resume summary examples workflow</title>
+  <desc id="desc">A diagram showing how a generic resume summary becomes a targeted resume summary with role, proof, and keywords.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="58" y="54" width="1084" height="522" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="96" y="118" fill="#0f172a" font-family="Arial, sans-serif" font-size="42" font-weight="700">Resume Summary Examples</text>
+  <text x="96" y="156" fill="#475569" font-family="Arial, sans-serif" font-size="20">Turn a vague opening into a useful role-fit signal.</text>
+  <rect x="96" y="220" width="410" height="236" rx="22" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+  <rect x="694" y="220" width="410" height="236" rx="22" fill="#ecfdf5" stroke="#bbf7d0" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="132" y="276" fill="#be123c" font-size="24" font-weight="700">Weak summary</text>
+    <text x="132" y="326" fill="#0f172a" font-size="23">hardworking person</text>
+    <text x="132" y="364" fill="#0f172a" font-size="23">seeking opportunity</text>
+    <text x="132" y="402" fill="#0f172a" font-size="23">generic soft skills</text>
+    <text x="730" y="276" fill="#047857" font-size="24" font-weight="700">Targeted summary</text>
+    <text x="730" y="326" fill="#0f172a" font-size="23">role direction</text>
+    <text x="730" y="364" fill="#0f172a" font-size="23">proof and tools</text>
+    <text x="730" y="402" fill="#0f172a" font-size="23">truthful keywords</text>
+  </g>
+  <circle cx="600" cy="338" r="58" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+  <text x="570" y="333" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">Rewrite</text>
+  <text x="568" y="362" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">with fit</text>
+  <g stroke="#4f46e5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M520 338h42"/>
+    <path d="M548 322l20 16-20 16"/>
+    <path d="M638 338h42"/>
+    <path d="M666 322l20 16-20 16"/>
+  </g>
+  <rect x="96" y="504" width="1008" height="38" rx="19" fill="#eef2ff"/>
+  <text x="126" y="529" fill="#3730a3" font-family="Arial, sans-serif" font-size="18" font-weight="700">Best summaries say what role you fit, what evidence supports it, and what keywords matter.</text>
+</svg>

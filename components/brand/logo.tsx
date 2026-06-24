@@ -43,14 +43,14 @@ export function LogoMark(props: SVGProps<SVGSVGElement>) {
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex min-w-0 items-center gap-3">
       <LogoMark className="h-11 w-11 shrink-0" />
       {!compact && (
         <div className="min-w-0">
-          <span className="block text-base font-semibold text-slate-950">
+          <span className="block truncate text-base font-semibold text-slate-950">
             ApplyReadyCV
           </span>
-          <span className="block text-xs font-medium text-slate-500">
+          <span className="block truncate text-xs font-medium text-slate-500">
             CV readiness workspace
           </span>
         </div>

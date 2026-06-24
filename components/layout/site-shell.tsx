@@ -4,7 +4,7 @@ import { SiteSidebar } from "@/components/layout/site-sidebar";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[linear-gradient(135deg,#f8fafc_0%,#f3f0ff_42%,#eef7ff_100%)] text-slate-950">
+    <div className="min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#f8fafc_0%,#f3f0ff_42%,#eef7ff_100%)] text-slate-950">
       <SiteHeader />
       <div className="lg:flex">
         <SiteSidebar />

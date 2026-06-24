@@ -20,6 +20,9 @@ type PageMetadataInput = {
   description: string;
   path: string;
   keywords?: string[];
+  socialImagePath?: string;
+  twitterImagePath?: string;
+  socialImageAlt?: string;
 };
 
 export function createPageMetadata({
@@ -27,8 +30,28 @@ export function createPageMetadata({
   description,
   path,
   keywords,
+  socialImagePath,
+  twitterImagePath,
+  socialImageAlt,
 }: PageMetadataInput): Metadata {
   const url = absoluteUrl(path);
+  const pageSocialImage = socialImagePath
+    ? {
+        url: absoluteUrl(socialImagePath),
+        width: 1200,
+        height: 630,
+        alt: socialImageAlt ?? title,
+      }
+    : socialImage;
+  const pageTwitterImagePath = twitterImagePath ?? socialImagePath;
+  const pageTwitterImage = pageTwitterImagePath
+    ? {
+        url: absoluteUrl(pageTwitterImagePath),
+        width: 1200,
+        height: 630,
+        alt: socialImageAlt ?? title,
+      }
+    : twitterImage;
 
   return {
     title: {
@@ -57,13 +80,13 @@ export function createPageMetadata({
       siteName: SITE_NAME,
       type: "website",
       locale: "en_US",
-      images: [socialImage],
+      images: [pageSocialImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [twitterImage],
+      images: [pageTwitterImage],
     },
   };
 }

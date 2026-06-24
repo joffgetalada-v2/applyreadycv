@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Resume skills section structure</title>
+  <desc id="desc">A diagram showing a resume skills section organized by hard skills, tools, soft skills, and proof.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="58" y="54" width="1084" height="522" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="96" y="118" fill="#0f172a" font-family="Arial, sans-serif" font-size="42" font-weight="700">Resume Skills Section</text>
+  <text x="96" y="156" fill="#475569" font-family="Arial, sans-serif" font-size="20">Organize skills by what employers can verify.</text>
+  <g fill="#eef2ff" stroke="#c7d2fe" stroke-width="2">
+    <rect x="96" y="220" width="234" height="240" rx="20"/>
+    <rect x="362" y="220" width="234" height="240" rx="20"/>
+    <rect x="628" y="220" width="234" height="240" rx="20"/>
+    <rect x="894" y="220" width="214" height="240" rx="20"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="126" y="272" fill="#3730a3" font-size="22" font-weight="700">Hard skills</text>
+    <text x="126" y="322" fill="#0f172a" font-size="21">bookkeeping</text>
+    <text x="126" y="358" fill="#0f172a" font-size="21">data entry</text>
+    <text x="126" y="394" fill="#0f172a" font-size="21">copywriting</text>
+    <text x="392" y="272" fill="#3730a3" font-size="22" font-weight="700">Tools</text>
+    <text x="392" y="322" fill="#0f172a" font-size="21">Excel</text>
+    <text x="392" y="358" fill="#0f172a" font-size="21">CRM</text>
+    <text x="392" y="394" fill="#0f172a" font-size="21">Jira</text>
+    <text x="658" y="272" fill="#3730a3" font-size="22" font-weight="700">Soft skills</text>
+    <text x="658" y="322" fill="#0f172a" font-size="21">communication</text>
+    <text x="658" y="358" fill="#0f172a" font-size="21">organization</text>
+    <text x="658" y="394" fill="#0f172a" font-size="21">follow-up</text>
+    <text x="924" y="272" fill="#3730a3" font-size="22" font-weight="700">Proof</text>
+    <text x="924" y="322" fill="#0f172a" font-size="21">bullets</text>
+    <text x="924" y="358" fill="#0f172a" font-size="21">projects</text>
+    <text x="924" y="394" fill="#0f172a" font-size="21">results</text>
+  </g>
+  <rect x="96" y="504" width="1012" height="38" rx="19" fill="#ecfdf5"/>
+  <text x="126" y="529" fill="#047857" font-family="Arial, sans-serif" font-size="18" font-weight="700">A strong skills section is easy to scan and backed by evidence elsewhere in the CV.</text>
+</svg>

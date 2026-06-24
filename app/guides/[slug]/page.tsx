@@ -10,6 +10,7 @@ import {
   faqSchema,
   webPageSchema,
 } from "@/lib/seo/schema";
+import { absoluteUrl } from "@/lib/site";
 
 type GuidePageProps = {
   params: Promise<{ slug: string }>;
@@ -36,6 +37,9 @@ export async function generateMetadata({
     description: guide.metaDescription,
     path: guide.path,
     keywords: guide.seoKeywords,
+    socialImagePath: `${guide.path}/opengraph-image`,
+    twitterImagePath: `${guide.path}/twitter-image`,
+    socialImageAlt: `${guide.title} guide by ApplyReadyCV`,
   });
 }
 
@@ -56,6 +60,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
             description: guide.metaDescription,
             path: guide.path,
             keywords: guide.seoKeywords,
+            mainEntityId: `${absoluteUrl(guide.path)}#article`,
           }),
           articleSchema(guide),
           faqSchema(guide.faq, guide.path),

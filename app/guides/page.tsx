@@ -55,11 +55,11 @@ export default function GuidesIndexPage() {
               Practical guides for better job applications.
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-              Start with ATS readiness, formatting, resume keywords, freelance
-              applications, remote job CV preparation, resume score guidance,
-              before-and-after CV examples, and common CV mistakes. Each guide
-              is written to help you improve a real application and then check
-              it with ApplyReadyCV.
+              Start with ATS readiness, resume summaries, skills sections,
+              no-experience CVs, formatting, resume keywords, freelance
+              applications, remote job CV preparation, and before-and-after CV
+              examples. Each guide is written to help you improve a real
+              application and then check it with ApplyReadyCV.
             </p>
           </div>
         </section>
@@ -69,6 +69,7 @@ export default function GuidesIndexPage() {
             {[
               "Use clear formatting that works for people and software.",
               "Match job description keywords without stuffing.",
+              "Improve summaries, skills, and entry-level proof.",
               "Learn from concrete before-and-after CV examples.",
               "Turn each guide into action with the free checker.",
             ].map((item) => (

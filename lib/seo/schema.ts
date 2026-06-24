@@ -148,12 +148,14 @@ export function webPageSchema({
   path,
   keywords,
   schemaType = "WebPage",
+  mainEntityId = webApplicationId,
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
   schemaType?: "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
+  mainEntityId?: string;
 }): JsonLdData {
   const url = absoluteUrl(path);
 
@@ -173,7 +175,7 @@ export function webPageSchema({
       "@id": organizationId,
     },
     mainEntity: {
-      "@id": webApplicationId,
+      "@id": mainEntityId,
     },
   };
 }

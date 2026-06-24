@@ -220,8 +220,8 @@ export default function Home() {
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 The site now has useful, original guidance pages for remote,
                 freelance, local, ATS, resume score, keyword review, and CV
-                case study topics, plus privacy, terms, about, and contact
-                pages.
+                case study topics, including resume summaries, skills sections,
+                and no-experience CVs.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -233,7 +233,7 @@ export default function Home() {
                 ],
                 [
                   "Resume & CV guides",
-                  "Read practical articles on ATS readiness, resume keywords, remote job CVs, freelance profiles, and CV examples.",
+                  "Read practical articles on resume summaries, skills sections, ATS readiness, keywords, remote CVs, and entry-level examples.",
                   "/guides",
                 ],
                 [

@@ -63,6 +63,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.local.path]: [
     {
+      label: "No-Experience CV Guide",
+      href: "/guides/no-experience-cv-guide",
+      description: "Use school, projects, training, and volunteer work as proof.",
+    },
+    {
       label: "CV Case Study",
       href: "/guides/cv-case-study-fix-weak-resume",
       description: "See how vague CV wording becomes clearer application proof.",
@@ -90,6 +95,11 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
   [contentPages.ats.path]: [
     {
+      label: "Resume Skills Section Guide",
+      href: "/guides/resume-skills-section-guide",
+      description: "Choose skills that match the role and prove them clearly.",
+    },
+    {
       label: "Free Resume Score Checker Guide",
       href: "/guides/resume-score-checker-guide",
       description: "Learn what the score means and what to fix first.",
@@ -116,6 +126,16 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
     },
   ],
   [contentPages.keywords.path]: [
+    {
+      label: "Resume Skills Section Guide",
+      href: "/guides/resume-skills-section-guide",
+      description: "Turn job description skills into a focused CV section.",
+    },
+    {
+      label: "Resume Summary Examples",
+      href: "/guides/resume-summary-examples",
+      description: "Write an opening that uses role keywords naturally.",
+    },
     {
       label: "Free Resume Score Checker Guide",
       href: "/guides/resume-score-checker-guide",
