@@ -77,7 +77,7 @@ export const guidePages = [
   {
     slug: "ats-resume-checker-guide",
     path: "/guides/ats-resume-checker-guide",
-    title: "ATS Resume Checker: How to Ensure Your Resume Gets Seen",
+    title: "ATS Resume Checker: Readability Basics Before You Apply",
     metadataTitle: "ATS Resume Checker Guide | ApplyReadyCV",
     metaDescription:
       "Learn how ATS resume checkers work, what they evaluate, and how to improve formatting, keywords, and readability before applying.",
@@ -89,6 +89,8 @@ export const guidePages = [
       "ATS resume score",
       "applicant tracking system resume",
     ],
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-25",
     eyebrow: "ATS readiness",
     intro:
       "An ATS resume checker helps you find common issues before your resume reaches an employer's screening software. The goal is not to trick the system. It is to make your real experience easier for software and recruiters to read.",
@@ -203,6 +205,8 @@ export const guidePages = [
       "resume review score",
       "CV readiness score",
     ],
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-25",
     eyebrow: "Resume score guidance",
     intro:
       "A resume score is useful when it turns into clear editing priorities. The number should help you decide what to fix first: missing sections, weak keywords, unclear achievements, formatting risks, or role-fit gaps.",
@@ -309,7 +313,7 @@ export const guidePages = [
   {
     slug: "resume-keywords-guide",
     path: "/guides/resume-keywords-guide",
-    title: "Resume Keywords That Get You Noticed: How to Find and Use Them",
+    title: "Resume Keywords: How to Find and Use Them Without Stuffing",
     metadataTitle: "Resume Keywords Guide | ApplyReadyCV",
     metaDescription:
       "Learn how to find resume keywords from job descriptions, place them naturally, and avoid keyword stuffing while improving ATS readability.",
@@ -321,6 +325,8 @@ export const guidePages = [
       "job description keywords",
       "missing resume keywords",
     ],
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-25",
     eyebrow: "Keyword matching",
     intro:
       "Resume keywords are the role-specific skills, tools, qualifications, and responsibilities that connect your experience to a job posting. Used well, they help both ATS software and recruiters understand your fit faster.",
@@ -817,6 +823,8 @@ export const guidePages = [
       "remote work skills resume",
       "distributed team CV",
     ],
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-25",
     eyebrow: "Remote applications",
     intro:
       "Remote roles often receive a large number of applications. A remote job CV should make it easy to see that you can communicate clearly, manage work independently, and collaborate across tools and time zones.",
@@ -1055,6 +1063,8 @@ export const guidePages = [
       "resume parser friendly format",
       "ATS resume sections",
     ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-25",
     eyebrow: "ATS formatting",
     intro:
       "ATS-friendly formatting is not about making a resume look empty. It is about making sure the most important information can be extracted, searched, and understood by software and by the recruiter who reads it next.",
@@ -1167,6 +1177,8 @@ export const guidePages = [
       "freelance portfolio CV",
       "gig application resume",
     ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-25",
     eyebrow: "Freelance applications",
     intro:
       "A freelance CV or profile has to answer a client question quickly: can this person understand my problem and deliver the result I need? The best freelance applications make services, proof, process, and outcomes easy to see.",
@@ -1409,6 +1421,8 @@ export const guidePages = [
       "CV checklist",
       "resume review tips",
     ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-25",
     eyebrow: "CV review",
     intro:
       "Many CV problems are fixable before you apply. The goal is not to make the document perfect. The goal is to remove avoidable friction so recruiters can quickly understand your fit.",
@@ -1530,6 +1544,8 @@ export const guidePages = [
       "BPO CV Philippines",
       "fresh graduate CV Philippines",
     ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-25",
     eyebrow: "Philippine local jobs",
     intro:
       "A local job CV in the Philippines should make the practical hiring details easy to see: what role you want, how to contact you, where you are based, when you can start, and what proof supports the job posting.",
@@ -1791,6 +1807,8 @@ export const guidePages = [
       "ATS resume checker",
       "resume review tips",
     ],
+    publishedAt: "2026-06-17",
+    updatedAt: "2026-06-25",
     eyebrow: "Resume review strategy",
     intro:
       "A strong resume has to survive two different reviews. Software needs readable text and relevant terms. Humans need fast evidence that your background fits the role.",

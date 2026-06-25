@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 import {
   FileUp,
   Loader2,
@@ -59,6 +60,26 @@ function recommendationsText(result: AnalysisResult) {
     "",
     "Disclaimer: This tool cannot guarantee interviews or ATS approval. It checks readability, relevance, completeness, and common application issues.",
   ].join("\n");
+}
+
+function scoreBand(score: number) {
+  if (score >= 90) {
+    return "90-100";
+  }
+
+  if (score >= 80) {
+    return "80-89";
+  }
+
+  if (score >= 70) {
+    return "70-79";
+  }
+
+  if (score >= 60) {
+    return "60-69";
+  }
+
+  return "0-59";
 }
 
 export function ResumeChecker({
@@ -148,13 +169,19 @@ export function ResumeChecker({
 
     setIsAnalyzing(true);
     timeoutRef.current = setTimeout(() => {
-      setResult(
-        analyzeResume({
-          mode,
-          resumeText: trimmedResume,
-          jobDescription,
-        }),
-      );
+      const analysis = analyzeResume({
+        mode,
+        resumeText: trimmedResume,
+        jobDescription,
+      });
+
+      setResult(analysis);
+      track("checker_analyzed", {
+        mode,
+        has_job_description: jobDescription.trim().length > 0,
+        used_file_upload: fileName.length > 0,
+        score_band: scoreBand(analysis.score),
+      });
       setIsAnalyzing(false);
     }, 450);
   }
@@ -167,6 +194,10 @@ export function ResumeChecker({
     try {
       await navigator.clipboard.writeText(recommendationsText(result));
       setCopied(true);
+      track("report_copied", {
+        mode,
+        score_band: scoreBand(result.score),
+      });
       setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
@@ -194,6 +225,7 @@ export function ResumeChecker({
     setIsAnalyzing(false);
     setIsExtracting(false);
     setCopied(false);
+    track("checker_started_over", { mode });
   }
 
   return (

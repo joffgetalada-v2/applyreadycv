@@ -4,6 +4,7 @@ import type { AnalysisMode } from "@/lib/analyzer/types";
 export const SITE_NAME = "ApplyReadyCV";
 export const SITE_HOST = "applyreadycv.com";
 export const SITE_URL = `https://${SITE_HOST}`;
+export const SITE_LAST_UPDATED = "2026-06-25";
 export const SITE_TAGLINE =
   "Free CV feedback for remote, freelance, and local applications.";
 export const SITE_CONTACT_EMAIL = "hello@applyreadycv.com";

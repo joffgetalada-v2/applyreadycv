@@ -213,6 +213,8 @@ export function breadcrumbSchema(
 
 export function articleSchema(guide: GuidePage): JsonLdData {
   const url = absoluteUrl(guide.path);
+  const datePublished = guide.publishedAt ?? "2026-06-02";
+  const dateModified = guide.updatedAt ?? guide.publishedAt ?? datePublished;
 
   return {
     "@context": "https://schema.org",
@@ -224,8 +226,9 @@ export function articleSchema(guide: GuidePage): JsonLdData {
     ...(guide.image ? { image: absoluteUrl(guide.image.src) } : {}),
     inLanguage: "en",
     keywords: guide.seoKeywords.join(", "),
-    datePublished: guide.publishedAt ?? "2026-06-02",
-    dateModified: guide.updatedAt ?? "2026-06-17",
+    datePublished,
+    dateModified,
+    isAccessibleForFree: true,
     author: {
       "@id": organizationId,
     },

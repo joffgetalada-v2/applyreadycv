@@ -3,7 +3,22 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ListChecks } from "lucide-react";
 import type { GuidePage } from "@/lib/guides";
 
+function formatGuideDate(value?: string) {
+  if (!value) {
+    return null;
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value}T00:00:00Z`));
+}
+
 export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
+  const updatedAt = formatGuideDate(guide.updatedAt);
+
   return (
     <main>
       <section className="border-b border-slate-200 bg-white/70">
@@ -23,6 +38,11 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {guide.intro}
           </p>
+          {updatedAt && (
+            <p className="mt-4 text-sm font-semibold text-slate-500">
+              Last updated {updatedAt}
+            </p>
+          )}
           {guide.image && (
             <figure className="mt-8 overflow-hidden rounded-lg border border-slate-200 bg-white">
               <Image
@@ -121,8 +141,8 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
               Turn this guide into action
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Use the free checker to review your resume or CV before sending
-              another application.
+              Paste your resume or CV, add a job description if you have one,
+              and review private, browser-based feedback before applying.
             </p>
             <Link
               href={guide.cta.href}

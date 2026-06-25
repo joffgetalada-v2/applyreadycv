@@ -16,6 +16,14 @@ type RelatedResource = {
   description: string;
 };
 
+type CheckerCta = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  checklist: string[];
+  button: string;
+};
+
 const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   [contentPages.remote.path]: [
     {
@@ -164,6 +172,64 @@ const relatedResourcesByPath: Record<string, RelatedResource[]> = {
   ],
 };
 
+const checkerCtaByPath: Record<string, CheckerCta> = {
+  [contentPages.remote.path]: {
+    eyebrow: "Remote CV check",
+    title: "Check remote readiness privately",
+    body: "Paste your CV and a remote job post to review async communication, tools, ownership, keyword match, and role-fit gaps.",
+    checklist: [
+      "Remote signals",
+      "Matched and missing keywords",
+      "Top edits before applying",
+    ],
+    button: "Check remote CV",
+  },
+  [contentPages.freelance.path]: {
+    eyebrow: "Freelance CV check",
+    title: "Review your client-ready proof",
+    body: "Paste your CV, profile copy, or project summary to check service focus, portfolio proof, client outcomes, and brief-specific keywords.",
+    checklist: [
+      "Service focus",
+      "Project and portfolio signals",
+      "Client outcome clarity",
+    ],
+    button: "Check freelance CV",
+  },
+  [contentPages.local.path]: {
+    eyebrow: "Local CV check",
+    title: "Run a practical local CV audit",
+    body: "Paste your CV to review contact details, availability, qualifications, local role keywords, and work-history clarity.",
+    checklist: [
+      "Contact and availability",
+      "Role-specific local keywords",
+      "Education and work history gaps",
+    ],
+    button: "Check local CV",
+  },
+  [contentPages.ats.path]: {
+    eyebrow: "ATS readability check",
+    title: "Check readable structure before applying",
+    body: "Paste your resume to review sections, formatting risks, extractable text, achievements, and keyword alignment without ATS pass guarantees.",
+    checklist: [
+      "Readable sections",
+      "Formatting and extraction warnings",
+      "Keyword and achievement gaps",
+    ],
+    button: "Check ATS readiness",
+  },
+  [contentPages.keywords.path]: {
+    eyebrow: "Keyword match check",
+    title: "Compare your resume to a job post",
+    body: "Paste your resume and the job description to find matched and missing terms, then add only keywords you can honestly support.",
+    checklist: [
+      "Matched role terms",
+      "Missing keywords to review",
+      "Anti-stuffing guidance",
+    ],
+    button: "Check resume keywords",
+  },
+};
+
 export function ContentPageLayout({ page }: { page: ContentPage }) {
   const checkerHref = checkerHrefForMode(page.analysisMode);
   const relatedResources = relatedResourcesByPath[page.path] ?? [
@@ -173,6 +239,17 @@ export function ContentPageLayout({ page }: { page: ContentPage }) {
       description: "Browse practical guides for ATS, keywords, and CV readiness.",
     },
   ];
+  const checkerCta = checkerCtaByPath[page.path] ?? {
+    eyebrow: "Use the checker",
+    title: "Run a private CV audit",
+    body: "Paste your CV and an optional job description to get practical feedback. The score is guidance, not a hiring promise.",
+    checklist: [
+      "Practical score",
+      "Top fixes",
+      "Privacy-first local analysis",
+    ],
+    button: "Open free checker",
+  };
 
   return (
     <main>
@@ -228,20 +305,30 @@ export function ContentPageLayout({ page }: { page: ContentPage }) {
           <aside className="space-y-5 lg:sticky lg:top-8 lg:self-start">
             <div className="rounded-lg border border-indigo-100 bg-white p-5">
               <p className="text-sm font-semibold uppercase text-indigo-700">
-                Use the checker
+                {checkerCta.eyebrow}
               </p>
               <h2 className="mt-2 text-2xl font-semibold text-slate-950">
-                Run a private CV audit
+                {checkerCta.title}
               </h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Paste your CV and an optional job description to get practical
-                local feedback. The score is guidance, not a hiring promise.
+                {checkerCta.body}
               </p>
+              <ul className="mt-4 grid gap-2 text-sm leading-6 text-slate-700">
+                {checkerCta.checklist.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <CheckCircle2
+                      className="mt-1 h-4 w-4 shrink-0 text-emerald-700"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
               <Link
                 href={checkerHref}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
               >
-                Open free checker
+                {checkerCta.button}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
