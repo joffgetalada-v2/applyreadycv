@@ -83,14 +83,17 @@ function scoreLabel(score: number) {
 }
 
 function buildSummary(score: number, mode: AnalysisMode, hasJobDescription: boolean) {
-  const modeName = MODE_PROFILES[mode].name.toLowerCase();
+  const applicationType =
+    mode === "general"
+      ? "general application"
+      : `${MODE_PROFILES[mode].name.toLowerCase()} application`;
 
   if (score >= 85) {
-    return `Your CV is in strong shape for a ${modeName} application. Review the keyword and mode-specific suggestions before sending it.`;
+    return `Your CV is in strong shape for a ${applicationType}. Review the keyword and application-fit suggestions before sending it.`;
   }
 
   if (score >= 70) {
-    return `Your CV has a solid base for a ${modeName} application, with a few practical gaps to close before applying.`;
+    return `Your CV has a solid base for a ${applicationType}, with a few practical gaps to close before applying.`;
   }
 
   if (score >= 50) {
@@ -195,7 +198,7 @@ export function analyzeResume({
   clarityAchievements += genericPhraseCount <= 1 ? 3 : genericPhraseCount <= 3 ? 1 : 0;
   clarityAchievements += wordCount >= 180 && wordCount <= 1100 ? 3 : wordCount > 1100 ? 1 : 0;
 
-  const modeThreshold = mode === "local" ? 8 : 7;
+  const modeThreshold = mode === "local" ? 8 : mode === "general" ? 6 : 7;
   const modeFit = clampScore((modeMatches.length / modeThreshold) * 20, 20);
 
   let completeness = 0;

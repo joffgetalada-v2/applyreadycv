@@ -1,4 +1,4 @@
-export type AnalysisMode = "remote" | "freelance" | "local";
+export type AnalysisMode = "general" | "remote" | "freelance" | "local";
 
 export type AnalysisCategories = {
   atsReadability: number;

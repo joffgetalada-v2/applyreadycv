@@ -1,6 +1,31 @@
 import type { AnalysisMode, ModeProfile } from "./types";
 
 export const MODE_PROFILES: Record<AnalysisMode, ModeProfile> = {
+  general: {
+    name: "General Application",
+    shortName: "General",
+    description:
+      "Checks ATS readability, role keywords, achievements, completeness, and general application fit.",
+    signals: [
+      "summary",
+      "profile",
+      "experience",
+      "skills",
+      "education",
+      "projects",
+      "certification",
+      "managed",
+      "improved",
+      "delivered",
+      "increased",
+    ],
+    suggestions: [
+      "Use clear section headings for contact details, experience, skills, and education.",
+      "Paste the target job description so the report can compare role keywords.",
+      "Show measurable evidence with scope, volume, speed, quality, or outcomes.",
+      "Add only keywords that truthfully match your experience, tools, education, or projects.",
+    ],
+  },
   remote: {
     name: "Remote Job",
     shortName: "Remote",

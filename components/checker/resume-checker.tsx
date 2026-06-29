@@ -44,7 +44,7 @@ function recommendationsText(result: AnalysisResult) {
       ? result.missingKeywords.join(", ")
       : "None detected.",
     "",
-    "Mode-specific suggestions:",
+    "Application guidance:",
     ...result.modeSpecificSuggestions.map((suggestion) => `- ${suggestion}`),
     "",
     "Role fit compass:",
@@ -400,20 +400,21 @@ export function ResumeChecker({
       <div className="mt-6">
         {result ? (
           <ReportCard
+            mode={mode}
             result={result}
             copied={copied}
             onCopy={handleCopy}
             onStartOver={handleStartOver}
           />
         ) : (
-          <EmptyReportPreview />
+          <EmptyReportPreview mode={mode} />
         )}
       </div>
     </section>
   );
 }
 
-function EmptyReportPreview() {
+function EmptyReportPreview({ mode }: { mode: AnalysisMode }) {
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
       <div className="grid gap-5 md:grid-cols-[auto_1fr] md:items-center">
@@ -437,7 +438,12 @@ function EmptyReportPreview() {
         {[
           ["ATS readability", "Clear sections and extractable text"],
           ["Job match", "Matched and missing job keywords"],
-          ["Mode fit", "Remote, freelance, or local readiness"],
+          [
+            mode === "general" ? "Application fit" : "Mode fit",
+            mode === "general"
+              ? "General readiness and role evidence"
+              : "Remote, freelance, or local readiness",
+          ],
         ].map(([title, body]) => (
           <div key={title} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
             <p className="text-sm font-semibold text-slate-950">{title}</p>

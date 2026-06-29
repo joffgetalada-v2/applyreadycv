@@ -125,8 +125,8 @@ export const homepageSeo: SeoPage = {
   breadcrumbName: "Home",
 };
 
-export function checkerHrefForMode(mode?: AnalysisMode) {
-  return mode ? `/?mode=${mode}#checker` : "/#checker";
+export function checkerHrefForMode(mode: AnalysisMode = "general") {
+  return `/?mode=${mode}#checker`;
 }
 
 export function absoluteUrl(path = "/") {
@@ -432,6 +432,7 @@ export const contentPages = {
       "ATS resume keywords",
       "resume parser readability",
     ],
+    analysisMode: "general",
     eyebrow: "ATS readability education",
     intro:
       "Applicant tracking systems can parse resumes differently depending on file format, layout, and employer configuration. A checker score can be useful guidance, but it is not a promise that any specific system will approve your resume.",
@@ -523,6 +524,7 @@ export const contentPages = {
       "skills keyword checker",
       "resume keyword scanner",
     ],
+    analysisMode: "general",
     eyebrow: "Resume keyword matching",
     intro:
       "A resume keyword check helps you compare the language in a job description with the language in your resume. The goal is not to stuff terms everywhere, but to make sure your relevant skills and experience are visible.",

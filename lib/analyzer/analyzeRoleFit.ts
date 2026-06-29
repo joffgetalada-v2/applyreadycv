@@ -132,7 +132,8 @@ function scoreTextAgainstFamily(text: string, family: RoleFamily, mode: Analysis
   const matchedSenioritySignals = family.senioritySignals.filter((signal) =>
     keywordAppears(text, signal),
   );
-  const modeBoost = family.modeFit.includes(mode) ? 1 : 0;
+  const modeBoost =
+    mode === "general" ? 0 : family.modeFit.includes(mode) ? 1 : 0;
   const score =
     matchedTitles.length * 3 +
     matchedKeywords.length * 2 +
@@ -247,14 +248,20 @@ function buildSummary({
   resumeTop,
   jobTop,
   hasJobDescription,
+  hasResumeRoleEvidence,
   seniorStretch,
 }: {
   level: RoleFitLevel;
   resumeTop: RoleScore;
   jobTop: RoleScore | null;
   hasJobDescription: boolean;
+  hasResumeRoleEvidence: boolean;
   seniorStretch: boolean;
 }) {
+  if (!hasResumeRoleEvidence) {
+    return "Not enough role-specific evidence was detected to recommend a role family yet. Add clearer titles, skills, tools, responsibilities, or project proof.";
+  }
+
   if (!hasJobDescription || !jobTop) {
     return `No job description was provided, so this uses the CV text and selected mode only. The CV appears most aligned with ${resumeTop.family.name}; consider targeting role families close to that evidence.`;
   }
@@ -279,6 +286,10 @@ function buildSummary({
 }
 
 function getModeFallbackScores(mode: AnalysisMode) {
+  if (mode === "general") {
+    return [];
+  }
+
   return roleFamilies
     .filter((family) => family.modeFit.includes(mode))
     .slice(0, 3)
@@ -346,7 +357,18 @@ export function analyzeRoleFit(
   const resumeScores = scoreRoleFamilies(resumeText, mode);
   const jobScores = scoreRoleFamilies(jobDescriptionText, mode);
   const fallbackScores = getModeFallbackScores(mode);
-  const resumeTop = resumeScores.find((score) => score.score > 1) ?? fallbackScores[0];
+  const resumeEvidence = resumeScores.find((score) => score.score > 1);
+  const hasResumeRoleEvidence = Boolean(resumeEvidence);
+  const resumeTop =
+    resumeEvidence ??
+    fallbackScores[0] ?? {
+      family: roleFamilies[0],
+      score: 0,
+      matchedTitles: [],
+      matchedKeywords: [],
+      matchedProofSignals: [],
+      matchedSenioritySignals: [],
+    };
   const hasJobDescription = jobDescriptionText.trim().length > 0;
   const jobTop = hasJobDescription
     ? jobScores.find((score) => score.score > 1) ?? null
@@ -363,7 +385,9 @@ export function analyzeRoleFit(
 
   let targetFitLevel: RoleFitLevel = "moderate";
 
-  if (!hasJobDescription || !jobTop) {
+  if (!hasResumeRoleEvidence) {
+    targetFitLevel = "weak";
+  } else if (!hasJobDescription || !jobTop) {
     targetFitLevel = resumeTop.score >= 5 ? "moderate" : "weak";
   } else {
     const sameFamily = resumeTop.family.id === jobTop.family.id;
@@ -387,10 +411,16 @@ export function analyzeRoleFit(
     }
   }
 
-  const strongAlignedScores = resumeScores.filter((score) => score.score > 1);
-  const adjacentAlignedScores = (RELATED_ROLE_FAMILIES[resumeTop.family.id] ?? [])
-    .map((familyId) => resumeScores.find((score) => score.family.id === familyId))
-    .filter((score): score is RoleScore => Boolean(score));
+  const strongAlignedScores = hasResumeRoleEvidence
+    ? resumeScores.filter((score) => score.score > 1)
+    : [];
+  const adjacentAlignedScores = hasResumeRoleEvidence
+    ? (RELATED_ROLE_FAMILIES[resumeTop.family.id] ?? [])
+        .map((familyId) =>
+          resumeScores.find((score) => score.family.id === familyId),
+        )
+        .filter((score): score is RoleScore => Boolean(score))
+    : [];
   const alignedScores = uniqueRoleScores([
     ...strongAlignedScores,
     ...adjacentAlignedScores,
@@ -441,6 +471,7 @@ export function analyzeRoleFit(
       resumeTop,
       jobTop,
       hasJobDescription,
+      hasResumeRoleEvidence,
       seniorStretch,
     }),
     detectedResumeSignals: buildSignalSummaries(

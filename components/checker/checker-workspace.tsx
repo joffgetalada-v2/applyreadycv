@@ -3,6 +3,10 @@
 import { startTransition, useCallback, useEffect, useState } from "react";
 import { ResumeChecker, type CheckerInputSnapshot } from "./resume-checker";
 import { RoleFitCompassPanel } from "./role-fit-compass-panel";
+import {
+  DEFAULT_ANALYSIS_MODE,
+  resolveAnalysisMode,
+} from "@/lib/analyzer/modes";
 import type {
   AnalysisMode,
   AnalysisResult,
@@ -16,23 +20,19 @@ const initialSnapshot: CheckerInputSnapshot = {
   fileName: "",
 };
 
-function isAnalysisMode(value: string | null): value is AnalysisMode {
-  return value === "remote" || value === "freelance" || value === "local";
-}
-
 export function CheckerWorkspace() {
-  const [mode, setMode] = useState<AnalysisMode>("remote");
+  const [mode, setMode] = useState<AnalysisMode>(DEFAULT_ANALYSIS_MODE);
   const [snapshot, setSnapshot] = useState<CheckerInputSnapshot>(initialSnapshot);
   const [compass, setCompass] = useState<RoleFitCompass | null>(null);
 
   useEffect(() => {
-    const nextMode = new URLSearchParams(window.location.search).get("mode");
+    const nextMode = resolveAnalysisMode(
+      new URLSearchParams(window.location.search).get("mode"),
+    );
 
-    if (isAnalysisMode(nextMode)) {
-      startTransition(() => {
-        setMode(nextMode);
-      });
-    }
+    startTransition(() => {
+      setMode(nextMode);
+    });
   }, []);
 
   const handleAnalysisResultChange = useCallback((result: AnalysisResult | null) => {

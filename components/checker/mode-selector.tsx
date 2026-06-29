@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, MonitorCheck, PenTool } from "lucide-react";
+import { MapPin, MonitorCheck, PenTool, ScanSearch } from "lucide-react";
 import type { AnalysisMode } from "@/lib/analyzer/types";
 
 export const checkerModes: Array<{
@@ -10,6 +10,13 @@ export const checkerModes: Array<{
   detail: string;
   icon: typeof MonitorCheck;
 }> = [
+  {
+    value: "general",
+    label: "General",
+    description: "General ATS Check",
+    detail: "Readability, keywords, achievements, and completeness.",
+    icon: ScanSearch,
+  },
   {
     value: "remote",
     label: "Remote",
@@ -45,7 +52,7 @@ export function ModeSelector({
       <legend className="text-sm font-semibold text-slate-950">
         Application mode
       </legend>
-      <div className="mt-3 grid rounded-lg border border-slate-200 bg-slate-100 p-1 sm:grid-cols-3">
+      <div className="mt-3 grid rounded-lg border border-slate-200 bg-slate-100 p-1 sm:grid-cols-4">
         {checkerModes.map(({ value: modeValue, label, description, icon: Icon }) => {
           const selected = value === modeValue;
 

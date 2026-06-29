@@ -128,7 +128,9 @@ function CompassPreview({
       active: hasJobDescription,
     },
     {
-      label: `Mode signals: ${modeDetail}`,
+      label: `${
+        modeDetail.startsWith("Readability") ? "Review focus" : "Mode signals"
+      }: ${modeDetail}`,
       active: true,
     },
   ];

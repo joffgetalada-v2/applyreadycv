@@ -8,6 +8,7 @@ import {
   Target,
 } from "lucide-react";
 import type {
+  AnalysisMode,
   AnalysisResult,
   RoleFitLevel,
   RoleSuggestion,
@@ -15,6 +16,7 @@ import type {
 import { ScoreMeter } from "@/components/checker/score-meter";
 
 type ReportCardProps = {
+  mode: AnalysisMode;
   result: AnalysisResult;
   copied: boolean;
   onCopy: () => void;
@@ -70,6 +72,7 @@ function confidenceClass(confidence: RoleSuggestion["confidence"]) {
 }
 
 export function ReportCard({
+  mode,
   result,
   copied,
   onCopy,
@@ -114,7 +117,9 @@ export function ReportCard({
                   <div key={category.key}>
                     <div className="flex justify-between gap-4 text-sm">
                       <span className="font-medium text-slate-700">
-                        {category.label}
+                        {category.key === "modeFit" && mode === "general"
+                          ? "Application fit"
+                          : category.label}
                       </span>
                       <span className="font-semibold text-slate-950">
                         {value} / {category.max}
@@ -238,7 +243,9 @@ export function ReportCard({
       <div className="grid gap-5 border-t border-slate-200 p-5 lg:grid-cols-2">
         <section aria-labelledby="mode-suggestions">
           <h4 id="mode-suggestions" className="text-sm font-semibold text-slate-950">
-            Mode-specific suggestions
+            {mode === "general"
+              ? "Application guidance"
+              : "Mode-specific suggestions"}
           </h4>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
             {result.modeSpecificSuggestions.map((suggestion) => (
