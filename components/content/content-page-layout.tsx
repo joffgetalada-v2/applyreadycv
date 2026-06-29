@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -286,6 +287,21 @@ export function ContentPageLayout({ page }: { page: ContentPage }) {
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_0.65fr]">
           <div className="space-y-10">
+            {page.screenshot && (
+              <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white">
+                <Image
+                  src={page.screenshot.src}
+                  alt={page.screenshot.alt}
+                  width={page.screenshot.width}
+                  height={page.screenshot.height}
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  className="h-auto w-full"
+                />
+                <figcaption className="border-t border-slate-200 px-5 py-4 text-sm leading-6 text-slate-600">
+                  {page.screenshot.caption}
+                </figcaption>
+              </figure>
+            )}
             <ContentSection
               icon={ClipboardCheck}
               title={page.checklistTitle}

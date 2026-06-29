@@ -185,6 +185,14 @@ export const guidePages: GuidePage[] = [
           "Review matched and missing keywords, then add only terms supported by real evidence.",
           "Edit the resume and rerun the check instead of chasing a perfect score.",
         ],
+        image: {
+          src: "/screenshots/sample-general-report.png",
+          alt: "Fictional ApplyReadyCV General report showing an 80 readiness score and category breakdown",
+          caption:
+            "Fictional sample report generated with the current General checker using Alex Morgan's resume and a fictional job description. No real applicant data is shown.",
+          width: 720,
+          height: 1761,
+        },
       },
       {
         title: "What to do after the checker finds issues",

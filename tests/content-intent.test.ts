@@ -33,3 +33,22 @@ test("ATS guide includes editorial authorship and authoritative sources", () => 
     ),
   );
 });
+
+test("ATS pages reference current product screenshots with fictional data", () => {
+  const guide = guidePages.find(
+    (item) => item.slug === "ats-resume-checker-guide",
+  );
+  const walkthrough = guide?.sections.find((section) =>
+    /sample report walkthrough/i.test(section.title),
+  );
+
+  assert.equal(
+    contentPages.ats.screenshot?.src,
+    "/screenshots/general-resume-checker.png",
+  );
+  assert.equal(
+    walkthrough?.image?.src,
+    "/screenshots/sample-general-report.png",
+  );
+  assert.match(walkthrough?.image?.caption ?? "", /fictional/i);
+});

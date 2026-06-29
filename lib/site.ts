@@ -57,6 +57,14 @@ export type ContentCard = {
   body: string;
 };
 
+export type ContentScreenshot = {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
+
 export type ContentPage = {
   path: string;
   title: string;
@@ -67,6 +75,7 @@ export type ContentPage = {
   eyebrow: string;
   intro: string;
   summary: string[];
+  screenshot?: ContentScreenshot;
   checklistTitle: string;
   checklist: ContentCard[];
   mistakesTitle: string;
@@ -441,6 +450,14 @@ export const contentPages = {
       "Review readable structure, keyword alignment, achievements, and completeness in one report.",
       "Use the score to prioritize edits, not as a guaranteed ATS outcome.",
     ],
+    screenshot: {
+      src: "/screenshots/general-resume-checker.png",
+      alt: "ApplyReadyCV General resume checker with private text inputs and analysis controls",
+      caption:
+        "The current General checker reviews resume text and an optional job description locally in the browser.",
+      width: 720,
+      height: 1238,
+    },
     checklistTitle: "ATS readability basics",
     checklist: [
       {
