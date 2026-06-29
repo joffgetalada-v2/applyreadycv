@@ -11,6 +11,7 @@ export type GuideSection = {
   title: string;
   body: string[];
   bullets?: string[];
+  image?: GuideImage;
 };
 
 export type GuideImage = {
@@ -19,6 +20,12 @@ export type GuideImage = {
   caption: string;
   width: number;
   height: number;
+};
+
+export type GuideSource = {
+  label: string;
+  publisher: string;
+  href: string;
 };
 
 export type GuidePage = {
@@ -42,6 +49,7 @@ export type GuidePage = {
   };
   relatedLinks: GuideLink[];
   faq: FaqItem[];
+  sources?: GuideSource[];
 };
 
 export const guidesIndex = {
@@ -75,14 +83,14 @@ export const guidesIndex = {
   ],
 };
 
-export const guidePages = [
+export const guidePages: GuidePage[] = [
   {
     slug: "ats-resume-checker-guide",
     path: "/guides/ats-resume-checker-guide",
-    title: "ATS Resume Checker: Readability Basics Before You Apply",
-    metadataTitle: "ATS Resume Checker Guide | ApplyReadyCV",
+    title: "How ATS Resume Checkers Work: Methodology and Limits",
+    metadataTitle: "How ATS Resume Checkers Work | ApplyReadyCV",
     metaDescription:
-      "Learn how ATS resume checkers work, what they evaluate, and how to improve formatting, keywords, and readability before applying.",
+      "Learn how ATS resume checkers work, how ApplyReadyCV calculates its score, what the report cannot predict, and how to interpret a sample result.",
     seoKeywords: [
       "ATS resume checker",
       "resume ATS checker",
@@ -92,20 +100,20 @@ export const guidePages = [
       "applicant tracking system resume",
     ],
     publishedAt: "2026-06-02",
-    updatedAt: "2026-06-25",
-    eyebrow: "ATS readiness",
+    updatedAt: "2026-06-29",
+    eyebrow: "ATS checker methodology",
     intro:
-      "An ATS resume checker helps you find common issues before your resume reaches an employer's screening software. The goal is not to trick the system. It is to make your real experience easier for software and recruiters to read.",
+      "An ATS resume checker is an editing aid. This guide explains what ApplyReadyCV measures, how its deterministic score is assembled, what the report cannot know, and how to turn one sample result into practical resume edits.",
     summary: [
-      "ATS tools look for readable structure, relevant keywords, and extractable text.",
-      "Simple formatting is usually safer than layouts built around graphics, tables, or complex columns.",
-      "A checker score is guidance, not proof that any employer will approve your resume.",
+      "ApplyReadyCV scores five visible categories with transparent, browser-based rules.",
+      "The report can find common readability and relevance gaps, but it cannot reproduce every employer's system.",
+      "The useful outcome is a prioritized editing plan, not a perfect score.",
     ],
     sections: [
       {
         title: "What an ATS resume checker does",
         body: [
-          "Applicant tracking systems help employers collect, parse, search, and rank applications. A resume checker reviews similar risk areas before you apply: whether the text can be extracted, whether key sections are easy to find, and whether the resume language matches the role.",
+          "Applicant tracking systems help employers collect, parse, search, and manage applications. A resume checker reviews related risk areas before you apply: whether text can be extracted, whether key sections are easy to find, and whether the resume language matches the role.",
           "ApplyReadyCV checks practical signals such as contact details, sections, skills, action verbs, measurable achievements, keyword overlap, and possible formatting extraction issues.",
         ],
         bullets: [
@@ -114,6 +122,20 @@ export const guidePages = [
           "Relevant job-description keywords",
           "Action verbs and measurable achievements",
           "Warnings for very short or oddly extracted text",
+        ],
+      },
+      {
+        title: "ApplyReadyCV scoring methodology",
+        body: [
+          "The score is deterministic. The same resume text, job description, and selected mode produce the same result. The analysis runs locally in the browser and does not send resume content to a model or resume database.",
+          "Each category has a fixed maximum. The report combines the category values into a score out of 100, then shows the evidence and warnings behind that number.",
+        ],
+        bullets: [
+          "ATS readability: 25 points for extractable text, contact details, clear sections, action language, and basic formatting signals.",
+          "Job match: 25 points based on meaningful overlap with the pasted job description.",
+          "Clarity and achievements: 20 points for measurable evidence, action verbs, readable bullets, useful detail, and limited generic phrasing.",
+          "Application or mode fit: 20 points for neutral evidence in General mode or specialized signals in Remote, Freelance, and Local modes.",
+          "Completeness: 10 points for contact details, experience, skills, education, and enough supporting detail.",
         ],
       },
       {
@@ -144,6 +166,27 @@ export const guidePages = [
         ],
       },
       {
+        title: "What this methodology cannot determine",
+        body: [
+          "Employers configure different application systems, knockout questions, workflows, and human review steps. ApplyReadyCV cannot see those settings, reproduce a recruiter's judgment, or guarantee that a document will be accepted.",
+          "Text extraction can reveal missing or scrambled content, but it cannot fully judge every visual layout choice. Review the original file, the extracted text, and the employer's instructions before submitting.",
+        ],
+      },
+      {
+        title: "Sample report walkthrough",
+        body: [
+          "The sample uses a fictional project coordinator named Alex Morgan and a fictional job description. No real applicant data appears in the screenshot.",
+          "Read the report from the largest decision to the smallest detail. Start with the overall score, then use the category breakdown and top fixes to decide what to edit first.",
+        ],
+        bullets: [
+          "Check the total score as a starting point, not a hiring prediction.",
+          "Find the lowest category and inspect the related warnings.",
+          "Complete the top fixes before polishing minor wording.",
+          "Review matched and missing keywords, then add only terms supported by real evidence.",
+          "Edit the resume and rerun the check instead of chasing a perfect score.",
+        ],
+      },
+      {
         title: "What to do after the checker finds issues",
         body: [
           "Do not chase a perfect score. Use the result to fix the most important gaps: missing core skills, unclear sections, weak achievements, or formatting that appears difficult to extract.",
@@ -153,7 +196,8 @@ export const guidePages = [
     ],
     cta: {
       label: "Check ATS readiness",
-      href: "/ats-resume-checker",
+      href: "/?mode=general#checker",
+      mode: "general",
     },
     relatedLinks: [
       {
@@ -187,6 +231,18 @@ export const guidePages = [
         question: "Is simple formatting always better?",
         answer:
           "Simple, readable formatting is usually safer for online applications. You can still keep a polished design as long as the important text remains easy to extract and scan.",
+      },
+    ],
+    sources: [
+      {
+        label: "What is an Applicant Tracking System?",
+        publisher: "Workday",
+        href: "https://www.workday.com/en-us/topics/hr/applicant-tracking-system.html",
+      },
+      {
+        label: "Resume Formatting and Common Errors",
+        publisher: "Yale Office of Career Strategy",
+        href: "https://ocs.yale.edu/resources/resume-formatting/",
       },
     ],
   },
@@ -1922,7 +1978,7 @@ export const guidePages = [
       },
     ],
   },
-] satisfies GuidePage[];
+];
 
 export function getGuideBySlug(slug: string) {
   return guidePages.find((guide) => guide.slug === slug);

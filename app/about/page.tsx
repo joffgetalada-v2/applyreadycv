@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { supportPages } from "@/lib/site";
+import { EDITORIAL_AUTHOR } from "@/lib/editorial";
 
 const page = supportPages.about;
 
@@ -52,6 +53,10 @@ export default function AboutPage() {
           {
             title: "No fake company story",
             body: "ApplyReadyCV does not claim endorsements, recruiter approval, partner logos, invented ratings, or fake testimonials. The product stands on useful content and a working checker.",
+          },
+          {
+            title: `Content reviewed by the ${EDITORIAL_AUTHOR.name}`,
+            body: `${EDITORIAL_AUTHOR.reviewStandard} The team explains how the checker works, cites public sources where they support factual guidance, and avoids promises about ATS approval, interviews, or hiring outcomes.`,
           },
         ]}
         cta={{ label: "Check your CV", href: "/#checker" }}

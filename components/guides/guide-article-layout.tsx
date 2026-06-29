@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ListChecks } from "lucide-react";
 import { TrackedCheckerLink } from "@/components/analytics/tracked-checker-link";
 import type { GuidePage } from "@/lib/guides";
+import { EDITORIAL_AUTHOR } from "@/lib/editorial";
 
 function formatGuideDate(value?: string) {
   if (!value) {
@@ -38,6 +39,20 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {guide.intro}
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600">
+            <span>By</span>
+            <Link
+              href={EDITORIAL_AUTHOR.path}
+              className="font-semibold text-indigo-700 transition hover:text-indigo-900"
+            >
+              {EDITORIAL_AUTHOR.name}
+            </Link>
+            <span aria-hidden="true">|</span>
+            <span>{EDITORIAL_AUTHOR.role}</span>
+          </div>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">
+            {EDITORIAL_AUTHOR.reviewStandard}
           </p>
           {updatedAt && (
             <p className="mt-4 text-sm font-semibold text-slate-500">
@@ -94,6 +109,21 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {section.image && (
+                <figure className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white">
+                  <Image
+                    src={section.image.src}
+                    alt={section.image.alt}
+                    width={section.image.width}
+                    height={section.image.height}
+                    sizes="(max-width: 1024px) 100vw, 720px"
+                    className="h-auto w-full"
+                  />
+                  <figcaption className="border-t border-slate-200 px-4 py-3 text-sm leading-6 text-slate-600">
+                    {section.image.caption}
+                  </figcaption>
+                </figure>
+              )}
               {section.bullets && (
                 <ul className="mt-5 grid gap-3 text-sm leading-6 text-slate-700 sm:grid-cols-2">
                   {section.bullets.map((bullet) => (
@@ -131,6 +161,37 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
               ))}
             </div>
           </section>
+
+          {guide.sources && guide.sources.length > 0 && (
+            <section className="rounded-lg border border-slate-200 bg-slate-50 p-6">
+              <h2 className="text-2xl font-semibold text-slate-950">
+                Sources and further reading
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                These sources support the description of applicant tracking
+                systems and the practical formatting guidance in this article.
+              </p>
+              <ul className="mt-5 grid gap-3">
+                {guide.sources.map((source) => (
+                  <li key={source.href}>
+                    <a
+                      href={source.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block rounded-lg border border-slate-200 bg-white p-4 transition hover:border-indigo-200 hover:bg-indigo-50/30"
+                    >
+                      <span className="font-semibold text-indigo-800">
+                        {source.label}
+                      </span>
+                      <span className="mt-1 block text-sm text-slate-600">
+                        {source.publisher}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </article>
 
         <aside className="space-y-5 lg:sticky lg:top-8 lg:self-start">

@@ -1,5 +1,6 @@
 import type { ContentPage, FaqItem } from "@/lib/site";
 import type { GuidePage } from "@/lib/guides";
+import { EDITORIAL_AUTHOR } from "@/lib/editorial";
 import {
   SITE_CONTACT_EMAIL,
   SITE_NAME,
@@ -230,7 +231,9 @@ export function articleSchema(guide: GuidePage): JsonLdData {
     dateModified,
     isAccessibleForFree: true,
     author: {
-      "@id": organizationId,
+      "@type": "Organization",
+      name: EDITORIAL_AUTHOR.name,
+      url: absoluteUrl(EDITORIAL_AUTHOR.path),
     },
     publisher: {
       "@id": organizationId,

@@ -106,13 +106,12 @@ export default function Home() {
                 Privacy-first CV readiness dashboard
               </p>
               <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Free resume and CV checker for ATS, keywords, remote,
-                freelance, and local applications.
+                Free resume and CV feedback before you apply.
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                ApplyReadyCV gives a private resume score and practical feedback
-                on ATS readability, resume keywords, achievements,
-                completeness, and job fit without storing your resume.
+                Check ATS readability, job-description keywords, achievements,
+                completeness, and job fit in your browser. No account and no
+                stored resume content.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <TrackedCheckerLink
@@ -123,7 +122,7 @@ export default function Home() {
                   targetMode="general"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
                 >
-                  Start the free check
+                  Check my resume free
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </TrackedCheckerLink>
                 <Link

@@ -118,9 +118,9 @@ export const sitemapRoutes = footerNav.map((item) => item.href);
 
 export const homepageSeo: SeoPage = {
   path: "/",
-  title: "Free ATS Resume & CV Checker | ApplyReadyCV",
+  title: "Free Resume & CV Checker | ApplyReadyCV",
   description:
-    "Use a free resume and CV checker with a practical score for ATS readability, resume keywords, remote jobs, freelance gigs, and local applications.",
+    "Use a free, privacy-first resume and CV checker for practical feedback on readability, keywords, achievements, completeness, and job fit.",
   keywords: baseSeoKeywords,
   breadcrumbName: "Home",
 };
@@ -418,10 +418,10 @@ export const contentPages = {
   },
   ats: {
     path: "/ats-resume-checker",
-    title: "ATS Resume Checker",
-    metadataTitle: "ATS Resume Checker | ApplyReadyCV",
+    title: "Interactive ATS Resume Checker",
+    metadataTitle: "Interactive ATS Resume Checker | ApplyReadyCV",
     metaDescription:
-      "Learn ATS resume readability basics and check common formatting, structure, keyword, and completeness issues without false ATS approval guarantees.",
+      "Use an interactive ATS resume checker to review readable structure, extracted text, achievements, completeness, and job-description keywords privately.",
     seoKeywords: [
       "ATS resume checker",
       "ATS CV checker",
@@ -433,13 +433,13 @@ export const contentPages = {
       "resume parser readability",
     ],
     analysisMode: "general",
-    eyebrow: "ATS readability education",
+    eyebrow: "Interactive ATS resume check",
     intro:
-      "Applicant tracking systems can parse resumes differently depending on file format, layout, and employer configuration. A checker score can be useful guidance, but it is not a promise that any specific system will approve your resume.",
+      "Paste your resume, add a job description when available, and get a practical ATS-style report in your browser. The tool checks common readability and relevance signals without claiming to predict an employer's decision.",
     summary: [
-      "ATS readability starts with clean structure and extractable text.",
-      "Keyword matching helps, but stuffing keywords can make a resume weaker for human readers.",
-      "ApplyReadyCV gives a practical score for common issues, not a guaranteed ATS outcome.",
+      "Run the check without creating an account or storing your resume.",
+      "Review readable structure, keyword alignment, achievements, and completeness in one report.",
+      "Use the score to prioritize edits, not as a guaranteed ATS outcome.",
     ],
     checklistTitle: "ATS readability basics",
     checklist: [
