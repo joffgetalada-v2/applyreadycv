@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Radar } from "lucide-react";
+import { TrackedCheckerLink } from "@/components/analytics/tracked-checker-link";
 import { CheckerWorkspace } from "@/components/checker/checker-workspace";
 import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -114,13 +115,17 @@ export default function Home() {
                 completeness, and job fit without storing your resume.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Link
+                <TrackedCheckerLink
                   href="#checker"
+                  sourceType="homepage"
+                  sourcePath="/"
+                  ctaLocation="hero"
+                  targetMode="general"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
                 >
                   Start the free check
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
+                </TrackedCheckerLink>
                 <Link
                   href="/guides"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"

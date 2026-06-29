@@ -7,6 +7,7 @@ import {
   HelpCircle,
   ShieldAlert,
 } from "lucide-react";
+import { TrackedCheckerLink } from "@/components/analytics/tracked-checker-link";
 import { checkerHrefForMode, contentPages } from "@/lib/site";
 import type { ContentPage } from "@/lib/site";
 
@@ -324,13 +325,17 @@ export function ContentPageLayout({ page }: { page: ContentPage }) {
                   </li>
                 ))}
               </ul>
-              <Link
+              <TrackedCheckerLink
                 href={checkerHref}
+                sourceType="landing_page"
+                sourcePath={page.path}
+                ctaLocation="sidebar"
+                targetMode={page.analysisMode ?? "general"}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
               >
                 {checkerCta.button}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              </TrackedCheckerLink>
             </div>
             <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
               <h2 className="text-lg font-semibold text-slate-950">

@@ -1,3 +1,4 @@
+import type { AnalysisMode } from "@/lib/analyzer/types";
 import type { FaqItem } from "@/lib/site";
 
 export type GuideLink = {
@@ -37,6 +38,7 @@ export type GuidePage = {
   cta: {
     label: string;
     href: string;
+    mode?: AnalysisMode;
   };
   relatedLinks: GuideLink[];
   faq: FaqItem[];
@@ -885,6 +887,7 @@ export const guidePages = [
     cta: {
       label: "Check remote CV readiness",
       href: "/remote-cv-checker",
+      mode: "remote",
     },
     relatedLinks: [
       {
@@ -1012,6 +1015,7 @@ export const guidePages = [
     cta: {
       label: "Check remote keyword fit",
       href: "/remote-cv-checker",
+      mode: "remote",
     },
     relatedLinks: [
       {
@@ -1238,6 +1242,7 @@ export const guidePages = [
     cta: {
       label: "Check freelance readiness",
       href: "/freelance-cv-checker",
+      mode: "freelance",
     },
     relatedLinks: [
       {
@@ -1370,6 +1375,7 @@ export const guidePages = [
     cta: {
       label: "Check freelance CV",
       href: "/freelance-cv-checker",
+      mode: "freelance",
     },
     relatedLinks: [
       {
@@ -1611,6 +1617,7 @@ export const guidePages = [
     cta: {
       label: "Check local job CV",
       href: "/?mode=local#checker",
+      mode: "local",
     },
     relatedLinks: [
       {

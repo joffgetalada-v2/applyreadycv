@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ListChecks } from "lucide-react";
+import { TrackedCheckerLink } from "@/components/analytics/tracked-checker-link";
 import type { GuidePage } from "@/lib/guides";
 
 function formatGuideDate(value?: string) {
@@ -144,13 +145,18 @@ export function GuideArticleLayout({ guide }: { guide: GuidePage }) {
               Paste your resume or CV, add a job description if you have one,
               and review private, browser-based feedback before applying.
             </p>
-            <Link
+            <TrackedCheckerLink
               href={guide.cta.href}
+              sourceType="guide"
+              sourcePath={guide.path}
+              ctaLocation="sidebar"
+              targetMode={guide.cta.mode ?? "general"}
+              guideSlug={guide.slug}
               className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
             >
               {guide.cta.label}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </TrackedCheckerLink>
           </div>
 
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">

@@ -9,6 +9,7 @@ Last updated: 2026-06-25
   - `checker_analyzed`
   - `report_copied`
   - `checker_started_over`
+  - `checker_cta_clicked`
 - No Google Search Console data is available in the repo.
 - No GA4, GTM, PostHog, Mixpanel, or CRM tracking was found.
 
@@ -19,7 +20,7 @@ Last updated: 2026-06-25
 | Checker analysis completed | `checker_analyzed` | Core product activation. |
 | Report copied | `report_copied` | Indicates the output was useful enough to save or reuse. |
 | Return to blank checker | `checker_started_over` | Can indicate repeat checks, iteration, or confusion. |
-| Guide to checker click | Future event | Measures whether content drives tool usage. |
+| Guide or landing page to checker click | `checker_cta_clicked` | Measures which pages and CTA placements drive tool usage. |
 | Directory/referral visit | Vercel referrers + UTM tags | Measures outreach and directory quality. |
 | Organic landing page visit | Search Console + Vercel | Measures SEO performance. |
 
@@ -30,6 +31,7 @@ Last updated: 2026-06-25
 | `checker_analyzed` | `mode`, `has_job_description`, `used_file_upload`, `score_band` | Does not send resume text, job text, filename, or exact score. |
 | `report_copied` | `mode`, `score_band` | Does not send copied report content. |
 | `checker_started_over` | `mode` | No resume content. |
+| `checker_cta_clicked` | `source_type`, `source_path`, `cta_location`, `target_mode`, optional `guide_slug` | Sends route context only. It never sends resume text, job text, filenames, or contact details. |
 
 ## Recommended Future Events
 
@@ -37,8 +39,6 @@ Only add these after confirming the Vercel Analytics dashboard is receiving curr
 
 | Event | Properties | Trigger |
 |---|---|---|
-| `guide_checker_cta_clicked` | `guide_slug`, `cta_location` | User clicks a guide sidebar CTA. |
-| `checker_page_cta_clicked` | `page_path`, `mode` | User clicks checker CTA from a mode page. |
 | `file_upload_attempted` | `extension_type` only | User chooses a file; never send filename. |
 | `analysis_error_shown` | `error_type` | File extraction or missing-text error appears. |
 
@@ -49,6 +49,7 @@ Review weekly:
 - Total pageviews by route.
 - Top organic landing pages.
 - Guide pageviews by guide slug.
+- `checker_cta_clicked` count by source path, source type, and CTA location.
 - `checker_analyzed` count and rate from homepage visits.
 - Mode mix: remote, freelance, local.
 - Percent of analyses with job description.
